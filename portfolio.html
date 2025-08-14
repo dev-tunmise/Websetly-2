@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Websetly's Best Web Design Work</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A192F',
+                        secondary: '#FF6B35',
+                        neutral: '#F5F5F5'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-primary bg-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md z-50 border-b border-neutral">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-primary">Websetly</div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-primary hover:text-secondary transition-colors font-medium">Home</a>
+                        <a href="about.html" class="text-primary hover:text-secondary transition-colors font-medium">About</a>
+                        <a href="services.html" class="text-primary hover:text-secondary transition-colors font-medium">Services</a>
+                        <a href="portfolio.html" class="text-secondary font-medium">Portfolio</a>
+                        <a href="contact.html" class="text-primary hover:text-secondary transition-colors font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <a href="contact.html" class="bg-secondary text-white px-6 py-3 rounded-lg font-medium hover:bg-secondary/90 transition-all transform hover:scale-105">
+                        Get Started
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-primary hover:text-secondary">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-neutral">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Home</a>
+                <a href="about.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">About</a>
+                <a href="services.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Services</a>
+                <a href="portfolio.html" class="block px-3 py-2 text-secondary font-medium">Portfolio</a>
+                <a href="contact.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-br from-primary via-primary to-blue-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                    Our <span class="text-secondary">Portfolio</span>
+                </h1>
+                <p class="text-xl text-blue-100 leading-relaxed max-w-3xl mx-auto">
+                    Explore our recent projects and see how we've helped businesses transform their online presence with stunning, high-converting websites.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Featured Project -->
+            <div class="mb-20">
+                <div class="bg-neutral rounded-2xl p-8 lg:p-12">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <div class="inline-flex items-center px-4 py-2 bg-secondary/10 rounded-full text-secondary font-medium mb-6">
+                                <span class="w-2 h-2 bg-secondary rounded-full mr-2"></span>
+                                Featured Project
+                            </div>
+                            <h2 class="text-4xl font-bold text-primary mb-6">TechFlow SaaS Platform</h2>
+                            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                                A comprehensive B2B SaaS platform redesign that increased user engagement by 150% and reduced bounce rate by 40%. Features modern dashboard design, intuitive user flows, and seamless integration capabilities.
+                            </p>
+                            <div class="grid md:grid-cols-3 gap-4 mb-8">
+                                <div class="text-center p-4 bg-white rounded-lg">
+                                    <div class="text-3xl font-bold text-secondary mb-2">150%</div>
+                                    <div class="text-sm text-gray-600">Engagement Increase</div>
+                                </div>
+                                <div class="text-center p-4 bg-white rounded-lg">
+                                    <div class="text-3xl font-bold text-secondary mb-2">40%</div>
+                                    <div class="text-sm text-gray-600">Bounce Rate Drop</div>
+                                </div>
+                                <div class="text-center p-4 bg-white rounded-lg">
+                                    <div class="text-3xl font-bold text-secondary mb-2">12</div>
+                                    <div class="text-sm text-gray-600">Days to Launch</div>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">SaaS</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">Dashboard Design</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">React</span>
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">UI/UX</span>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <div class="bg-gradient-to-br from-primary to-blue-800 rounded-xl p-8 h-96 flex items-center justify-center transform hover:scale-105 transition-transform">
+                                <div class="text-white text-center">
+                                    <div class="text-6xl font-bold mb-4">TechFlow</div>
+                                    <div class="text-blue-200 text-xl">SaaS Platform Dashboard</div>
+                                    <div class="mt-6 grid grid-cols-3 gap-3">
+                                        <div class="h-3 bg-secondary rounded"></div>
+                                        <div class="h-3 bg-white/30 rounded"></div>
+                                        <div class="h-3 bg-white/30 rounded"></div>
+                                        <div class="h-3 bg-white/30 rounded"></div>
+                                        <div class="h-3 bg-secondary/60 rounded"></div>
+                                        <div class="h-3 bg-white/30 rounded"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="group cursor-pointer">
+                    <div class="bg-gradient-to-br from-secondary to-red-500 rounded-xl p-8 mb-6 h-64 flex items-center justify-center transform group-hover:scale-105 transition-transform">
+                        <div class="text-white text-center">
+                            <div class="text-4xl font-bold mb-2">Bloom</div>
+                            <div class="text-orange-100 text-lg">Fashion E-commerce</div>
+                            <div class="mt-4 flex justify-center space-x-2">
+                                <div class="w-8 h-8 bg-white/30 rounded"></div>
+                                <div class="w-8 h-8 bg-white/30 rounded"></div>
+                                <div class="w-8 h-8 bg-white rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-2">
+                        <h3 class="text-2xl font-bold text-primary mb-3">Bloom Boutique</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Elegant e-commerce platform for a luxury fashion brand. Features custom shopping cart, wishlist functionality, and seamless checkout experience.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm font-medium">E-commerce</span>
+                            <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm font-medium">Fashion</span>
+                            <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm font-medium">Shopify</span>
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            <strong>Results:</strong> 200% increase in online sales, 85% mobile conversion rate
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="group cursor-pointer">
+                    <div class="bg-gradient-to-br from-green-500 to-teal-600 rounded-xl p-8 mb-6 h-64 flex items-center justify-center transform group-hover:scale-105 transition-transform">
+                        <div class="text-white text-center">
+                            <div class="text-4xl font-bold mb-2">GreenTech</div>
+                            <div class="text-green-100 text-lg">Clean Energy Startup</div>
+                            <div class="mt-4">
+                                <svg class="w-12 h-12 mx-auto text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-2">
+                        <h3 class="text-2xl font-bold text-primary mb-3">GreenTech Solutions</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Modern website for a clean energy startup focused on sustainability messaging and lead generation for B2B solar installations.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Startup</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Clean Energy</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">B2B</span>
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            <strong>Results:</strong> 300% lead increase, secured $2M funding round
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="group cursor-pointer">
+                    <div class="bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl p-8 mb-6 h-64 flex items-center justify-center transform group-hover:scale-105 transition-transform">
+                        <div class="text-white text-center">
+                            <div class="text-4xl font-bold mb-2">Mindful</div>
+                            <div class="text-purple-100 text-lg">Wellness App</div>
+                            <div class="mt-4 flex justify-center">
+                                <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                                    <div class="w-8 h-8 bg-white rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-2">
+                        <h3 class="text-2xl font-bold text-primary mb-3">Mindful Wellness</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Calming, user-friendly website for a meditation and wellness app. Features subscription management and community features.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">Wellness</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">App Landing</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">Subscription</span>
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            <strong>Results:</strong> 10K+ app downloads in first month
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="group cursor-pointer">
+                    <div class="bg-gradient-to-br from-indigo-500 to-blue-600 rounded-xl p-8 mb-6 h-64 flex items-center justify-center transform group-hover:scale-105 transition-transform">
+                        <div class="text-white text-center">
+                            <div class="text-4xl font-bold mb-2">Foodie</div>
+                            <div class="text-indigo-100 text-lg">Restaurant Chain</div>
+                            <div class="mt-4 grid grid-cols-2 gap-2">
+                                <div class="w-8 h-8 bg-white/30 rounded"></div>
+                                <div class="w-8 h-8 bg-white/30 rounded"></div>
+                                <div class="w-8 h-8 bg-white/50 rounded"></div>
+                                <div class="w-8 h-8 bg-white rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-2">
+                        <h3 class="text-2xl font-bold text-primary mb-3">Foodie Express</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Multi-location restaurant website with online ordering, reservation system, and location-based menu customization.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">Restaurant</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">Online Ordering</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">Multi-Location</span>
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            <strong>Results:</strong> 180% online order increase, 25% customer retention boost
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="group cursor-pointer">
+                    <div class="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl p-8 mb-6 h-64 flex items-center justify-center transform group-hover:scale-105 transition-transform">
+                        <div class="text-white text-center">
+                            <div class="text-4xl font-bold mb-2">Apex</div>
+                            <div class="text-yellow-100 text-lg">Consulting Firm</div>
+                            <div class="mt-4">
+                                <div class="grid grid-cols-3 gap-1">
+                                    <div class="h-6 bg-white/60 rounded"></div>
+                                    <div class="h-6 bg-white/40 rounded"></div>
+                                    <div class="h-6 bg-white/20 rounded"></div>
+                                    <div class="h-4 bg-white/40 rounded"></div>
+                                    <div class="h-4 bg-white/60 rounded"></div>
+                                    <div class="h-4 bg-white/20 rounded"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-2">
+                        <h3 class="text-2xl font-bold text-primary mb-3">Apex Consulting</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Professional corporate website for a management consulting firm. Features case studies, team profiles, and client testimonials.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-medium">Consulting</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-medium">Corporate</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-medium">B2B</span>
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            <strong>Results:</strong> 250% qualified lead increase, 40% longer session duration
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="group cursor-pointer">
+                    <div class="bg-gradient-to-br from-red-500 to-pink-500 rounded-xl p-8 mb-6 h-64 flex items-center justify-center transform group-hover:scale-105 transition-transform">
+                        <div class="text-white text-center">
+                            <div class="text-4xl font-bold mb-2">FitLife</div>
+                            <div class="text-red-100 text-lg">Fitness Studio</div>
+                            <div class="mt-4 flex justify-center space-x-1">
+                                <div class="w-2 h-8 bg-white/60 rounded"></div>
+                                <div class="w-2 h-12 bg-white/80 rounded"></div>
+                                <div class="w-2 h-6 bg-white/40 rounded"></div>
+                                <div class="w-2 h-10 bg-white/70 rounded"></div>
+                                <div class="w-2 h-4 bg-white/30 rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-2">
+                        <h3 class="text-2xl font-bold text-primary mb-3">FitLife Studios</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Energetic fitness studio website with class scheduling, trainer profiles, membership management, and virtual class streaming.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-medium">Fitness</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-medium">Booking System</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-medium">Membership</span>
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            <strong>Results:</strong> 300% membership growth, 90% online booking adoption
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonials -->
+    <section class="py-20 bg-neutral">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">What Our Clients Say</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Don't just take our word for it. Here's what business owners have to say about working with Websetly.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-secondary">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        "Working with Websetly was a game-changer for our business. They delivered exactly what we needed in just 10 days, and our sales have doubled since launch."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            J
+                        </div>
+                        <div>
+                            <div class="font-semibold text-primary">Jessica Chen</div>
+                            <div class="text-sm text-gray-500">Founder, TechFlow</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-secondary">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        "The team at Websetly understood our vision perfectly. Our new website helped us secure a $2M funding round within 3 months of launch."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            M
+                        </div>
+                        <div>
+                            <div class="font-semibold text-primary">Michael Torres</div>
+                            <div class="text-sm text-gray-500">CEO, GreenTech Solutions</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-secondary">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        "Professional, fast, and incredibly talented. Our online sales increased by 200% within the first month. Highly recommend Websetly!"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            A
+                        </div>
+                        <div>
+                            <div class="font-semibold text-primary">Alexandra Smith</div>
+                            <div class="text-sm text-gray-500">Owner, Bloom Boutique</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-6">Ready to Join Our Success Stories?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Let's create a website that not only looks amazing but drives real business results. Your success story could be next.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="bg-secondary text-white px-8 py-4 rounded-lg font-semibold hover:bg-secondary/90 transition-all transform hover:scale-105">
+                    Start Your Project
+                </a>
+                <a href="services.html" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary transition-all">
+                    Explore Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <div class="text-2xl font-bold mb-4">Websetly</div>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        Premium web design for growing businesses. We create stunning, high-converting websites that help you stand out online.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-secondary transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-secondary transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-secondary transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="services.html" class="hover:text-secondary transition-colors">Web Design</a></li>
+                        <li><a href="services.html" class="hover:text-secondary transition-colors">Development</a></li>
+                        <li><a href="services.html" class="hover:text-secondary transition-colors">UI/UX Design</a></li>
+                        <li><a href="services.html" class="hover:text-secondary transition-colors">Branding</a></li>
+                        <li><a href="services.html" class="hover:text-secondary transition-colors">SEO Setup</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="about.html" class="hover:text-secondary transition-colors">About</a></li>
+                        <li><a href="portfolio.html" class="hover:text-secondary transition-colors">Portfolio</a></li>
+                        <li><a href="contact.html" class="hover:text-secondary transition-colors">Contact</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Websetly. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

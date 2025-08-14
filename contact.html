@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Websetly - Start Your Web Design Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A192F',
+                        secondary: '#FF6B35',
+                        neutral: '#F5F5F5'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-primary bg-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md z-50 border-b border-neutral">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-primary">Websetly</div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-primary hover:text-secondary transition-colors font-medium">Home</a>
+                        <a href="about.html" class="text-primary hover:text-secondary transition-colors font-medium">About</a>
+                        <a href="services.html" class="text-primary hover:text-secondary transition-colors font-medium">Services</a>
+                        <a href="portfolio.html" class="text-primary hover:text-secondary transition-colors font-medium">Portfolio</a>
+                        <a href="contact.html" class="text-secondary font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <a href="contact.html" class="bg-secondary text-white px-6 py-3 rounded-lg font-medium hover:bg-secondary/90 transition-all transform hover:scale-105">
+                        Get Started
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-primary hover:text-secondary">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-neutral">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Home</a>
+                <a href="about.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">About</a>
+                <a href="services.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Services</a>
+                <a href="portfolio.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Portfolio</a>
+                <a href="contact.html" class="block px-3 py-2 text-secondary font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-br from-primary via-primary to-blue-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                    Let's Build Something <span class="text-secondary">Amazing</span> Together
+                </h1>
+                <p class="text-xl text-blue-100 leading-relaxed max-w-3xl mx-auto">
+                    Ready to transform your business with a stunning website? We're here to help. Get in touch and let's discuss how we can bring your vision to life.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Contact Form -->
+                <div>
+                    <h2 class="text-3xl font-bold text-primary mb-8">Start Your Project</h2>
+                    <form class="space-y-6" id="contact-form">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="firstName" class="block text-sm font-semibold text-primary mb-2">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-sm font-semibold text-primary mb-2">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-semibold text-primary mb-2">Email Address *</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="company" class="block text-sm font-semibold text-primary mb-2">Company Name</label>
+                            <input type="text" id="company" name="company" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="website" class="block text-sm font-semibold text-primary mb-2">Current Website (if any)</label>
+                            <input type="url" id="website" name="website" placeholder="https://" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="projectType" class="block text-sm font-semibold text-primary mb-2">Project Type *</label>
+                            <select id="projectType" name="projectType" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent bg-white">
+                                <option value="">Select a project type</option>
+                                <option value="new-website">New Website</option>
+                                <option value="website-redesign">Website Redesign</option>
+                                <option value="e-commerce">E-commerce Store</option>
+                                <option value="landing-page">Landing Page</option>
+                                <option value="branding">Branding Package</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="budget" class="block text-sm font-semibold text-primary mb-2">Budget Range</label>
+                            <select id="budget" name="budget" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent bg-white">
+                                <option value="">Select budget range</option>
+                                <option value="under-2500">Under $2,500</option>
+                                <option value="2500-5000">$2,500 - $5,000</option>
+                                <option value="5000-10000">$5,000 - $10,000</option>
+                                <option value="10000-plus">$10,000+</option>
+                                <option value="not-sure">Not sure yet</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="timeline" class="block text-sm font-semibold text-primary mb-2">Project Timeline</label>
+                            <select id="timeline" name="timeline" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent bg-white">
+                                <option value="">Select timeline</option>
+                                <option value="asap">ASAP (Rush project)</option>
+                                <option value="1-2-weeks">1-2 weeks</option>
+                                <option value="3-4-weeks">3-4 weeks</option>
+                                <option value="1-2-months">1-2 months</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-semibold text-primary mb-2">Tell us about your project *</label>
+                            <textarea id="message" name="message" required rows="6" placeholder="Describe your business, goals, target audience, and what you'd like to achieve with your new website..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent resize-none"></textarea>
+                        </div>
+                        <div class="flex items-start">
+                            <input type="checkbox" id="newsletter" name="newsletter" class="mt-1 h-4 w-4 text-secondary focus:ring-secondary border-gray-300 rounded">
+                            <label for="newsletter" class="ml-3 text-sm text-gray-600">
+                                I'd like to receive occasional tips and updates about web design trends and best practices.
+                            </label>
+                        </div>
+                        <button type="submit" class="w-full bg-secondary text-white px-8 py-4 rounded-lg font-semibold hover:bg-secondary/90 transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2">
+                            Send My Project Details
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div>
+                    <div class="bg-neutral rounded-2xl p-8 mb-8">
+                        <h3 class="text-2xl font-bold text-primary mb-6">Get in Touch</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-primary mb-2">Email</h4>
+                                    <p class="text-gray-600">hello@websetly.com</p>
+                                    <p class="text-sm text-gray-500">We typically respond within 2 hours</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-primary mb-2">Phone</h4>
+                                    <p class="text-gray-600">(555) 123-4567</p>
+                                    <p class="text-sm text-gray-500">Mon-Fri 9AM-6PM EST</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-primary mb-2">Location</h4>
+                                    <p class="text-gray-600">San Francisco, CA</p>
+                                    <p class="text-sm text-gray-500">Serving clients worldwide</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Process Timeline -->
+                    <div class="bg-white border border-gray-200 rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold text-primary mb-6">What Happens Next?</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white text-sm font-bold mr-4 mt-1">
+                                    1
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-primary mb-2">Initial Response</h4>
+                                    <p class="text-gray-600 text-sm">We'll review your project details and get back to you within 2 hours with initial thoughts and next steps.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white text-sm font-bold mr-4 mt-1">
+                                    2
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-primary mb-2">Strategy Call</h4>
+                                    <p class="text-gray-600 text-sm">We'll schedule a 30-minute call to dive deeper into your goals, discuss options, and answer your questions.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white text-sm font-bold mr-4 mt-1">
+                                    3
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-primary mb-2">Custom Proposal</h4>
+                                    <p class="text-gray-600 text-sm">You'll receive a detailed proposal with project scope, timeline, pricing, and examples relevant to your industry.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white text-sm font-bold mr-4 mt-1">
+                                    4
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-primary mb-2">Project Kickoff</h4>
+                                    <p class="text-gray-600 text-sm">Once approved, we'll begin work immediately with a clear timeline and regular updates throughout the process.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-neutral">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Frequently Asked Questions</h2>
+                <p class="text-lg text-gray-600">
+                    Get answers to the most common questions about working with Websetly.
+                </p>
+            </div>
+            <div class="space-y-6">
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <button class="flex justify-between items-center w-full text-left" onclick="toggleFaq(1)">
+                        <h3 class="text-lg font-semibold text-primary">How long does a typical project take?</h3>
+                        <svg class="w-5 h-5 text-secondary transform transition-transform" id="icon-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="mt-4 text-gray-600 hidden" id="answer-1">
+                        <p>Most of our projects are completed within 7-14 days. This includes design, development, testing, and launch. Rush projects can be completed faster, while more complex enterprise projects may take 3-4 weeks. We'll give you an exact timeline in your custom proposal.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <button class="flex justify-between items-center w-full text-left" onclick="toggleFaq(2)">
+                        <h3 class="text-lg font-semibold text-primary">What's included in your web design service?</h3>
+                        <svg class="w-5 h-5 text-secondary transform transition-transform" id="icon-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="mt-4 text-gray-600 hidden" id="answer-2">
+                        <p>Every project includes custom design, responsive development, SEO optimization, mobile-first approach, cross-browser testing, and launch support. Depending on your package, you may also get branding, content strategy, and ongoing maintenance. View our Services page for detailed package comparisons.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <button class="flex justify-between items-center w-full text-left" onclick="toggleFaq(3)">
+                        <h3 class="text-lg font-semibold text-primary">Do you work with businesses outside the US?</h3>
+                        <svg class="w-5 h-5 text-secondary transform transition-transform" id="icon-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="mt-4 text-gray-600 hidden" id="answer-3">
+                        <p>Absolutely! We work with clients worldwide. Our team is experienced in different markets, time zones, and business cultures. We use collaborative tools that make international projects seamless, and we're always available for calls at convenient times.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <button class="flex justify-between items-center w-full text-left" onclick="toggleFaq(4)">
+                        <h3 class="text-lg font-semibold text-primary">What if I need changes after the website is live?</h3>
+                        <svg class="w-5 h-5 text-secondary transform transition-transform" id="icon-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="mt-4 text-gray-600 hidden" id="answer-4">
+                        <p>We include 30 days of free minor updates after launch. For ongoing changes, we offer flexible maintenance packages or can handle updates on an hourly basis. We also provide training so you can make simple content updates yourself.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <button class="flex justify-between items-center w-full text-left" onclick="toggleFaq(5)">
+                        <h3 class="text-lg font-semibold text-primary">Can you help with hosting and domain setup?</h3>
+                        <svg class="w-5 h-5 text-secondary transform transition-transform" id="icon-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="mt-4 text-gray-600 hidden" id="answer-5">
+                        <p>Yes! We can handle all technical setup including domain registration, hosting configuration, SSL certificates, and email setup. We work with reliable hosting providers and can recommend the best option for your needs and budget.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-6">Ready to Get Started?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Your new website is just a conversation away. Let's discuss your project and create something amazing together.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact-form" class="bg-secondary text-white px-8 py-4 rounded-lg font-semibold hover:bg-secondary/90 transition-all transform hover:scale-105">
+                    Send Project Details
+                </a>
+                <a href="mailto:hello@websetly.com" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary transition-all">
+                    Email Us Directly
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <div class="text-2xl font-bold mb-4">Websetly</div>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        Premium web design for growing businesses. We create stunning, high-converting websites that help you stand out online.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-secondary transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-secondary transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-secondary transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="services.html" class="hover:text-secondary transition-colors">Web Design</a></li>
+                        <li><a href="services.html" class="hover:text-secondary transition-colors">Development</a></li>
+                        <li><a href="services.html" class="hover:text-secondary transition-colors">UI/UX Design</a></li>
+                        <li><a href="services.html" class="hover:text-secondary transition-colors">Branding</a></li>
+                        <li><a href="services.html" class="hover:text-secondary transition-colors">SEO Setup</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="about.html" class="hover:text-secondary transition-colors">About</a></li>
+                        <li><a href="portfolio.html" class="hover:text-secondary transition-colors">Portfolio</a></li>
+                        <li><a href="contact.html" class="hover:text-secondary transition-colors">Contact</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Websetly. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // FAQ toggle
+        function toggleFaq(num) {
+            const answer = document.getElementById(`answer-${num}`);
+            const icon = document.getElementById(`icon-${num}`);
+            
+            answer.classList.toggle('hidden');
+            icon.style.transform = answer.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
+
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would normally send the form data to your server
+            // For demo purposes, we'll just show an alert
+            alert('Thank you for your message! We\'ll get back to you within 2 hours.');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
