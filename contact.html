@@ -8,6 +8,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics (Replace YOUR_GA_TRACKING_ID with your actual ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_TRACKING_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'YOUR_GA_TRACKING_ID');
+    </script>
+    
     <script>
         tailwind.config = {
             theme: {
@@ -413,9 +423,42 @@
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Here you would normally send the form data to your server
-            // For demo purposes, we'll just show an alert
-            alert('Thank you for your message! We\'ll get back to you within 2 hours.');
+            // Get form data
+            const formData = new FormData(this);
+            const data = {
+                firstName: formData.get('firstName'),
+                lastName: formData.get('lastName'),
+                email: formData.get('email'),
+                company: formData.get('company'),
+                website: formData.get('website'),
+                projectType: formData.get('projectType'),
+                budget: formData.get('budget'),
+                timeline: formData.get('timeline'),
+                message: formData.get('message')
+            };
+            
+            // Create email body
+            const emailBody = `New Contact Form Submission:
+            
+Name: ${data.firstName} ${data.lastName}
+Email: ${data.email}
+Company: ${data.company || 'Not provided'}
+Website: ${data.website || 'Not provided'}
+Project Type: ${data.projectType}
+Budget: ${data.budget || 'Not specified'}
+Timeline: ${data.timeline || 'Not specified'}
+
+Message:
+${data.message}`;
+            
+            // Create mailto link
+            const mailtoLink = `mailto:awomoyitunmise@gmail.com?subject=New Project Inquiry from ${data.firstName} ${data.lastName}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            alert('Thank you for your message! Your email client should open with the message ready to send. We\'ll get back to you within 2 hours.');
             
             // Reset form
             this.reset();
