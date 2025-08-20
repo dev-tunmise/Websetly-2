@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom components and utilities */
+.btn-primary {
+  @apply bg-secondary text-white px-6 py-3 rounded-lg font-medium hover:bg-secondary/90 transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2;
+}
+
+.btn-secondary {
+  @apply bg-white text-secondary px-6 py-3 rounded-lg font-medium border-2 border-secondary hover:bg-secondary hover:text-white transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2;
+}
+
+.card {
+  @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300;
+}
+
+.section-heading {
+  @apply text-3xl lg:text-4xl font-bold text-primary mb-4;
+}
+
+.section-subheading {
+  @apply text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mb-16;
+}
+
+/* Animation classes */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive utilities */
+@responsive {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

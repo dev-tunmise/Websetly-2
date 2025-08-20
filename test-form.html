@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formspree Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 500px; margin: 50px auto; padding: 20px; }
+        input, textarea, button { width: 100%; margin: 10px 0; padding: 10px; }
+        button { background: #007bff; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Simple Formspree Test</h2>
+    <form action="https://formspree.io/f/meozbnag" method="POST">
+        <label>Your email:</label>
+        <input type="email" name="email" required>
+        
+        <label>Your message:</label>
+        <textarea name="message" required></textarea>
+        
+        <button type="submit">Send Test</button>
+    </form>
+</body>
+</html>

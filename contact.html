@@ -3,8 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Websetly - Start Your Web Design Project</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="Get in touch with Websetly for your web design project. Contact us today for a free consultation and quote on your business website needs.">
+    <meta name="keywords" content="contact websetly, web design quote, free consultation, business website contact, professional web designers contact">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://websetly.com/contact.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Contact Websetly - Get Your Web Design Project Started">
+    <meta property="og:description" content="Get in touch with Websetly for your web design project. Contact us today for a free consultation and quote on your business website needs.">
+    <meta property="og:image" content="https://websetly.com/images/og-image.jpg">
+    <meta property="og:url" content="https://websetly.com/contact.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact Websetly - Get Your Web Design Project Started">
+    <meta name="twitter:description" content="Get in touch with Websetly for your web design project. Contact us today for a free consultation and quote on your business website needs.">
+    <meta name="twitter:image" content="https://websetly.com/images/og-image.jpg">
+    
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <title>Contact Us - Start Your Web Design Project Today | Websetly</title>
+    <link rel="stylesheet" href="css/output.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -100,7 +119,7 @@
                 <!-- Contact Form -->
                 <div>
                     <h2 class="text-3xl font-bold text-primary mb-8">Start Your Project</h2>
-                    <form class="space-y-6" id="contact-form">
+                    <form action="https://formspree.io/f/meozbnag" method="POST" class="space-y-6" id="contact-form">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
                                 <label for="firstName" class="block text-sm font-semibold text-primary mb-2">First Name *</label>
@@ -162,7 +181,7 @@
                             <textarea id="message" name="message" required rows="6" placeholder="Describe your business, goals, target audience, and what you'd like to achieve with your new website..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent resize-none"></textarea>
                         </div>
                         <div class="flex items-start">
-                            <input type="checkbox" id="newsletter" name="newsletter" class="mt-1 h-4 w-4 text-secondary focus:ring-secondary border-gray-300 rounded">
+                            <input type="checkbox" id="newsletter" name="newsletter" value="yes" class="mt-1 h-4 w-4 text-secondary focus:ring-secondary border-gray-300 rounded">
                             <label for="newsletter" class="ml-3 text-sm text-gray-600">
                                 I'd like to receive occasional tips and updates about web design trends and best practices.
                             </label>
@@ -410,58 +429,38 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // FAQ toggle
-        function toggleFaq(num) {
-            const answer = document.getElementById(`answer-${num}`);
-            const icon = document.getElementById(`icon-${num}`);
-            
-            answer.classList.toggle('hidden');
-            icon.style.transform = answer.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
-        }
-
-        // Form submission
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
+        // Form submission with AJAX (no redirect)
+        document.getElementById('contact-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Get form data
             const formData = new FormData(this);
-            const data = {
-                firstName: formData.get('firstName'),
-                lastName: formData.get('lastName'),
-                email: formData.get('email'),
-                company: formData.get('company'),
-                website: formData.get('website'),
-                projectType: formData.get('projectType'),
-                budget: formData.get('budget'),
-                timeline: formData.get('timeline'),
-                message: formData.get('message')
-            };
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
             
-            // Create email body
-            const emailBody = `New Contact Form Submission:
+            // Show loading state
+            button.textContent = 'Sending...';
+            button.disabled = true;
             
-Name: ${data.firstName} ${data.lastName}
-Email: ${data.email}
-Company: ${data.company || 'Not provided'}
-Website: ${data.website || 'Not provided'}
-Project Type: ${data.projectType}
-Budget: ${data.budget || 'Not specified'}
-Timeline: ${data.timeline || 'Not specified'}
-
-Message:
-${data.message}`;
-            
-            // Create mailto link
-            const mailtoLink = `mailto:awomoyitunmise@gmail.com?subject=New Project Inquiry from ${data.firstName} ${data.lastName}&body=${encodeURIComponent(emailBody)}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Show success message
-            alert('Thank you for your message! Your email client should open with the message ready to send. We\'ll get back to you within 2 hours.');
-            
-            // Reset form
-            this.reset();
+            try {
+                const response = await fetch('https://formspree.io/f/meozbnag', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Success - redirect to our thank you page
+                    window.location.href = 'thank-you.html';
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                alert('Sorry, there was an error sending your message. Please try again or email us directly.');
+                button.textContent = originalText;
+                button.disabled = false;
+            }
         });
 
         // Smooth scrolling for anchor links

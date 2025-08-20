@@ -3,8 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Websetly's Best Web Design Work</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="View our portfolio of successful web design projects. See real websites we've created for schools, real estate, restaurants, and SaaS companies.">
+    <meta name="keywords" content="web design portfolio, website examples, professional websites, business web design, websetly projects, web development showcase">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://websetly.com/portfolio.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Portfolio - Websetly Web Design Projects">
+    <meta property="og:description" content="View our portfolio of successful web design projects. See real websites we've created for schools, real estate, restaurants, and SaaS companies.">
+    <meta property="og:image" content="https://websetly.com/images/og-image.jpg">
+    <meta property="og:url" content="https://websetly.com/portfolio.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Portfolio - Websetly Web Design Projects">
+    <meta name="twitter:description" content="View our portfolio of successful web design projects. See real websites we've created for schools, real estate, restaurants, and SaaS companies.">
+    <meta name="twitter:image" content="https://websetly.com/images/og-image.jpg">
+    
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <title>Portfolio - Our Web Design Projects & Client Success Stories | Websetly</title>
+    <link rel="stylesheet" href="css/output.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -131,20 +150,9 @@
                             </div>
                         </div>
                         <div class="relative">
-                            <div class="bg-gradient-to-br from-primary to-blue-800 rounded-xl p-8 h-96 flex items-center justify-center transform hover:scale-105 transition-transform">
-                                <div class="text-white text-center">
-                                    <div class="text-6xl font-bold mb-4">TechFlow</div>
-                                    <div class="text-blue-200 text-xl">SaaS Platform Dashboard</div>
-                                    <div class="mt-6 grid grid-cols-3 gap-3">
-                                        <div class="h-3 bg-secondary rounded"></div>
-                                        <div class="h-3 bg-white/30 rounded"></div>
-                                        <div class="h-3 bg-white/30 rounded"></div>
-                                        <div class="h-3 bg-white/30 rounded"></div>
-                                        <div class="h-3 bg-secondary/60 rounded"></div>
-                                        <div class="h-3 bg-white/30 rounded"></div>
-                                    </div>
-                                </div>
-                            </div>
+                            <img src="images/techflow-saas.jpg" 
+                                 alt="TechFlow SaaS Platform Dashboard Interface" 
+                                 class="w-full h-96 object-contain rounded-xl shadow-2xl transform hover:scale-105 transition-transform bg-gray-50">
                         </div>
                     </div>
                 </div>
@@ -154,182 +162,69 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1 -->
                 <div class="group cursor-pointer">
-                    <div class="bg-gradient-to-br from-secondary to-red-500 rounded-xl p-8 mb-6 h-64 flex items-center justify-center transform group-hover:scale-105 transition-transform">
-                        <div class="text-white text-center">
-                            <div class="text-4xl font-bold mb-2">Bloom</div>
-                            <div class="text-orange-100 text-lg">Fashion E-commerce</div>
-                            <div class="mt-4 flex justify-center space-x-2">
-                                <div class="w-8 h-8 bg-white/30 rounded"></div>
-                                <div class="w-8 h-8 bg-white/30 rounded"></div>
-                                <div class="w-8 h-8 bg-white rounded"></div>
-                            </div>
-                        </div>
+                    <div class="relative overflow-hidden rounded-xl mb-6 h-64 transform group-hover:scale-105 transition-transform">
+                        <img src="images/excellence-academy.jpg" 
+                             alt="Excellence Academy School Website Interface" 
+                             class="w-full h-full object-cover">
                     </div>
                     <div class="px-2">
-                        <h3 class="text-2xl font-bold text-primary mb-3">Bloom Boutique</h3>
+                        <h3 class="text-2xl font-bold text-primary mb-3">Excellence Academy</h3>
                         <p class="text-gray-600 mb-4 leading-relaxed">
-                            Elegant e-commerce platform for a luxury fashion brand. Features custom shopping cart, wishlist functionality, and seamless checkout experience.
+                            Modern school website featuring student portal, online admissions, course catalog, event calendar, and parent-teacher communication platform.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm font-medium">E-commerce</span>
-                            <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm font-medium">Fashion</span>
-                            <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm font-medium">Shopify</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Education</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Student Portal</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Online Admissions</span>
                         </div>
                         <div class="text-sm text-gray-500">
-                            <strong>Results:</strong> 200% increase in online sales, 85% mobile conversion rate
+                            <strong>Results:</strong> 300% increase in online applications, 90% paperless enrollment
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
                 <div class="group cursor-pointer">
-                    <div class="bg-gradient-to-br from-green-500 to-teal-600 rounded-xl p-8 mb-6 h-64 flex items-center justify-center transform group-hover:scale-105 transition-transform">
-                        <div class="text-white text-center">
-                            <div class="text-4xl font-bold mb-2">GreenTech</div>
-                            <div class="text-green-100 text-lg">Clean Energy Startup</div>
-                            <div class="mt-4">
-                                <svg class="w-12 h-12 mx-auto text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                </svg>
-                            </div>
-                        </div>
+                    <div class="relative overflow-hidden rounded-xl mb-6 h-64 transform group-hover:scale-105 transition-transform">
+                        <img src="images/mashinc-realestate.jpg" 
+                             alt="MashInc Real Estate Website Interface" 
+                             class="w-full h-full object-cover">
                     </div>
                     <div class="px-2">
-                        <h3 class="text-2xl font-bold text-primary mb-3">GreenTech Solutions</h3>
+                        <h3 class="text-2xl font-bold text-primary mb-3">MashInc Realty</h3>
                         <p class="text-gray-600 mb-4 leading-relaxed">
-                            Modern website for a clean energy startup focused on sustainability messaging and lead generation for B2B solar installations.
+                            Comprehensive real estate platform featuring advanced property search, virtual tours, mortgage calculator, and agent profiles for seamless property buying experience.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Startup</span>
-                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Clean Energy</span>
-                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">B2B</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Real Estate</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Property Search</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Virtual Tours</span>
                         </div>
                         <div class="text-sm text-gray-500">
-                            <strong>Results:</strong> 300% lead increase, secured $2M funding round
+                            <strong>Results:</strong> 400% increase in property inquiries, 60% faster deal closures
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 3 -->
                 <div class="group cursor-pointer">
-                    <div class="bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl p-8 mb-6 h-64 flex items-center justify-center transform group-hover:scale-105 transition-transform">
-                        <div class="text-white text-center">
-                            <div class="text-4xl font-bold mb-2">Mindful</div>
-                            <div class="text-purple-100 text-lg">Wellness App</div>
-                            <div class="mt-4 flex justify-center">
-                                <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                                    <div class="w-8 h-8 bg-white rounded-full"></div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="relative overflow-hidden rounded-xl mb-6 h-64 transform group-hover:scale-105 transition-transform">
+                        <img src="images/lumiere-resturant.jpg" 
+                             alt="Lumiere Restaurant Website Interface" 
+                             class="w-full h-full object-cover">
                     </div>
                     <div class="px-2">
-                        <h3 class="text-2xl font-bold text-primary mb-3">Mindful Wellness</h3>
+                        <h3 class="text-2xl font-bold text-primary mb-3">Lumiere Restaurant</h3>
                         <p class="text-gray-600 mb-4 leading-relaxed">
-                            Calming, user-friendly website for a meditation and wellness app. Features subscription management and community features.
+                            Elegant fine dining restaurant website featuring online reservations, interactive menu showcase, chef profiles, and event booking system.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">Wellness</span>
-                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">App Landing</span>
-                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">Subscription</span>
+                            <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">Restaurant</span>
+                            <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">Online Reservations</span>
+                            <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">Menu Showcase</span>
                         </div>
                         <div class="text-sm text-gray-500">
-                            <strong>Results:</strong> 10K+ app downloads in first month
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="group cursor-pointer">
-                    <div class="bg-gradient-to-br from-indigo-500 to-blue-600 rounded-xl p-8 mb-6 h-64 flex items-center justify-center transform group-hover:scale-105 transition-transform">
-                        <div class="text-white text-center">
-                            <div class="text-4xl font-bold mb-2">Foodie</div>
-                            <div class="text-indigo-100 text-lg">Restaurant Chain</div>
-                            <div class="mt-4 grid grid-cols-2 gap-2">
-                                <div class="w-8 h-8 bg-white/30 rounded"></div>
-                                <div class="w-8 h-8 bg-white/30 rounded"></div>
-                                <div class="w-8 h-8 bg-white/50 rounded"></div>
-                                <div class="w-8 h-8 bg-white rounded"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="px-2">
-                        <h3 class="text-2xl font-bold text-primary mb-3">Foodie Express</h3>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
-                            Multi-location restaurant website with online ordering, reservation system, and location-based menu customization.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">Restaurant</span>
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">Online Ordering</span>
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">Multi-Location</span>
-                        </div>
-                        <div class="text-sm text-gray-500">
-                            <strong>Results:</strong> 180% online order increase, 25% customer retention boost
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5 -->
-                <div class="group cursor-pointer">
-                    <div class="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl p-8 mb-6 h-64 flex items-center justify-center transform group-hover:scale-105 transition-transform">
-                        <div class="text-white text-center">
-                            <div class="text-4xl font-bold mb-2">Apex</div>
-                            <div class="text-yellow-100 text-lg">Consulting Firm</div>
-                            <div class="mt-4">
-                                <div class="grid grid-cols-3 gap-1">
-                                    <div class="h-6 bg-white/60 rounded"></div>
-                                    <div class="h-6 bg-white/40 rounded"></div>
-                                    <div class="h-6 bg-white/20 rounded"></div>
-                                    <div class="h-4 bg-white/40 rounded"></div>
-                                    <div class="h-4 bg-white/60 rounded"></div>
-                                    <div class="h-4 bg-white/20 rounded"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="px-2">
-                        <h3 class="text-2xl font-bold text-primary mb-3">Apex Consulting</h3>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
-                            Professional corporate website for a management consulting firm. Features case studies, team profiles, and client testimonials.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-medium">Consulting</span>
-                            <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-medium">Corporate</span>
-                            <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-medium">B2B</span>
-                        </div>
-                        <div class="text-sm text-gray-500">
-                            <strong>Results:</strong> 250% qualified lead increase, 40% longer session duration
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6 -->
-                <div class="group cursor-pointer">
-                    <div class="bg-gradient-to-br from-red-500 to-pink-500 rounded-xl p-8 mb-6 h-64 flex items-center justify-center transform group-hover:scale-105 transition-transform">
-                        <div class="text-white text-center">
-                            <div class="text-4xl font-bold mb-2">FitLife</div>
-                            <div class="text-red-100 text-lg">Fitness Studio</div>
-                            <div class="mt-4 flex justify-center space-x-1">
-                                <div class="w-2 h-8 bg-white/60 rounded"></div>
-                                <div class="w-2 h-12 bg-white/80 rounded"></div>
-                                <div class="w-2 h-6 bg-white/40 rounded"></div>
-                                <div class="w-2 h-10 bg-white/70 rounded"></div>
-                                <div class="w-2 h-4 bg-white/30 rounded"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="px-2">
-                        <h3 class="text-2xl font-bold text-primary mb-3">FitLife Studios</h3>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
-                            Energetic fitness studio website with class scheduling, trainer profiles, membership management, and virtual class streaming.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-medium">Fitness</span>
-                            <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-medium">Booking System</span>
-                            <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-medium">Membership</span>
-                        </div>
-                        <div class="text-sm text-gray-500">
-                            <strong>Results:</strong> 300% membership growth, 90% online booking adoption
+                            <strong>Results:</strong> 250% increase in reservations, 80% reduction in phone bookings
                         </div>
                     </div>
                 </div>
@@ -343,7 +238,7 @@
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-bold text-primary mb-4">What Our Clients Say</h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Don't just take our word for it. Here's what business owners have to say about working with Websetly.
+                    Hear from Nigerian business owners who've transformed their online presence and grown their businesses with Websetly.
                 </p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
@@ -358,15 +253,15 @@
                         </div>
                     </div>
                     <p class="text-gray-600 mb-6 leading-relaxed">
-                        "Working with Websetly was a game-changer for our business. They delivered exactly what we needed in just 10 days, and our sales have doubled since launch."
+                        "Websetly transformed our real estate business completely. The new website with virtual tours and property search increased our inquiries by 400%. Exceptional work!"
                     </p>
                     <div class="flex items-center">
-                        <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-white font-bold mr-4">
-                            J
-                        </div>
+                        <img src="images/man-1.jpg" 
+                             alt="Abayomi Animashaun - CEO MashInc Realty" 
+                             class="w-12 h-12 rounded-full object-cover mr-4">
                         <div>
-                            <div class="font-semibold text-primary">Jessica Chen</div>
-                            <div class="text-sm text-gray-500">Founder, TechFlow</div>
+                            <div class="font-semibold text-primary">Abayomi Animashaun</div>
+                            <div class="text-sm text-gray-500">CEO, MashInc Realty</div>
                         </div>
                     </div>
                 </div>
@@ -381,15 +276,15 @@
                         </div>
                     </div>
                     <p class="text-gray-600 mb-6 leading-relaxed">
-                        "The team at Websetly understood our vision perfectly. Our new website helped us secure a $2M funding round within 3 months of launch."
+                        "The online reservation system and menu showcase completely revolutionized our restaurant. We saw a 250% increase in bookings and reduced phone calls by 80%."
                     </p>
                     <div class="flex items-center">
-                        <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
-                            M
-                        </div>
+                        <img src="images/man-2.jpg" 
+                             alt="Emeka Nwosu - Owner Lumiere Restaurant" 
+                             class="w-12 h-12 rounded-full object-cover mr-4">
                         <div>
-                            <div class="font-semibold text-primary">Michael Torres</div>
-                            <div class="text-sm text-gray-500">CEO, GreenTech Solutions</div>
+                            <div class="font-semibold text-primary">Emeka Nwosu</div>
+                            <div class="text-sm text-gray-500">Owner, Lumiere Restaurant</div>
                         </div>
                     </div>
                 </div>
@@ -404,15 +299,15 @@
                         </div>
                     </div>
                     <p class="text-gray-600 mb-6 leading-relaxed">
-                        "Professional, fast, and incredibly talented. Our online sales increased by 200% within the first month. Highly recommend Websetly!"
+                        "Our school's new website with student portal and online admissions system made everything seamless. Applications increased by 300% and we went 90% paperless!"
                     </p>
                     <div class="flex items-center">
-                        <div class="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
-                            A
-                        </div>
+                        <img src="images/woman.jpeg" 
+                             alt="Folake Adebayo - Principal Excellence Academy" 
+                             class="w-12 h-12 rounded-full object-cover mr-4">
                         <div>
-                            <div class="font-semibold text-primary">Alexandra Smith</div>
-                            <div class="text-sm text-gray-500">Owner, Bloom Boutique</div>
+                            <div class="font-semibold text-primary">Folake Adebayo</div>
+                            <div class="text-sm text-gray-500">Principal, Excellence Academy</div>
                         </div>
                     </div>
                 </div>
