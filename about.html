@@ -24,18 +24,20 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <title>About Websetly - Professional Web Design Agency | Our Story & Mission</title>
     <link rel="stylesheet" href="css/output.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Google Analytics (Replace YOUR_GA_TRACKING_ID with your actual ID) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_TRACKING_ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'YOUR_GA_TRACKING_ID');
-    </script>
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YN57XMWHS1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YN57XMWHS1');
+</script>
     
     <script>
         tailwind.config = {
@@ -299,11 +301,11 @@
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Services</h3>
                     <ul class="space-y-2 text-gray-300">
-                        <li><a href="services.html" class="hover:text-secondary transition-colors">Web Design</a></li>
-                        <li><a href="services.html" class="hover:text-secondary transition-colors">Development</a></li>
-                        <li><a href="services.html" class="hover:text-secondary transition-colors">UI/UX Design</a></li>
-                        <li><a href="services.html" class="hover:text-secondary transition-colors">Branding</a></li>
-                        <li><a href="services.html" class="hover:text-secondary transition-colors">SEO Setup</a></li>
+                        <li><a href="services.html#web-design" class="hover:text-secondary transition-colors">Web Design</a></li>
+                        <li><a href="services.html#development" class="hover:text-secondary transition-colors">Development</a></li>
+                        <li><a href="services.html#ui-ux-design" class="hover:text-secondary transition-colors">UI/UX Design</a></li>
+                        <li><a href="services.html#branding" class="hover:text-secondary transition-colors">Branding</a></li>
+                        <li><a href="services.html#seo-setup" class="hover:text-secondary transition-colors">SEO Setup</a></li>
                     </ul>
                 </div>
                 <div>
@@ -325,11 +327,15 @@
 
     <script>
         // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
         });
     </script>
 </body>
