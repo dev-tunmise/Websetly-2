@@ -26,15 +26,19 @@
     <meta name="twitter:title" content="Transform Your Business With Powerful Websites - Websetly">
     <meta name="twitter:description" content="Transform your business with powerful, high-converting websites that help businesses of all sizes succeed online.">
     
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/output.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="images/websetly-hero.jpg" as="image">
+    
     <link rel="stylesheet" href="css/output.css">
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
     
     <script>
         tailwind.config = {
@@ -303,7 +307,8 @@
                     <div class="relative overflow-hidden rounded-xl mb-4 h-64 transform group-hover:scale-105 transition-transform">
                         <img src="images/excellence-academy.jpg" 
                              alt="Excellence Academy School Website Screenshot" 
-                             class="w-full h-full object-cover">
+                             class="w-full h-full object-cover"
+                             loading="lazy">
                     </div>
                     <h3 class="text-xl font-semibold text-primary mb-2">Excellence Academy</h3>
                     <p class="text-gray-600">Modern school website with student portal and online admissions</p>
@@ -312,7 +317,8 @@
                     <div class="relative overflow-hidden rounded-xl mb-4 h-64 transform group-hover:scale-105 transition-transform">
                         <img src="images/lumiere-resturant.jpg" 
                              alt="Lumiere Restaurant Website Screenshot" 
-                             class="w-full h-full object-cover">
+                             class="w-full h-full object-cover"
+                             loading="lazy">
                     </div>
                     <h3 class="text-xl font-semibold text-primary mb-2">Lumiere Restaurant</h3>
                     <p class="text-gray-600">Elegant restaurant website with online reservations and menu showcase</p>
@@ -321,7 +327,8 @@
                     <div class="relative overflow-hidden rounded-xl mb-4 h-64 transform group-hover:scale-105 transition-transform">
                         <img src="images/mashinc-realestate.jpg" 
                              alt="MashInc Real Estate Website Screenshot" 
-                             class="w-full h-full object-cover">
+                             class="w-full h-full object-cover"
+                             loading="lazy">
                     </div>
                     <h3 class="text-xl font-semibold text-primary mb-2">MashInc Realty</h3>
                     <p class="text-gray-600">Modern real estate platform with property search and virtual tours</p>
