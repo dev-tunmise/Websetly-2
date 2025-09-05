@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,41 +24,50 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <title>SEO Basics for Designers: How to Build Sites That Rank from Day One | Websetly</title>
     <link rel="stylesheet" href="css/output.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YN57XMWHS1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
+    <!-- Google tag (gtag.js) - Non-blocking analytics -->
+<script>
+  // Load Google Analytics asynchronously
+  (function() {
+    var script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-YN57XMWHS1';
+    script.async = true;
+    document.head.appendChild(script);
+  })();
+  
+  window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-YN57XMWHS1');
     </script>
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0A192F',
-                        secondary: '#FF6B35',
-                        neutral: '#F5F5F5'
-                    },
-                    fontFamily: {
-                        'sans': ['Inter', 'system-ui', 'sans-serif']
-                    }
-                }
-            }
+    
+    <style>
+        /* Navbar positioning fix */
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
         }
-    </script>
+        
+        nav.fixed, nav[class*="fixed"] {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            z-index: 9999 !important;
+        }
+    </style>
 </head>
 <body class="font-sans text-primary bg-white">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/95 backdrop-blur-md z-50 border-b border-neutral">
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md z-50 border-b border-neutral" style="position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; z-index: 9999 !important;">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center">
@@ -103,7 +112,7 @@
     <!-- Breadcrumb -->
     <section class="pt-28 pb-8 bg-neutral">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav class="flex items-center space-x-2 text-sm text-gray-600">
+            <nav class="flex items-center space-x-2 text-sm text-gray-600" style="position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; z-index: 9999 !important;">
                 <a href="index.html" class="hover:text-secondary">Home</a>
                 <span>/</span>
                 <a href="blog.html" class="hover:text-secondary">Blog</a>
@@ -120,7 +129,7 @@
                 <div class="flex items-center space-x-4">
                     <span class="px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">SEO</span>
                     <span class="text-gray-500">August 20, 2025</span>
-                    <span class="text-gray-500">•</span>
+                    <span class="text-gray-500">â€¢</span>
                     <span class="text-gray-500">8 min read</span>
                 </div>
                 <h1 class="text-4xl lg:text-5xl font-bold text-primary leading-tight">
@@ -148,7 +157,7 @@
             <div class="prose prose-lg max-w-none">
                 
                 <p class="text-lg text-gray-700 leading-relaxed mb-8">
-                    Beautiful design is just the beginning. In today's competitive digital landscape, even the most stunning website won't succeed if people can't find it. SEO isn't just the responsibility of marketers—it starts with smart design decisions that set the foundation for search success.
+                    Beautiful design is just the beginning. In today's competitive digital landscape, even the most stunning website won't succeed if people can't find it. SEO isn't just the responsibility of marketersâ€”it starts with smart design decisions that set the foundation for search success.
                 </p>
 
                 <div class="bg-orange-50 border-l-4 border-orange-400 p-6 mb-8">
@@ -160,7 +169,7 @@
                         </div>
                         <div class="ml-3">
                             <p class="text-orange-800 font-semibold">Why Designers Need SEO Knowledge</p>
-                            <p class="text-orange-700 text-sm mt-1">75% of SEO success is determined by technical decisions made during the design and development phase—long before any content strategy begins.</p>
+                            <p class="text-orange-700 text-sm mt-1">75% of SEO success is determined by technical decisions made during the design and development phaseâ€”long before any content strategy begins.</p>
                         </div>
                     </div>
                 </div>
@@ -218,13 +227,13 @@
                                                 <svg class="w-4 h-4 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
                                                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                                                 </svg>
-                                                No skipping levels (H2 → H4)
+                                                No skipping levels (H2 â†’ H4)
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="mt-4 p-3 bg-blue-100 rounded-lg">
-                                    <p class="text-blue-800 text-sm font-medium">💡 Pro Tip: Use heading tags for structure, not styling. Use CSS to make headings look however you want.</p>
+                                    <p class="text-blue-800 text-sm font-medium">ðŸ’¡ Pro Tip: Use heading tags for structure, not styling. Use CSS to make headings look however you want.</p>
                                 </div>
                             </div>
                         </div>
@@ -255,9 +264,9 @@
                                             </code>
                                         </div>
                                         <ul class="text-green-600 text-sm space-y-1">
-                                            <li>• 50-60 characters max</li>
-                                            <li>• Include primary keyword near the beginning</li>
-                                            <li>• Make it compelling for users</li>
+                                            <li>â€¢ 50-60 characters max</li>
+                                            <li>â€¢ Include primary keyword near the beginning</li>
+                                            <li>â€¢ Make it compelling for users</li>
                                         </ul>
                                     </div>
                                     <div>
@@ -330,11 +339,11 @@
                                         <h4 class="font-semibold text-purple-800 mb-3">Alt Text Best Practices:</h4>
                                         <div class="space-y-3">
                                             <div class="p-3 bg-red-100 rounded-lg">
-                                                <div class="text-red-700 font-medium text-sm">❌ Bad:</div>
+                                                <div class="text-red-700 font-medium text-sm">âŒ Bad:</div>
                                                 <code class="text-red-600 text-sm">alt="image1"</code>
                                             </div>
                                             <div class="p-3 bg-green-100 rounded-lg">
-                                                <div class="text-green-700 font-medium text-sm">✅ Good:</div>
+                                                <div class="text-green-700 font-medium text-sm">âœ… Good:</div>
                                                 <code class="text-green-600 text-sm">alt="Modern kitchen with white cabinets and granite countertops"</code>
                                             </div>
                                         </div>
@@ -363,7 +372,7 @@
                                 <div class="space-y-4">
                                     <div class="grid md:grid-cols-2 gap-6">
                                         <div>
-                                            <h5 class="font-medium text-yellow-700 mb-3">❌ Bad URLs:</h5>
+                                            <h5 class="font-medium text-yellow-700 mb-3">âŒ Bad URLs:</h5>
                                             <div class="space-y-2 text-sm">
                                                 <div class="p-2 bg-red-100 rounded text-red-700 font-mono">
                                                     /page?id=123&cat=5
@@ -377,7 +386,7 @@
                                             </div>
                                         </div>
                                         <div>
-                                            <h5 class="font-medium text-yellow-700 mb-3">✅ Good URLs:</h5>
+                                            <h5 class="font-medium text-yellow-700 mb-3">âœ… Good URLs:</h5>
                                             <div class="space-y-2 text-sm">
                                                 <div class="p-2 bg-green-100 rounded text-green-700 font-mono">
                                                     /web-design-services
@@ -394,11 +403,11 @@
                                     <div class="mt-4">
                                         <h5 class="font-medium text-yellow-700 mb-2">Key Rules:</h5>
                                         <ul class="text-yellow-600 text-sm space-y-1">
-                                            <li>• Use hyphens, not underscores or spaces</li>
-                                            <li>• Keep URLs short and descriptive</li>
-                                            <li>• Use lowercase letters only</li>
-                                            <li>• Include target keywords when natural</li>
-                                            <li>• Avoid unnecessary parameters</li>
+                                            <li>â€¢ Use hyphens, not underscores or spaces</li>
+                                            <li>â€¢ Keep URLs short and descriptive</li>
+                                            <li>â€¢ Use lowercase letters only</li>
+                                            <li>â€¢ Include target keywords when natural</li>
+                                            <li>â€¢ Avoid unnecessary parameters</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -507,10 +516,10 @@
                         <div>
                             <h4 class="font-semibold text-green-800 mb-3">Implementation Tools:</h4>
                             <ul class="space-y-2 text-green-700 text-sm">
-                                <li>• Schema.org documentation</li>
-                                <li>• Google's Structured Data Markup Helper</li>
-                                <li>• JSON-LD format (recommended by Google)</li>
-                                <li>• Rich Results Test tool for validation</li>
+                                <li>â€¢ Schema.org documentation</li>
+                                <li>â€¢ Google's Structured Data Markup Helper</li>
+                                <li>â€¢ JSON-LD format (recommended by Google)</li>
+                                <li>â€¢ Rich Results Test tool for validation</li>
                             </ul>
                         </div>
                     </div>
@@ -586,7 +595,7 @@
 
                 <div class="space-y-6">
                     <div class="bg-red-50 rounded-xl p-6 border-l-4 border-red-400">
-                        <h3 class="text-xl font-semibold text-red-800 mb-3">🚫 Using Images for Text</h3>
+                        <h3 class="text-xl font-semibold text-red-800 mb-3">ðŸš« Using Images for Text</h3>
                         <p class="text-red-700 mb-3">
                             Beautiful typography in images can't be read by search engines or screen readers.
                         </p>
@@ -596,7 +605,7 @@
                     </div>
 
                     <div class="bg-red-50 rounded-xl p-6 border-l-4 border-red-400">
-                        <h3 class="text-xl font-semibold text-red-800 mb-3">🚫 Ignoring Page Speed</h3>
+                        <h3 class="text-xl font-semibold text-red-800 mb-3">ðŸš« Ignoring Page Speed</h3>
                         <p class="text-red-700 mb-3">
                             Heavy images, animations, and unoptimized code can kill both user experience and SEO.
                         </p>
@@ -606,7 +615,7 @@
                     </div>
 
                     <div class="bg-red-50 rounded-xl p-6 border-l-4 border-red-400">
-                        <h3 class="text-xl font-semibold text-red-800 mb-3">🚫 Complex Navigation</h3>
+                        <h3 class="text-xl font-semibold text-red-800 mb-3">ðŸš« Complex Navigation</h3>
                         <p class="text-red-700 mb-3">
                             Fancy JavaScript menus that search engines can't crawl hurt discoverability.
                         </p>
@@ -616,7 +625,7 @@
                     </div>
 
                     <div class="bg-red-50 rounded-xl p-6 border-l-4 border-red-400">
-                        <h3 class="text-xl font-semibold text-red-800 mb-3">🚫 Forgetting About Accessibility</h3>
+                        <h3 class="text-xl font-semibold text-red-800 mb-3">ðŸš« Forgetting About Accessibility</h3>
                         <p class="text-red-700 mb-3">
                             Poor color contrast, missing alt text, and inaccessible forms hurt both users and SEO.
                         </p>
@@ -671,13 +680,13 @@
                         <div>
                             <h4 class="font-semibold text-primary mb-4">Questions to Ask Before Designing:</h4>
                             <ul class="space-y-2 text-gray-700 text-sm">
-                                <li>• What keywords should this page target?</li>
-                                <li>• What action do we want users to take?</li>
-                                <li>• How will this page link to other pages?</li>
-                                <li>• What content is most important for users and search engines?</li>
-                                <li>• How can we make this accessible to everyone?</li>
-                                <li>• Will this design work well on mobile?</li>
-                                <li>• How can we minimize load time without losing impact?</li>
+                                <li>â€¢ What keywords should this page target?</li>
+                                <li>â€¢ What action do we want users to take?</li>
+                                <li>â€¢ How will this page link to other pages?</li>
+                                <li>â€¢ What content is most important for users and search engines?</li>
+                                <li>â€¢ How can we make this accessible to everyone?</li>
+                                <li>â€¢ Will this design work well on mobile?</li>
+                                <li>â€¢ How can we minimize load time without losing impact?</li>
                             </ul>
                         </div>
                     </div>
@@ -720,7 +729,7 @@
                         <h3 class="text-xl font-bold text-primary mb-3">Website Performance Checklist</h3>
                         <p class="text-gray-600 text-sm mb-4">10 improvements that will speed up your site and boost SEO rankings.</p>
                         <a href="blog-website-performance-checklist.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
-                            Read More →
+                            Read More â†’
                         </a>
                     </div>
                 </article>
@@ -735,7 +744,7 @@
                         <h3 class="text-xl font-bold text-primary mb-3">Website Redesign Warning Signs</h3>
                         <p class="text-gray-600 text-sm mb-4">Know when it's time to refresh your website for better SEO and conversions.</p>
                         <a href="blog-website-redesign-signs.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
-                            Read More →
+                            Read More â†’
                         </a>
                     </div>
                 </article>
@@ -750,7 +759,7 @@
                         <h3 class="text-xl font-bold text-primary mb-3">Case Study: Double Leads in 30 Days</h3>
                         <p class="text-gray-600 text-sm mb-4">How SEO-optimized design helped a business dramatically increase conversions.</p>
                         <a href="blog-case-study-double-leads.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
-                            Read More →
+                            Read More â†’
                         </a>
                     </div>
                 </article>
@@ -811,3 +820,6 @@
     </script>
 </body>
 </html>
+
+
+

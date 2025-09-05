@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,18 +24,26 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <title>Web Design Services - Professional Website Development | Websetly</title>
     <link rel="stylesheet" href="css/output.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
     
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
     
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YN57XMWHS1"></script>
+    <!-- Google tag (gtag.js) - Non-blocking analytics -->
 <script>
+  // Load Google Analytics asynchronously
+  (function() {
+    var script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-YN57XMWHS1';
+    script.async = true;
+    document.head.appendChild(script);
+  })();
+  
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -43,26 +51,27 @@
   gtag('config', 'G-YN57XMWHS1');
 </script>
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0A192F',
-                        secondary: '#FF6B35',
-                        neutral: '#F5F5F5'
-                    },
-                    fontFamily: {
-                        'sans': ['Inter', 'system-ui', 'sans-serif']
-                    }
-                }
-            }
+    
+    <style>
+        /* Navbar positioning fix */
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
         }
-    </script>
+        
+        nav.fixed, nav[class*="fixed"] {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            z-index: 9999 !important;
+        }
+    </style>
 </head>
 <body class="font-sans text-primary bg-white">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/95 backdrop-blur-md z-50 border-b border-neutral">
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md z-50 border-b border-neutral" style="position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; z-index: 9999 !important;">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center">
@@ -112,7 +121,7 @@
                     Complete <span class="text-secondary">Web Solutions</span> for Growing Businesses
                 </h1>
                 <p class="text-xl text-blue-100 leading-relaxed max-w-3xl mx-auto">
-                    From initial concept to ongoing success, we provide everything your business needs to thrive online. Professional design, expert development, and strategic thinking—all in one place.
+                    From initial concept to ongoing success, we provide everything your business needs to thrive online. Professional design, expert development, and strategic thinkingâ€”all in one place.
                 </p>
             </div>
         </div>
@@ -261,7 +270,7 @@
                     </div>
                     <h2 class="text-4xl font-bold text-primary mb-6">Intuitive User Experiences</h2>
                     <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-                        We design user journeys that feel natural and enjoyable. Every interaction is carefully crafted to guide your visitors toward their goals—and yours.
+                        We design user journeys that feel natural and enjoyable. Every interaction is carefully crafted to guide your visitors toward their goalsâ€”and yours.
                     </p>
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-start">
@@ -505,3 +514,5 @@
     </script>
 </body>
 </html>
+
+

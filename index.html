@@ -1,17 +1,22 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transform Your Business With Powerful Websites - Websetly</title>
+    <title>Transform Your Business With Powerful Websites -             <div c                    <h3 class="text-2xl font-semibold text-primary mb-4">Lightning Fast</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        We deliver professional websites in just 7-14 days. No endless revisions, no missed deadlines—just results.
+                    </p>="text-center mb-16" data-aos="fade-up" data-aos-duration="600">
+                <h2 class="text-4xl font-bold text-primary mb-4">Why Choose Websetly?</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    We combine cutting-edge design with proven business strategy to deliver websites that don't just look great—they drive results.
+                </p>
+            </div>                                 We deliver professional websites in just 7-14 days. No endless revisions, no missed deadlines—just results.       We combine cutting-edge design with proven business strategy to deliver websites that don't just look great—they drive results.etly</title>
     
-    <!-- Favicons - Multiple formats for maximum compatibility -->
+    <!-- Favicons - Optimized for performance -->
     <link rel="icon" type="image/x-icon" href="favicon.ico?v=1">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?v=1">
     <link rel="icon" type="image/svg+xml" href="favicon.svg?v=1">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon.svg?v=1">
-    <link rel="icon" sizes="32x32" type="image/svg+xml" href="favicon.svg?v=1">
-    <link rel="icon" sizes="16x16" type="image/svg+xml" href="favicon.svg?v=1">
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#0A192F">
     <meta name="msapplication-TileColor" content="#0A192F">
@@ -28,41 +33,36 @@
     
     <!-- Preload critical resources -->
     <link rel="preload" href="css/output.css" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
     <link rel="preload" href="images/websetly-hero.jpg" as="image">
     
     <link rel="stylesheet" href="css/output.css">
+    
+    <!-- Performance optimization: Load fonts non-blocking -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
     
-    <!-- AOS Animation Library -->
+    <!-- AOS Animation Library - Deferred for performance -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0A192F',
-                        secondary: '#FF6B35',
-                        neutral: '#F5F5F5'
-                    },
-                    fontFamily: {
-                        'sans': ['Inter', 'system-ui', 'sans-serif']
-                    },
-                    animation: {
-                        'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
-                        'float': 'float 3s ease-in-out infinite',
-                        'pulse-glow': 'pulseGlow 2s ease-in-out infinite alternate'
-                    }
-                }
-            }
-        }
-    </script>
-    
     <style>
+        /* Critical CSS fixes */
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        
+        nav.fixed, nav[class*="fixed"] {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            z-index: 9999 !important;
+        }
+        
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -93,19 +93,25 @@
             animation: fadeInUp 0.6s ease-out forwards;
         }
     </style>
-       <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YN57XMWHS1"></script>
+       <!-- Google tag (gtag.js) - Non-blocking analytics -->
 <script>
+  // Load Google Analytics asynchronously
+  (function() {
+    var script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-YN57XMWHS1';
+    script.async = true;
+    document.head.appendChild(script);
+  })();
+  
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-YN57XMWHS1');
 </script>
 </head>
 <body class="font-sans text-primary bg-white">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/95 backdrop-blur-md z-50 border-b border-neutral">
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md border-b border-neutral">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center">
@@ -127,7 +133,11 @@
                 </div>
                 <!-- Mobile menu button -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-primary hover:text-secondary">
+                    <button id="mobile-menu-btn" 
+                            class="text-primary hover:text-secondary"
+                            aria-controls="mobile-menu"
+                            aria-expanded="false"
+                            aria-label="Open navigation menu">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -171,7 +181,8 @@
                 <div class="relative group" data-aos="fade-left" data-aos-duration="600" data-aos-delay="200">
                     <img src="images/websetly-hero.jpg" 
                          alt="Professional web design and development workspace" 
-                         class="w-full h-96 object-cover rounded-2xl shadow-2xl transform transition-transform duration-700 group-hover:scale-105">
+                         class="w-full h-96 object-cover rounded-2xl shadow-2xl transform transition-transform duration-700 group-hover:scale-105"
+                         width="600" height="384" decoding="async" fetchpriority="high">
                     <div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent rounded-2xl transition-all duration-500 group-hover:from-primary/70"></div>
                     
                     <!-- Floating elements for movement -->
@@ -205,7 +216,7 @@
             <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="600">
                 <h2 class="text-4xl font-bold text-primary mb-4">Why Choose Websetly?</h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    We combine cutting-edge design with proven business strategy to deliver websites that don't just look great—they drive results.
+                    We combine cutting-edge design with proven business strategy to deliver websites that don't just look greatâ€”they drive results.
                 </p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
@@ -217,7 +228,7 @@
                     </div>
                     <h3 class="text-2xl font-semibold text-primary mb-4">Lightning Fast</h3>
                     <p class="text-gray-600 leading-relaxed">
-                        We deliver professional websites in just 7-14 days. No endless revisions, no missed deadlines—just results.
+                        We deliver professional websites in just 7-14 days. No endless revisions, no missed deadlinesâ€”just results.
                     </p>
                 </div>
                 <div class="text-center p-8 rounded-xl hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
@@ -308,7 +319,7 @@
                         <img src="images/excellence-academy.jpg" 
                              alt="Excellence Academy School Website Screenshot" 
                              class="w-full h-full object-cover"
-                             loading="lazy">
+                             width="400" height="256" decoding="async" loading="lazy">
                     </div>
                     <h3 class="text-xl font-semibold text-primary mb-2">Excellence Academy</h3>
                     <p class="text-gray-600">Modern school website with student portal and online admissions</p>
@@ -318,7 +329,7 @@
                         <img src="images/lumiere-resturant.jpg" 
                              alt="Lumiere Restaurant Website Screenshot" 
                              class="w-full h-full object-cover"
-                             loading="lazy">
+                             width="400" height="256" decoding="async" loading="lazy">
                     </div>
                     <h3 class="text-xl font-semibold text-primary mb-2">Lumiere Restaurant</h3>
                     <p class="text-gray-600">Elegant restaurant website with online reservations and menu showcase</p>
@@ -328,7 +339,7 @@
                         <img src="images/mashinc-realestate.jpg" 
                              alt="MashInc Real Estate Website Screenshot" 
                              class="w-full h-full object-cover"
-                             loading="lazy">
+                             width="400" height="256" decoding="async" loading="lazy">
                     </div>
                     <h3 class="text-xl font-semibold text-primary mb-2">MashInc Realty</h3>
                     <p class="text-gray-600">Modern real estate platform with property search and virtual tours</p>
@@ -398,39 +409,79 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
+        // Mobile menu toggle with accessibility
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
 
             if (mobileMenuBtn && mobileMenu) {
                 mobileMenuBtn.addEventListener('click', () => {
+                    const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
                     mobileMenu.classList.toggle('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+                    mobileMenuBtn.setAttribute('aria-label', isExpanded ? 'Open navigation menu' : 'Close navigation menu');
                 });
             }
 
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            // Improved smooth scrolling for anchor links only
+            document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth'
-                        });
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#') && href.length > 1) {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
                     }
                 });
             });
         });
         
-        // Initialize AOS (Animate On Scroll) library
-        AOS.init({
-            duration: 1000,
-            easing: 'ease-in-out',
-            once: true,
-            mirror: false,
-            offset: 100
-        });
+        // Robust AOS initialization with proper loading check
+        function initAOS() {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    easing: 'ease-in-out-cubic',
+                    once: true,
+                    mirror: false,
+                    offset: 50,
+                    disable: function() {
+                        return window.innerWidth < 768;
+                    }
+                });
+                return true;
+            }
+            return false;
+        }
+        
+        // Wait for AOS to load with retry mechanism
+        function waitForAOS() {
+            if (initAOS()) {
+                return; // Successfully initialized
+            }
+            
+            // Retry up to 50 times (5 seconds total)
+            let attempts = 0;
+            const maxAttempts = 50;
+            const checkAOS = setInterval(() => {
+                if (initAOS() || attempts >= maxAttempts) {
+                    clearInterval(checkAOS);
+                }
+                attempts++;
+            }, 100);
+        }
+        
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', waitForAOS);
+        } else {
+            waitForAOS();
+        }
     </script>
 </body>
 </html>
+

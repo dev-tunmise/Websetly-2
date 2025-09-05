@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,41 +24,50 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <title>How to Know When Your Small Business Needs a Website Redesign | Websetly Blog</title>
     <link rel="stylesheet" href="css/output.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YN57XMWHS1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
+    <!-- Google tag (gtag.js) - Non-blocking analytics -->
+<script>
+  // Load Google Analytics asynchronously
+  (function() {
+    var script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-YN57XMWHS1';
+    script.async = true;
+    document.head.appendChild(script);
+  })();
+  
+  window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-YN57XMWHS1');
     </script>
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0A192F',
-                        secondary: '#FF6B35',
-                        neutral: '#F5F5F5'
-                    },
-                    fontFamily: {
-                        'sans': ['Inter', 'system-ui', 'sans-serif']
-                    }
-                }
-            }
+    
+    <style>
+        /* Navbar positioning fix */
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
         }
-    </script>
+        
+        nav.fixed, nav[class*="fixed"] {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            z-index: 9999 !important;
+        }
+    </style>
 </head>
 <body class="font-sans text-primary bg-white">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/95 backdrop-blur-md z-50 border-b border-neutral">
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md z-50 border-b border-neutral" style="position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; z-index: 9999 !important;">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center">
@@ -103,7 +112,7 @@
     <!-- Breadcrumb -->
     <section class="pt-28 pb-8 bg-neutral">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav class="flex items-center space-x-2 text-sm text-gray-600">
+            <nav class="flex items-center space-x-2 text-sm text-gray-600" style="position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; z-index: 9999 !important;">
                 <a href="index.html" class="hover:text-secondary">Home</a>
                 <span>/</span>
                 <a href="blog.html" class="hover:text-secondary">Blog</a>
@@ -120,7 +129,7 @@
                 <div class="flex items-center space-x-4">
                     <span class="px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-medium">Web Design</span>
                     <span class="text-gray-500">September 2, 2025</span>
-                    <span class="text-gray-500">•</span>
+                    <span class="text-gray-500">â€¢</span>
                     <span class="text-gray-500">5 min read</span>
                 </div>
                 <h1 class="text-4xl lg:text-5xl font-bold text-primary leading-tight">
@@ -192,19 +201,19 @@
                         <div>
                             <h4 class="font-semibold text-primary mb-3">Visual Red Flags:</h4>
                             <ul class="space-y-2 text-gray-700">
-                                <li>• Flash animations or outdated graphics</li>
-                                <li>• Cluttered layouts with too much information</li>
-                                <li>• Outdated color schemes or fonts</li>
-                                <li>• Low-quality or pixelated images</li>
+                                <li>â€¢ Flash animations or outdated graphics</li>
+                                <li>â€¢ Cluttered layouts with too much information</li>
+                                <li>â€¢ Outdated color schemes or fonts</li>
+                                <li>â€¢ Low-quality or pixelated images</li>
                             </ul>
                         </div>
                         <div>
                             <h4 class="font-semibold text-primary mb-3">Functionality Issues:</h4>
                             <ul class="space-y-2 text-gray-700">
-                                <li>• Not mobile-responsive</li>
-                                <li>• Slow loading times</li>
-                                <li>• Broken links or missing pages</li>
-                                <li>• Outdated contact information</li>
+                                <li>â€¢ Not mobile-responsive</li>
+                                <li>â€¢ Slow loading times</li>
+                                <li>â€¢ Broken links or missing pages</li>
+                                <li>â€¢ Outdated contact information</li>
                             </ul>
                         </div>
                     </div>
@@ -354,7 +363,7 @@
                         <h3 class="text-xl font-bold text-primary mb-3">7 Cost-Effective Web Design Tips for Startups</h3>
                         <p class="text-gray-600 text-sm mb-4">Learn how to create a professional website without breaking the bank.</p>
                         <a href="blog-startup-web-design-budget.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
-                            Read More →
+                            Read More â†’
                         </a>
                     </div>
                 </article>
@@ -369,7 +378,7 @@
                         <h3 class="text-xl font-bold text-primary mb-3">Website Performance Checklist</h3>
                         <p class="text-gray-600 text-sm mb-4">10 improvements that will speed up your site and boost conversions.</p>
                         <a href="blog-website-performance-checklist.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
-                            Read More →
+                            Read More â†’
                         </a>
                     </div>
                 </article>
@@ -384,7 +393,7 @@
                         <h3 class="text-xl font-bold text-primary mb-3">Case Study: Double Leads in 30 Days</h3>
                         <p class="text-gray-600 text-sm mb-4">How we helped a local service business dramatically increase conversions.</p>
                         <a href="blog-case-study-double-leads.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
-                            Read More →
+                            Read More â†’
                         </a>
                     </div>
                 </article>
@@ -445,3 +454,6 @@
     </script>
 </body>
 </html>
+
+
+

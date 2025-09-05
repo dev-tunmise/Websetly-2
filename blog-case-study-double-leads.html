@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,41 +24,50 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <title>Case Study: How We Helped a Local Service Business Double Leads in 30 Days | Websetly</title>
     <link rel="stylesheet" href="css/output.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YN57XMWHS1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
+    <!-- Google tag (gtag.js) - Non-blocking analytics -->
+<script>
+  // Load Google Analytics asynchronously
+  (function() {
+    var script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-YN57XMWHS1';
+    script.async = true;
+    document.head.appendChild(script);
+  })();
+  
+  window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-YN57XMWHS1');
     </script>
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0A192F',
-                        secondary: '#FF6B35',
-                        neutral: '#F5F5F5'
-                    },
-                    fontFamily: {
-                        'sans': ['Inter', 'system-ui', 'sans-serif']
-                    }
-                }
-            }
+    
+    <style>
+        /* Navbar positioning fix */
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
         }
-    </script>
+        
+        nav.fixed, nav[class*="fixed"] {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            z-index: 9999 !important;
+        }
+    </style>
 </head>
 <body class="font-sans text-primary bg-white">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/95 backdrop-blur-md z-50 border-b border-neutral">
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md z-50 border-b border-neutral" style="position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; z-index: 9999 !important;">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center">
@@ -103,7 +112,7 @@
     <!-- Breadcrumb -->
     <section class="pt-28 pb-8 bg-neutral">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav class="flex items-center space-x-2 text-sm text-gray-600">
+            <nav class="flex items-center space-x-2 text-sm text-gray-600" style="position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; z-index: 9999 !important;">
                 <a href="index.html" class="hover:text-secondary">Home</a>
                 <span>/</span>
                 <a href="blog.html" class="hover:text-secondary">Blog</a>
@@ -120,7 +129,7 @@
                 <div class="flex items-center space-x-4">
                     <span class="px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium">Results</span>
                     <span class="text-gray-500">August 25, 2025</span>
-                    <span class="text-gray-500">•</span>
+                    <span class="text-gray-500">â€¢</span>
                     <span class="text-gray-500">6 min read</span>
                 </div>
                 <h1 class="text-4xl lg:text-5xl font-bold text-primary leading-tight">
@@ -182,21 +191,21 @@
                         <div>
                             <h4 class="font-semibold text-red-800 mb-3">The Problems:</h4>
                             <ul class="space-y-2 text-red-700 text-sm">
-                                <li>• Outdated website from 2018</li>
-                                <li>• Poor mobile experience</li>
-                                <li>• Only 2-3 online leads per month</li>
-                                <li>• High bounce rate (78%)</li>
-                                <li>• No clear call-to-actions</li>
+                                <li>â€¢ Outdated website from 2018</li>
+                                <li>â€¢ Poor mobile experience</li>
+                                <li>â€¢ Only 2-3 online leads per month</li>
+                                <li>â€¢ High bounce rate (78%)</li>
+                                <li>â€¢ No clear call-to-actions</li>
                             </ul>
                         </div>
                         <div>
                             <h4 class="font-semibold text-red-800 mb-3">Business Goals:</h4>
                             <ul class="space-y-2 text-red-700 text-sm">
-                                <li>• Increase online lead generation</li>
-                                <li>• Compete with larger HVAC companies</li>
-                                <li>• Showcase expertise and reliability</li>
-                                <li>• Improve local search visibility</li>
-                                <li>• Reduce dependence on referrals</li>
+                                <li>â€¢ Increase online lead generation</li>
+                                <li>â€¢ Compete with larger HVAC companies</li>
+                                <li>â€¢ Showcase expertise and reliability</li>
+                                <li>â€¢ Improve local search visibility</li>
+                                <li>â€¢ Reduce dependence on referrals</li>
                             </ul>
                         </div>
                     </div>
@@ -266,19 +275,19 @@
                                 <div class="bg-red-50 p-4 rounded-lg">
                                     <h4 class="font-semibold text-red-800 mb-2">Before:</h4>
                                     <ul class="text-red-700 text-sm space-y-1">
-                                        <li>• Text too small to read</li>
-                                        <li>• Buttons too small to tap</li>
-                                        <li>• Horizontal scrolling required</li>
-                                        <li>• Contact info hard to find</li>
+                                        <li>â€¢ Text too small to read</li>
+                                        <li>â€¢ Buttons too small to tap</li>
+                                        <li>â€¢ Horizontal scrolling required</li>
+                                        <li>â€¢ Contact info hard to find</li>
                                     </ul>
                                 </div>
                                 <div class="bg-green-50 p-4 rounded-lg">
                                     <h4 class="font-semibold text-green-800 mb-2">After:</h4>
                                     <ul class="text-green-700 text-sm space-y-1">
-                                        <li>• Large, readable fonts (16px+)</li>
-                                        <li>• Prominent "Call Now" button</li>
-                                        <li>• Perfect mobile layout</li>
-                                        <li>• Click-to-call phone numbers</li>
+                                        <li>â€¢ Large, readable fonts (16px+)</li>
+                                        <li>â€¢ Prominent "Call Now" button</li>
+                                        <li>â€¢ Perfect mobile layout</li>
+                                        <li>â€¢ Click-to-call phone numbers</li>
                                     </ul>
                                 </div>
                             </div>
@@ -382,19 +391,19 @@
                                 <div class="bg-red-50 p-4 rounded-lg">
                                     <h4 class="font-semibold text-red-800 mb-2">Before:</h4>
                                     <ul class="text-red-700 text-sm space-y-1">
-                                        <li>• 6.2 second load time</li>
-                                        <li>• No image optimization</li>
-                                        <li>• Unoptimized code</li>
-                                        <li>• No caching</li>
+                                        <li>â€¢ 6.2 second load time</li>
+                                        <li>â€¢ No image optimization</li>
+                                        <li>â€¢ Unoptimized code</li>
+                                        <li>â€¢ No caching</li>
                                     </ul>
                                 </div>
                                 <div class="bg-green-50 p-4 rounded-lg">
                                     <h4 class="font-semibold text-green-800 mb-2">After:</h4>
                                     <ul class="text-green-700 text-sm space-y-1">
-                                        <li>• 1.8 second load time</li>
-                                        <li>• WebP image formats</li>
-                                        <li>• Clean, minimal code</li>
-                                        <li>• Browser caching enabled</li>
+                                        <li>â€¢ 1.8 second load time</li>
+                                        <li>â€¢ WebP image formats</li>
+                                        <li>â€¢ Clean, minimal code</li>
+                                        <li>â€¢ Browser caching enabled</li>
                                     </ul>
                                 </div>
                             </div>
@@ -494,7 +503,7 @@
 
                 <div class="bg-primary/5 rounded-xl p-8 mb-8">
                     <blockquote class="text-xl text-gray-700 leading-relaxed mb-6 italic">
-                        "The results have been incredible. In the first month alone, we got more leads than we typically see in three months. The phone has been ringing constantly, and customers keep mentioning how professional our website looks. Websetly didn't just build us a website—they built us a lead generation machine."
+                        "The results have been incredible. In the first month alone, we got more leads than we typically see in three months. The phone has been ringing constantly, and customers keep mentioning how professional our website looks. Websetly didn't just build us a websiteâ€”they built us a lead generation machine."
                     </blockquote>
                     <div class="flex items-center">
                         <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mr-4">
@@ -584,7 +593,7 @@
                         <h3 class="text-xl font-bold text-primary mb-3">Website Redesign Warning Signs</h3>
                         <p class="text-gray-600 text-sm mb-4">Know when it's time to refresh your website for better results.</p>
                         <a href="blog-website-redesign-signs.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
-                            Read More →
+                            Read More â†’
                         </a>
                     </div>
                 </article>
@@ -599,7 +608,7 @@
                         <h3 class="text-xl font-bold text-primary mb-3">Website Performance Checklist</h3>
                         <p class="text-gray-600 text-sm mb-4">10 improvements that will speed up your site and boost conversions.</p>
                         <a href="blog-website-performance-checklist.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
-                            Read More →
+                            Read More â†’
                         </a>
                     </div>
                 </article>
@@ -614,7 +623,7 @@
                         <h3 class="text-xl font-bold text-primary mb-3">Budget Web Design for Startups</h3>
                         <p class="text-gray-600 text-sm mb-4">Create professional websites without breaking the bank.</p>
                         <a href="blog-startup-web-design-budget.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
-                            Read More →
+                            Read More â†’
                         </a>
                     </div>
                 </article>
@@ -675,3 +684,6 @@
     </script>
 </body>
 </html>
+
+
+

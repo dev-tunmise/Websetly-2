@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Test - Websetly</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .metric { margin: 10px 0; padding: 10px; background: #f5f5f5; border-radius: 5px; }
+        .good { background: #d4edda; color: #155724; }
+        .warning { background: #fff3cd; color: #856404; }
+        .error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h1>Websetly Performance Test Results</h1>
+    <div id="results"></div>
+    
+    <script>
+        // Simple performance monitoring
+        window.addEventListener('load', function() {
+            const navigation = performance.getEntriesByType('navigation')[0];
+            const results = document.getElementById('results');
+            
+            const metrics = [
+                {
+                    name: 'Page Load Time',
+                    value: Math.round(navigation.loadEventEnd - navigation.navigationStart),
+                    unit: 'ms',
+                    good: 2000,
+                    warning: 3000
+                },
+                {
+                    name: 'DOM Content Loaded',
+                    value: Math.round(navigation.domContentLoadedEventEnd - navigation.navigationStart),
+                    unit: 'ms',
+                    good: 1500,
+                    warning: 2500
+                },
+                {
+                    name: 'First Paint',
+                    value: Math.round(navigation.responseEnd - navigation.navigationStart),
+                    unit: 'ms',
+                    good: 1000,
+                    warning: 2000
+                }
+            ];
+            
+            metrics.forEach(metric => {
+                const div = document.createElement('div');
+                div.className = 'metric';
+                
+                if (metric.value <= metric.good) {
+                    div.classList.add('good');
+                } else if (metric.value <= metric.warning) {
+                    div.classList.add('warning');
+                } else {
+                    div.classList.add('error');
+                }
+                
+                div.innerHTML = `<strong>${metric.name}:</strong> ${metric.value}${metric.unit}`;
+                results.appendChild(div);
+            });
+            
+            // Additional checks
+            const images = document.querySelectorAll('img');
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            
+            const additionalDiv = document.createElement('div');
+            additionalDiv.className = 'metric';
+            additionalDiv.innerHTML = `
+                <strong>Image Optimization:</strong> ${lazyImages.length}/${images.length} images have lazy loading
+            `;
+            results.appendChild(additionalDiv);
+        });
+    </script>
+</body>
+</html>
