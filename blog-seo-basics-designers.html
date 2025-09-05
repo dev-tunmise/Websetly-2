@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master essential SEO techniques every designer should know. Build websites that not only look great but also rank high in search results from day one.">
+    <meta name="keywords" content="SEO for designers, technical SEO, web design SEO, search engine optimization, SEO basics, designer SEO guide">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://websetly.com/blog-seo-basics-designers.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="SEO Basics for Designers: How to Build Sites That Rank from Day One">
+    <meta property="og:description" content="Master essential SEO techniques every designer should know. Build websites that rank high in search results.">
+    <meta property="og:image" content="https://websetly.com/images/og-image.jpg">
+    <meta property="og:url" content="https://websetly.com/blog-seo-basics-designers.html">
+    <meta property="og:type" content="article">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SEO Basics for Designers: How to Build Sites That Rank from Day One">
+    <meta name="twitter:description" content="Master essential SEO techniques every designer should know.">
+    <meta name="twitter:image" content="https://websetly.com/images/og-image.jpg">
+    
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <title>SEO Basics for Designers: How to Build Sites That Rank from Day One | Websetly</title>
+    <link rel="stylesheet" href="css/output.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YN57XMWHS1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-YN57XMWHS1');
+    </script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A192F',
+                        secondary: '#FF6B35',
+                        neutral: '#F5F5F5'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-primary bg-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md z-50 border-b border-neutral">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-primary">Websetly</div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-primary hover:text-secondary transition-colors font-medium">Home</a>
+                        <a href="about.html" class="text-primary hover:text-secondary transition-colors font-medium">About</a>
+                        <a href="services.html" class="text-primary hover:text-secondary transition-colors font-medium">Services</a>
+                        <a href="portfolio.html" class="text-primary hover:text-secondary transition-colors font-medium">Portfolio</a>
+                        <a href="blog.html" class="text-secondary font-medium">Blog</a>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <a href="contact.html" class="bg-secondary text-white px-6 py-3 rounded-lg font-medium hover:bg-secondary/90 transition-all transform hover:scale-105">
+                        Get Started
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-primary hover:text-secondary">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-neutral">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Home</a>
+                <a href="about.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">About</a>
+                <a href="services.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Services</a>
+                <a href="portfolio.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Portfolio</a>
+                <a href="blog.html" class="block px-3 py-2 text-secondary font-medium">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="pt-28 pb-8 bg-neutral">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex items-center space-x-2 text-sm text-gray-600">
+                <a href="index.html" class="hover:text-secondary">Home</a>
+                <span>/</span>
+                <a href="blog.html" class="hover:text-secondary">Blog</a>
+                <span>/</span>
+                <span class="text-primary">SEO Basics for Designers</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Article Header -->
+    <section class="py-12 bg-neutral">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="space-y-6">
+                <div class="flex items-center space-x-4">
+                    <span class="px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">SEO</span>
+                    <span class="text-gray-500">August 20, 2025</span>
+                    <span class="text-gray-500">•</span>
+                    <span class="text-gray-500">8 min read</span>
+                </div>
+                <h1 class="text-4xl lg:text-5xl font-bold text-primary leading-tight">
+                    SEO Basics for Designers: How to Build Sites That Rank from Day One
+                </h1>
+                <p class="text-xl text-gray-600 leading-relaxed">
+                    Master the essential SEO techniques every designer should know. Build websites that not only look great but also rank high in search results and drive organic traffic.
+                </p>
+                <div class="flex items-center space-x-4 pt-4">
+                    <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center">
+                        <span class="text-secondary font-semibold">W</span>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-primary">Websetly Team</div>
+                        <div class="text-sm text-gray-500">SEO & Design Specialists</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <article class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="prose prose-lg max-w-none">
+                
+                <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                    Beautiful design is just the beginning. In today's competitive digital landscape, even the most stunning website won't succeed if people can't find it. SEO isn't just the responsibility of marketers—it starts with smart design decisions that set the foundation for search success.
+                </p>
+
+                <div class="bg-orange-50 border-l-4 border-orange-400 p-6 mb-8">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <svg class="h-5 w-5 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-orange-800 font-semibold">Why Designers Need SEO Knowledge</p>
+                            <p class="text-orange-700 text-sm mt-1">75% of SEO success is determined by technical decisions made during the design and development phase—long before any content strategy begins.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-8">The Designer's SEO Foundation</h2>
+
+                <!-- HTML Structure & Semantic Markup -->
+                <div class="bg-white border-2 border-gray-200 rounded-xl p-8 mb-8 shadow-sm">
+                    <div class="flex items-start mb-6">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-semibold text-primary mb-3">1. Semantic HTML Structure</h3>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                Search engines rely on HTML structure to understand your content. Using semantic tags properly helps search engines and screen readers navigate your site.
+                            </p>
+                            <div class="bg-blue-50 rounded-lg p-6">
+                                <h4 class="font-semibold text-blue-800 mb-4">Essential Semantic Tags:</h4>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h5 class="font-medium text-blue-700 mb-3">Page Structure:</h5>
+                                        <div class="bg-gray-900 text-green-400 p-4 rounded-lg text-sm overflow-x-auto mb-4">
+                                            <code>
+                                            &lt;header&gt;<br/>
+                                            &nbsp;&nbsp;&lt;nav&gt;&lt;/nav&gt;<br/>
+                                            &lt;/header&gt;<br/>
+                                            &lt;main&gt;<br/>
+                                            &nbsp;&nbsp;&lt;article&gt;<br/>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;section&gt;&lt;/section&gt;<br/>
+                                            &nbsp;&nbsp;&lt;/article&gt;<br/>
+                                            &lt;/main&gt;<br/>
+                                            &lt;footer&gt;&lt;/footer&gt;
+                                            </code>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium text-blue-700 mb-3">Heading Hierarchy:</h5>
+                                        <ul class="text-blue-600 text-sm space-y-2">
+                                            <li class="flex items-center">
+                                                <svg class="w-4 h-4 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                H1: One per page (main title)
+                                            </li>
+                                            <li class="flex items-center">
+                                                <svg class="w-4 h-4 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                H2-H6: Logical hierarchy
+                                            </li>
+                                            <li class="flex items-center">
+                                                <svg class="w-4 h-4 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                No skipping levels (H2 → H4)
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-4 p-3 bg-blue-100 rounded-lg">
+                                    <p class="text-blue-800 text-sm font-medium">💡 Pro Tip: Use heading tags for structure, not styling. Use CSS to make headings look however you want.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Meta Tags & Page Optimization -->
+                <div class="bg-white border-2 border-gray-200 rounded-xl p-8 mb-8 shadow-sm">
+                    <div class="flex items-start mb-6">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-semibold text-primary mb-3">2. Essential Meta Tags</h3>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                Meta tags are your first impression in search results. They directly impact click-through rates and rankings.
+                            </p>
+                            <div class="bg-green-50 rounded-lg p-6">
+                                <h4 class="font-semibold text-green-800 mb-4">Critical Meta Tags:</h4>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h5 class="font-medium text-green-700 mb-2">Title Tag (Most Important):</h5>
+                                        <div class="bg-gray-900 text-green-400 p-4 rounded-lg text-sm overflow-x-auto mb-2">
+                                            <code>
+                                            &lt;title&gt;Primary Keyword - Secondary Keyword | Brand Name&lt;/title&gt;
+                                            </code>
+                                        </div>
+                                        <ul class="text-green-600 text-sm space-y-1">
+                                            <li>• 50-60 characters max</li>
+                                            <li>• Include primary keyword near the beginning</li>
+                                            <li>• Make it compelling for users</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium text-green-700 mb-2">Meta Description:</h5>
+                                        <div class="bg-gray-900 text-green-400 p-4 rounded-lg text-sm overflow-x-auto mb-2">
+                                            <code>
+                                            &lt;meta name="description" content="Compelling 150-character summary that includes keywords and encourages clicks."&gt;
+                                            </code>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium text-green-700 mb-2">Canonical URL:</h5>
+                                        <div class="bg-gray-900 text-green-400 p-4 rounded-lg text-sm overflow-x-auto mb-2">
+                                            <code>
+                                            &lt;link rel="canonical" href="https://yoursite.com/page"&gt;
+                                            </code>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Optimization -->
+                <div class="bg-white border-2 border-gray-200 rounded-xl p-8 mb-8 shadow-sm">
+                    <div class="flex items-start mb-6">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-semibold text-primary mb-3">3. SEO-Friendly Image Optimization</h3>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                Images are crucial for both user experience and SEO. They can rank in image search and contribute to page relevance.
+                            </p>
+                            <div class="bg-purple-50 rounded-lg p-6">
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="font-semibold text-purple-800 mb-3">Technical Requirements:</h4>
+                                        <ul class="text-purple-600 text-sm space-y-2">
+                                            <li class="flex items-center">
+                                                <svg class="w-4 h-4 text-purple-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                Descriptive file names (not IMG_001.jpg)
+                                            </li>
+                                            <li class="flex items-center">
+                                                <svg class="w-4 h-4 text-purple-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                Alt text for every image
+                                            </li>
+                                            <li class="flex items-center">
+                                                <svg class="w-4 h-4 text-purple-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                Appropriate file formats (WebP when possible)
+                                            </li>
+                                            <li class="flex items-center">
+                                                <svg class="w-4 h-4 text-purple-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                Compressed file sizes
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-purple-800 mb-3">Alt Text Best Practices:</h4>
+                                        <div class="space-y-3">
+                                            <div class="p-3 bg-red-100 rounded-lg">
+                                                <div class="text-red-700 font-medium text-sm">❌ Bad:</div>
+                                                <code class="text-red-600 text-sm">alt="image1"</code>
+                                            </div>
+                                            <div class="p-3 bg-green-100 rounded-lg">
+                                                <div class="text-green-700 font-medium text-sm">✅ Good:</div>
+                                                <code class="text-green-600 text-sm">alt="Modern kitchen with white cabinets and granite countertops"</code>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- URL Structure -->
+                <div class="bg-white border-2 border-gray-200 rounded-xl p-8 mb-8 shadow-sm">
+                    <div class="flex items-start mb-6">
+                        <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                            <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-semibold text-primary mb-3">4. Clean URL Structure</h3>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                URLs are visible to users and search engines. They should be descriptive, clean, and easy to understand.
+                            </p>
+                            <div class="bg-yellow-50 rounded-lg p-6">
+                                <h4 class="font-semibold text-yellow-800 mb-4">URL Best Practices:</h4>
+                                <div class="space-y-4">
+                                    <div class="grid md:grid-cols-2 gap-6">
+                                        <div>
+                                            <h5 class="font-medium text-yellow-700 mb-3">❌ Bad URLs:</h5>
+                                            <div class="space-y-2 text-sm">
+                                                <div class="p-2 bg-red-100 rounded text-red-700 font-mono">
+                                                    /page?id=123&cat=5
+                                                </div>
+                                                <div class="p-2 bg-red-100 rounded text-red-700 font-mono">
+                                                    /services_and_pricing.html
+                                                </div>
+                                                <div class="p-2 bg-red-100 rounded text-red-700 font-mono">
+                                                    /Services-AND-Pricing
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h5 class="font-medium text-yellow-700 mb-3">✅ Good URLs:</h5>
+                                            <div class="space-y-2 text-sm">
+                                                <div class="p-2 bg-green-100 rounded text-green-700 font-mono">
+                                                    /web-design-services
+                                                </div>
+                                                <div class="p-2 bg-green-100 rounded text-green-700 font-mono">
+                                                    /services/pricing
+                                                </div>
+                                                <div class="p-2 bg-green-100 rounded text-green-700 font-mono">
+                                                    /blog/seo-tips
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4">
+                                        <h5 class="font-medium text-yellow-700 mb-2">Key Rules:</h5>
+                                        <ul class="text-yellow-600 text-sm space-y-1">
+                                            <li>• Use hyphens, not underscores or spaces</li>
+                                            <li>• Keep URLs short and descriptive</li>
+                                            <li>• Use lowercase letters only</li>
+                                            <li>• Include target keywords when natural</li>
+                                            <li>• Avoid unnecessary parameters</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-6">Technical SEO Essentials</h2>
+
+                <!-- Mobile-First & Performance -->
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 mb-8">
+                    <h3 class="text-2xl font-semibold text-primary mb-6">5. Mobile-First Design & Core Web Vitals</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-semibold text-blue-800 mb-4">Mobile-First Essentials:</h4>
+                            <ul class="space-y-3 text-blue-700">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <div>
+                                        <strong>Responsive Design:</strong> Fluid layouts that work on all screen sizes
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <div>
+                                        <strong>Touch-Friendly:</strong> Buttons at least 44px with adequate spacing
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <div>
+                                        <strong>Readable Text:</strong> 16px minimum font size on mobile
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-blue-800 mb-4">Core Web Vitals Targets:</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between p-3 bg-white rounded-lg">
+                                    <span class="font-medium text-blue-700">Largest Contentful Paint</span>
+                                    <span class="text-green-600 font-semibold">&lt; 2.5s</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-white rounded-lg">
+                                    <span class="font-medium text-blue-700">First Input Delay</span>
+                                    <span class="text-green-600 font-semibold">&lt; 100ms</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-white rounded-lg">
+                                    <span class="font-medium text-blue-700">Cumulative Layout Shift</span>
+                                    <span class="text-green-600 font-semibold">&lt; 0.1</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Schema Markup -->
+                <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-8 mb-8">
+                    <h3 class="text-2xl font-semibold text-primary mb-6">6. Structured Data (Schema Markup)</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Structured data helps search engines understand your content and can enable rich snippets in search results.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-green-800 mb-3">Essential Schema Types:</h4>
+                            <ul class="space-y-2 text-green-700">
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    Organization (business info)
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    LocalBusiness (location-based businesses)
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    Article (blog posts)
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    Product (e-commerce)
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    Breadcrumb navigation
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-green-800 mb-3">Implementation Tools:</h4>
+                            <ul class="space-y-2 text-green-700 text-sm">
+                                <li>• Schema.org documentation</li>
+                                <li>• Google's Structured Data Markup Helper</li>
+                                <li>• JSON-LD format (recommended by Google)</li>
+                                <li>• Rich Results Test tool for validation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-6">SEO-Friendly Design Checklist</h2>
+
+                <div class="bg-secondary/5 rounded-xl p-8 mb-8">
+                    <h3 class="text-2xl font-semibold text-primary mb-6">Before You Launch: Essential Checks</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-semibold text-primary mb-4">Technical Foundation:</h4>
+                            <div class="space-y-3">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-3">
+                                    <span class="text-gray-700">SSL certificate installed (HTTPS)</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-3">
+                                    <span class="text-gray-700">XML sitemap created and submitted</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-3">
+                                    <span class="text-gray-700">Robots.txt file configured</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-3">
+                                    <span class="text-gray-700">Google Analytics and Search Console set up</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-3">
+                                    <span class="text-gray-700">404 error page designed</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-3">
+                                    <span class="text-gray-700">Site loads in under 3 seconds</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-primary mb-4">Content & Structure:</h4>
+                            <div class="space-y-3">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-3">
+                                    <span class="text-gray-700">Unique title and meta description on every page</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-3">
+                                    <span class="text-gray-700">Proper heading hierarchy (H1, H2, H3...)</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-3">
+                                    <span class="text-gray-700">Alt text for all images</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-3">
+                                    <span class="text-gray-700">Clean, descriptive URLs</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-3">
+                                    <span class="text-gray-700">Internal linking strategy implemented</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-3">
+                                    <span class="text-gray-700">Mobile responsiveness tested</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-6">Common SEO Mistakes Designers Make</h2>
+
+                <div class="space-y-6">
+                    <div class="bg-red-50 rounded-xl p-6 border-l-4 border-red-400">
+                        <h3 class="text-xl font-semibold text-red-800 mb-3">🚫 Using Images for Text</h3>
+                        <p class="text-red-700 mb-3">
+                            Beautiful typography in images can't be read by search engines or screen readers.
+                        </p>
+                        <p class="text-red-600 text-sm">
+                            <strong>Solution:</strong> Use web fonts and CSS for styling. Save images for actual graphics, photos, and illustrations.
+                        </p>
+                    </div>
+
+                    <div class="bg-red-50 rounded-xl p-6 border-l-4 border-red-400">
+                        <h3 class="text-xl font-semibold text-red-800 mb-3">🚫 Ignoring Page Speed</h3>
+                        <p class="text-red-700 mb-3">
+                            Heavy images, animations, and unoptimized code can kill both user experience and SEO.
+                        </p>
+                        <p class="text-red-600 text-sm">
+                            <strong>Solution:</strong> Optimize images, use efficient code, enable compression, and test regularly.
+                        </p>
+                    </div>
+
+                    <div class="bg-red-50 rounded-xl p-6 border-l-4 border-red-400">
+                        <h3 class="text-xl font-semibold text-red-800 mb-3">🚫 Complex Navigation</h3>
+                        <p class="text-red-700 mb-3">
+                            Fancy JavaScript menus that search engines can't crawl hurt discoverability.
+                        </p>
+                        <p class="text-red-600 text-sm">
+                            <strong>Solution:</strong> Ensure navigation works with JavaScript disabled. Use HTML/CSS as the foundation.
+                        </p>
+                    </div>
+
+                    <div class="bg-red-50 rounded-xl p-6 border-l-4 border-red-400">
+                        <h3 class="text-xl font-semibold text-red-800 mb-3">🚫 Forgetting About Accessibility</h3>
+                        <p class="text-red-700 mb-3">
+                            Poor color contrast, missing alt text, and inaccessible forms hurt both users and SEO.
+                        </p>
+                        <p class="text-red-600 text-sm">
+                            <strong>Solution:</strong> Follow WCAG guidelines. Accessible design is good SEO design.
+                        </p>
+                    </div>
+                </div>
+
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-6">The SEO-Design Collaboration</h2>
+
+                <div class="bg-primary/5 rounded-xl p-8">
+                    <h3 class="text-2xl font-semibold text-primary mb-6">Making SEO and Design Work Together</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-semibold text-primary mb-4">Design Decisions That Help SEO:</h4>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-secondary mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <div>
+                                        <strong>Clear hierarchy:</strong> Visual design that supports content structure
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-secondary mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <div>
+                                        <strong>Intuitive navigation:</strong> Easy-to-find and logical menu structure
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-secondary mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <div>
+                                        <strong>Fast loading design:</strong> Efficient use of resources without sacrificing aesthetics
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-secondary mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <div>
+                                        <strong>Content-first approach:</strong> Design that highlights and supports the message
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-primary mb-4">Questions to Ask Before Designing:</h4>
+                            <ul class="space-y-2 text-gray-700 text-sm">
+                                <li>• What keywords should this page target?</li>
+                                <li>• What action do we want users to take?</li>
+                                <li>• How will this page link to other pages?</li>
+                                <li>• What content is most important for users and search engines?</li>
+                                <li>• How can we make this accessible to everyone?</li>
+                                <li>• Will this design work well on mobile?</li>
+                                <li>• How can we minimize load time without losing impact?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </article>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-primary text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to Create SEO-Optimized Designs?</h2>
+            <p class="text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
+                Great design and strong SEO go hand in hand. Let us help you create websites that look amazing and rank well in search results.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="bg-secondary text-white px-8 py-4 rounded-lg font-semibold hover:bg-secondary/90 transition-all transform hover:scale-105">
+                    Start Your SEO-Friendly Project
+                </a>
+                <a href="services.html#seo-setup" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary transition-all">
+                    Learn About Our SEO Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Articles -->
+    <section class="py-16 bg-neutral">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-primary text-center mb-12">Related Articles</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="bg-gradient-to-br from-purple-500 to-purple-600 h-32 flex items-center justify-center">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">Website Performance Checklist</h3>
+                        <p class="text-gray-600 text-sm mb-4">10 improvements that will speed up your site and boost SEO rankings.</p>
+                        <a href="blog-website-performance-checklist.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="bg-gradient-to-br from-red-500 to-red-600 h-32 flex items-center justify-center">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16c-.77.833.192 2.5 1.732 2.5z"></path>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">Website Redesign Warning Signs</h3>
+                        <p class="text-gray-600 text-sm mb-4">Know when it's time to refresh your website for better SEO and conversions.</p>
+                        <a href="blog-website-redesign-signs.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="bg-gradient-to-br from-green-500 to-green-600 h-32 flex items-center justify-center">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">Case Study: Double Leads in 30 Days</h3>
+                        <p class="text-gray-600 text-sm mb-4">How SEO-optimized design helped a business dramatically increase conversions.</p>
+                        <a href="blog-case-study-double-leads.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <div class="text-2xl font-bold mb-4">Websetly</div>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        Premium web design for growing businesses. We create stunning, high-converting websites that help you stand out online.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="services.html#web-design" class="hover:text-secondary transition-colors">Web Design</a></li>
+                        <li><a href="services.html#development" class="hover:text-secondary transition-colors">Development</a></li>
+                        <li><a href="services.html#ui-ux-design" class="hover:text-secondary transition-colors">UI/UX Design</a></li>
+                        <li><a href="services.html#branding" class="hover:text-secondary transition-colors">Branding</a></li>
+                        <li><a href="services.html#seo-setup" class="hover:text-secondary transition-colors">SEO Setup</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="about.html" class="hover:text-secondary transition-colors">About</a></li>
+                        <li><a href="portfolio.html" class="hover:text-secondary transition-colors">Portfolio</a></li>
+                        <li><a href="blog.html" class="hover:text-secondary transition-colors">Blog</a></li>
+                        <li><a href="contact.html" class="hover:text-secondary transition-colors">Contact</a></li>
+                        <li><a href="privacy.html" class="hover:text-secondary transition-colors">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="hover:text-secondary transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Websetly. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

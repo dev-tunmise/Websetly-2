@@ -29,6 +29,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YN57XMWHS1"></script>
 <script>
@@ -70,7 +74,7 @@
                         <a href="about.html" class="text-secondary font-medium">About</a>
                         <a href="services.html" class="text-primary hover:text-secondary transition-colors font-medium">Services</a>
                         <a href="portfolio.html" class="text-primary hover:text-secondary transition-colors font-medium">Portfolio</a>
-                        <a href="contact.html" class="text-primary hover:text-secondary transition-colors font-medium">Contact</a>
+                        <a href="blog.html" class="text-primary hover:text-secondary transition-colors font-medium">Blog</a>
                     </div>
                 </div>
                 <div class="hidden md:block">
@@ -95,7 +99,7 @@
                 <a href="about.html" class="block px-3 py-2 text-secondary font-medium">About</a>
                 <a href="services.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Services</a>
                 <a href="portfolio.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Portfolio</a>
-                <a href="contact.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Contact</a>
+                <a href="blog.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Blog</a>
             </div>
         </div>
     </nav>
@@ -103,7 +107,7 @@
     <!-- Hero Section -->
     <section class="pt-32 pb-20 bg-gradient-to-br from-primary via-primary to-blue-900 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-4xl mx-auto text-center">
+            <div class="max-w-4xl mx-auto text-center" data-aos="fade-up" data-aos-duration="600">
                 <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                     We're <span class="text-secondary">Websetly</span>
                 </h1>
@@ -118,7 +122,7 @@
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div>
+                <div data-aos="fade-right" data-aos-duration="600">
                     <h2 class="text-4xl font-bold text-primary mb-8">Our Story</h2>
                     <div class="space-y-6 text-lg text-gray-600 leading-relaxed">
                         <p>
@@ -132,7 +136,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="relative">
+                <div class="relative" data-aos="fade-left" data-aos-duration="600">
                     <img src="images/our-story.jpg" 
                          alt="Websetly team working together on web design projects" 
                          class="rounded-2xl shadow-lg w-full h-96 object-cover">
@@ -152,14 +156,14 @@
     <!-- Mission & Values -->
     <section class="py-20 bg-neutral">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="600">
                 <h2 class="text-4xl font-bold text-primary mb-4">Our Mission & Values</h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
                     Everything we do is guided by these core principles that shape how we work and serve our clients.
                 </p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-sm text-center">
+                <div class="bg-white p-8 rounded-xl shadow-sm text-center" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
                     <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                         <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
@@ -170,7 +174,7 @@
                         Your success is our success. We take time to understand your business, goals, and challenges to create solutions that truly work for you.
                     </p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-sm text-center">
+                <div class="bg-white p-8 rounded-xl shadow-sm text-center" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
                     <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                         <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -181,7 +185,7 @@
                         We believe in doing things right the first time. Every pixel, every line of code, every user interaction is carefully crafted for excellence.
                     </p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-sm text-center">
+                <div class="bg-white p-8 rounded-xl shadow-sm text-center" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
                     <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                         <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
@@ -336,6 +340,9 @@
                     mobileMenu.classList.toggle('hidden');
                 });
             }
+            
+            // Initialize AOS
+            AOS.init();
         });
     </script>
 </body>

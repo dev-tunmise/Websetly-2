@@ -29,6 +29,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YN57XMWHS1"></script>
 <script>
@@ -70,7 +74,7 @@
                         <a href="about.html" class="text-primary hover:text-secondary transition-colors font-medium">About</a>
                         <a href="services.html" class="text-primary hover:text-secondary transition-colors font-medium">Services</a>
                         <a href="portfolio.html" class="text-primary hover:text-secondary transition-colors font-medium">Portfolio</a>
-                        <a href="contact.html" class="text-secondary font-medium">Contact</a>
+                        <a href="blog.html" class="text-primary hover:text-secondary transition-colors font-medium">Blog</a>
                     </div>
                 </div>
                 <div class="hidden md:block">
@@ -95,7 +99,7 @@
                 <a href="about.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">About</a>
                 <a href="services.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Services</a>
                 <a href="portfolio.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Portfolio</a>
-                <a href="contact.html" class="block px-3 py-2 text-secondary font-medium">Contact</a>
+                <a href="blog.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Blog</a>
             </div>
         </div>
     </nav>
@@ -103,7 +107,7 @@
     <!-- Hero Section -->
     <section class="pt-32 pb-20 bg-gradient-to-br from-primary via-primary to-blue-900 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-4xl mx-auto text-center">
+            <div class="max-w-4xl mx-auto text-center" data-aos="fade-up" data-aos-duration="600">
                 <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                     Let's Build Something <span class="text-secondary">Amazing</span> Together
                 </h1>
@@ -481,6 +485,9 @@
                 }
             });
         });
+        
+        // Initialize AOS
+        AOS.init();
     </script>
 </body>
 </html>

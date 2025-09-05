@@ -22,6 +22,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
     <script>
         tailwind.config = {
             theme: {
@@ -99,7 +104,7 @@
                         <a href="about.html" class="text-primary hover:text-secondary transition-colors font-medium">About</a>
                         <a href="services.html" class="text-primary hover:text-secondary transition-colors font-medium">Services</a>
                         <a href="portfolio.html" class="text-primary hover:text-secondary transition-colors font-medium">Portfolio</a>
-                        <a href="contact.html" class="text-primary hover:text-secondary transition-colors font-medium">Contact</a>
+                        <a href="blog.html" class="text-primary hover:text-secondary transition-colors font-medium">Blog</a>
                     </div>
                 </div>
                 <div class="hidden md:block">
@@ -124,7 +129,7 @@
                 <a href="about.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">About</a>
                 <a href="services.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Services</a>
                 <a href="portfolio.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Portfolio</a>
-                <a href="contact.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Contact</a>
+                <a href="blog.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Blog</a>
             </div>
         </div>
     </nav>
@@ -133,15 +138,15 @@
     <section class="pt-20 pb-16 bg-gradient-to-br from-primary via-primary to-blue-900 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-8">
-                    <h1 class="text-5xl lg:text-6xl font-bold leading-tight">
+                <div class="space-y-8" data-aos="fade-right" data-aos-duration="600" data-aos-delay="100">
+                    <h1 class="text-5xl lg:text-6xl font-bold leading-tight" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
                         Transform Your Business With 
                         <span class="text-secondary">Powerful Websites</span>
                     </h1>
-                    <p class="text-xl text-blue-100 leading-relaxed max-w-lg">
+                    <p class="text-xl text-blue-100 leading-relaxed max-w-lg" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
                         We craft stunning, high-converting websites that help businesses of all sizes stand out online. Fast delivery, modern design, maximum impact.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
+                    <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
                         <a href="portfolio.html" class="bg-secondary text-white px-8 py-4 rounded-lg font-semibold hover:bg-secondary/90 transition-all transform hover:scale-105 text-center">
                             View Our Work
                         </a>
@@ -150,7 +155,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="relative group">
+                <div class="relative group" data-aos="fade-left" data-aos-duration="600" data-aos-delay="200">
                     <img src="images/websetly-hero.jpg" 
                          alt="Professional web design and development workspace" 
                          class="w-full h-96 object-cover rounded-2xl shadow-2xl transform transition-transform duration-700 group-hover:scale-105">
@@ -184,14 +189,14 @@
     <!-- Features Section -->
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="600">
                 <h2 class="text-4xl font-bold text-primary mb-4">Why Choose Websetly?</h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
                     We combine cutting-edge design with proven business strategy to deliver websites that don't just look great—they drive results.
                 </p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center p-8 rounded-xl hover:shadow-lg transition-shadow">
+                <div class="text-center p-8 rounded-xl hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
                     <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                         <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
@@ -202,7 +207,7 @@
                         We deliver professional websites in just 7-14 days. No endless revisions, no missed deadlines—just results.
                     </p>
                 </div>
-                <div class="text-center p-8 rounded-xl hover:shadow-lg transition-shadow">
+                <div class="text-center p-8 rounded-xl hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
                     <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                         <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
@@ -213,7 +218,7 @@
                         Every design starts mobile-first and scales perfectly across all devices. Your customers get a flawless experience everywhere.
                     </p>
                 </div>
-                <div class="text-center p-8 rounded-xl hover:shadow-lg transition-shadow">
+                <div class="text-center p-8 rounded-xl hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
                     <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                         <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
@@ -231,14 +236,14 @@
     <!-- Services Preview -->
     <section class="py-20 bg-neutral">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="600">
                 <h2 class="text-4xl font-bold text-primary mb-4">Complete Web Solutions</h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
                     From initial concept to launch and beyond, we handle every aspect of your online presence.
                 </p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
                     <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
@@ -247,7 +252,7 @@
                     <h3 class="text-xl font-semibold text-primary mb-3">Web Design</h3>
                     <p class="text-gray-600">Custom designs that reflect your brand and engage your audience</p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
                     <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
@@ -256,7 +261,7 @@
                     <h3 class="text-xl font-semibold text-primary mb-3">Development</h3>
                     <p class="text-gray-600">Clean, fast code that performs perfectly across all platforms</p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-duration="600" data-aos-delay="600">
                     <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -267,7 +272,7 @@
                     <p class="text-gray-600">Intuitive user experiences that guide visitors to take action</p>
                 </div>
             </div>
-            <div class="text-center mt-12">
+            <div class="text-center mt-12" data-aos="fade-up" data-aos-duration="600" data-aos-delay="800">
                 <a href="services.html" class="bg-secondary text-white px-8 py-4 rounded-lg font-semibold hover:bg-secondary/90 transition-all transform hover:scale-105">
                     View All Services
                 </a>
@@ -278,14 +283,14 @@
     <!-- Portfolio Preview -->
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="600">
                 <h2 class="text-4xl font-bold text-primary mb-4">Recent Projects</h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
                     See how we've helped businesses like yours succeed online with stunning, effective websites.
                 </p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                <div class="group cursor-pointer">
+                <div class="group cursor-pointer" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
                     <div class="relative overflow-hidden rounded-xl mb-4 h-64 transform group-hover:scale-105 transition-transform">
                         <img src="images/excellence-academy.jpg" 
                              alt="Excellence Academy School Website Screenshot" 
@@ -294,7 +299,7 @@
                     <h3 class="text-xl font-semibold text-primary mb-2">Excellence Academy</h3>
                     <p class="text-gray-600">Modern school website with student portal and online admissions</p>
                 </div>
-                <div class="group cursor-pointer">
+                <div class="group cursor-pointer" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
                     <div class="relative overflow-hidden rounded-xl mb-4 h-64 transform group-hover:scale-105 transition-transform">
                         <img src="images/lumiere-resturant.jpg" 
                              alt="Lumiere Restaurant Website Screenshot" 
@@ -303,7 +308,7 @@
                     <h3 class="text-xl font-semibold text-primary mb-2">Lumiere Restaurant</h3>
                     <p class="text-gray-600">Elegant restaurant website with online reservations and menu showcase</p>
                 </div>
-                <div class="group cursor-pointer">
+                <div class="group cursor-pointer" data-aos="fade-up" data-aos-duration="600" data-aos-delay="600">
                     <div class="relative overflow-hidden rounded-xl mb-4 h-64 transform group-hover:scale-105 transition-transform">
                         <img src="images/mashinc-realestate.jpg" 
                              alt="MashInc Real Estate Website Screenshot" 
@@ -313,7 +318,7 @@
                     <p class="text-gray-600">Modern real estate platform with property search and virtual tours</p>
                 </div>
             </div>
-            <div class="text-center">
+            <div class="text-center" data-aos="fade-up" data-aos-duration="600" data-aos-delay="800">
                 <a href="portfolio.html" class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 transition-all">
                     View Full Portfolio
                 </a>
@@ -323,12 +328,12 @@
 
     <!-- CTA Section -->
     <section class="py-20 bg-primary text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-bold mb-6">Ready to Transform Your Business Online?</h2>
-            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up" data-aos-duration="600">
+            <h2 class="text-4xl font-bold mb-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">Ready to Transform Your Business Online?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
                 Join hundreds of successful businesses who've chosen Websetly for their web design needs. Let's build something amazing together.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-duration="600" data-aos-delay="600">
                 <a href="contact.html" class="bg-secondary text-white px-8 py-4 rounded-lg font-semibold hover:bg-secondary/90 transition-all transform hover:scale-105">
                     Start Your Project
                 </a>
@@ -400,6 +405,15 @@
                     }
                 });
             });
+        });
+        
+        // Initialize AOS (Animate On Scroll) library
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false,
+            offset: 100
         });
     </script>
 </body>

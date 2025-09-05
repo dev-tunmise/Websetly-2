@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Boost your website speed and conversions with this comprehensive performance checklist. 10 proven improvements that will make your site faster and more user-friendly.">
+    <meta name="keywords" content="website performance, site speed optimization, page load time, website speed checklist, performance optimization">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://websetly.com/blog-website-performance-checklist.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Website Performance Checklist: 10 Improvements That Speed Up Your Site">
+    <meta property="og:description" content="Boost your website speed and conversions with this comprehensive performance checklist.">
+    <meta property="og:image" content="https://websetly.com/images/og-image.jpg">
+    <meta property="og:url" content="https://websetly.com/blog-website-performance-checklist.html">
+    <meta property="og:type" content="article">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Website Performance Checklist: 10 Improvements That Speed Up Your Site">
+    <meta name="twitter:description" content="Boost your website speed and conversions with proven performance improvements.">
+    <meta name="twitter:image" content="https://websetly.com/images/og-image.jpg">
+    
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <title>Website Performance Checklist: 10 Improvements That Speed Up Your Site | Websetly</title>
+    <link rel="stylesheet" href="css/output.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YN57XMWHS1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-YN57XMWHS1');
+    </script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A192F',
+                        secondary: '#FF6B35',
+                        neutral: '#F5F5F5'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-primary bg-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md z-50 border-b border-neutral">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-primary">Websetly</div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-primary hover:text-secondary transition-colors font-medium">Home</a>
+                        <a href="about.html" class="text-primary hover:text-secondary transition-colors font-medium">About</a>
+                        <a href="services.html" class="text-primary hover:text-secondary transition-colors font-medium">Services</a>
+                        <a href="portfolio.html" class="text-primary hover:text-secondary transition-colors font-medium">Portfolio</a>
+                        <a href="blog.html" class="text-secondary font-medium">Blog</a>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <a href="contact.html" class="bg-secondary text-white px-6 py-3 rounded-lg font-medium hover:bg-secondary/90 transition-all transform hover:scale-105">
+                        Get Started
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-primary hover:text-secondary">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-neutral">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Home</a>
+                <a href="about.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">About</a>
+                <a href="services.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Services</a>
+                <a href="portfolio.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Portfolio</a>
+                <a href="blog.html" class="block px-3 py-2 text-secondary font-medium">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="pt-28 pb-8 bg-neutral">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex items-center space-x-2 text-sm text-gray-600">
+                <a href="index.html" class="hover:text-secondary">Home</a>
+                <span>/</span>
+                <a href="blog.html" class="hover:text-secondary">Blog</a>
+                <span>/</span>
+                <span class="text-primary">Performance Checklist</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Article Header -->
+    <section class="py-12 bg-neutral">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="space-y-6">
+                <div class="flex items-center space-x-4">
+                    <span class="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">Speed</span>
+                    <span class="text-gray-500">August 22, 2025</span>
+                    <span class="text-gray-500">•</span>
+                    <span class="text-gray-500">7 min read</span>
+                </div>
+                <h1 class="text-4xl lg:text-5xl font-bold text-primary leading-tight">
+                    Website Performance Checklist: 10 Improvements That Speed Up Your Site
+                </h1>
+                <p class="text-xl text-gray-600 leading-relaxed">
+                    Site speed directly impacts conversions and SEO. Follow this practical checklist to dramatically improve your website's performance and user experience.
+                </p>
+                <div class="flex items-center space-x-4 pt-4">
+                    <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center">
+                        <span class="text-secondary font-semibold">W</span>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-primary">Websetly Team</div>
+                        <div class="text-sm text-gray-500">Performance Specialists</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speed Impact Stats -->
+    <section class="py-16 bg-gradient-to-br from-red-500 to-orange-600 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Why Speed Matters</h2>
+                <p class="text-xl text-red-100">The shocking impact of slow loading times</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
+                    <div class="text-4xl font-bold mb-2">53%</div>
+                    <div class="text-red-100">of mobile users abandon sites that take longer than 3 seconds to load</div>
+                </div>
+                <div class="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
+                    <div class="text-4xl font-bold mb-2">7%</div>
+                    <div class="text-red-100">decrease in conversions for every 1-second delay</div>
+                </div>
+                <div class="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
+                    <div class="text-4xl font-bold mb-2">2.5x</div>
+                    <div class="text-red-100">higher bounce rate for sites loading in 5+ seconds</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <article class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="prose prose-lg max-w-none">
+                
+                <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                    In today's fast-paced digital world, website speed isn't just a nice-to-have—it's a business necessity. Google considers page speed as a ranking factor, and users expect instant results. A slow website doesn't just frustrate visitors; it costs you conversions, search rankings, and revenue.
+                </p>
+
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-8">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-yellow-800 font-semibold">Before You Start: Test Your Current Speed</p>
+                            <p class="text-yellow-700 text-sm mt-1">Use tools like Google PageSpeed Insights, GTmetrix, or Pingdom to establish a baseline before implementing these improvements.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-8">The Complete Performance Checklist</h2>
+
+                <!-- Item 1 -->
+                <div class="bg-white border-2 border-gray-200 rounded-xl p-8 mb-8 shadow-sm">
+                    <div class="flex items-start mb-6">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                            <span class="text-2xl font-bold text-green-600">1</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-semibold text-primary mb-3">Optimize and Compress Images</h3>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                Images often account for 60-70% of a webpage's total size. Proper optimization can reduce load times dramatically.
+                            </p>
+                            <div class="bg-green-50 rounded-lg p-6">
+                                <h4 class="font-semibold text-green-800 mb-4">Action Steps:</h4>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h5 class="font-medium text-green-700 mb-2">Format Selection:</h5>
+                                        <ul class="text-green-600 text-sm space-y-1">
+                                            <li>• Use WebP for photos (90% smaller)</li>
+                                            <li>• Use SVG for logos and icons</li>
+                                            <li>• Use PNG only for images with transparency</li>
+                                            <li>• Avoid TIFF and uncompressed formats</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium text-green-700 mb-2">Compression Tools:</h5>
+                                        <ul class="text-green-600 text-sm space-y-1">
+                                            <li>• TinyPNG for batch compression</li>
+                                            <li>• ImageOptim for Mac users</li>
+                                            <li>• Squoosh.app for web-based optimization</li>
+                                            <li>• WordPress plugins like Smush</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="mt-4 p-3 bg-green-100 rounded-lg">
+                                    <p class="text-green-800 text-sm font-medium">💡 Pro Tip: Aim for images under 100KB for web use. Use different sizes for different screen resolutions.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="bg-white border-2 border-gray-200 rounded-xl p-8 mb-8 shadow-sm">
+                    <div class="flex items-start mb-6">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                            <span class="text-2xl font-bold text-blue-600">2</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-semibold text-primary mb-3">Enable Browser Caching</h3>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                Browser caching stores website files locally on users' devices, dramatically reducing load times for repeat visitors.
+                            </p>
+                            <div class="bg-blue-50 rounded-lg p-6">
+                                <h4 class="font-semibold text-blue-800 mb-4">Implementation Methods:</h4>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h5 class="font-medium text-blue-700 mb-2">For Apache Servers (.htaccess):</h5>
+                                        <div class="bg-gray-900 text-green-400 p-4 rounded-lg text-sm overflow-x-auto">
+                                            <code>
+                                            &lt;IfModule mod_expires.c&gt;<br/>
+                                            &nbsp;&nbsp;ExpiresActive on<br/>
+                                            &nbsp;&nbsp;ExpiresByType text/css "access plus 1 year"<br/>
+                                            &nbsp;&nbsp;ExpiresByType application/javascript "access plus 1 year"<br/>
+                                            &nbsp;&nbsp;ExpiresByType image/png "access plus 1 year"<br/>
+                                            &lt;/IfModule&gt;
+                                            </code>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium text-blue-700 mb-2">For WordPress:</h5>
+                                        <p class="text-blue-600 text-sm">Use caching plugins like W3 Total Cache, WP Rocket, or LiteSpeed Cache for easy setup.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="bg-white border-2 border-gray-200 rounded-xl p-8 mb-8 shadow-sm">
+                    <div class="flex items-start mb-6">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                            <span class="text-2xl font-bold text-purple-600">3</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-semibold text-primary mb-3">Minify CSS, JavaScript, and HTML</h3>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                Minification removes unnecessary characters (spaces, comments, line breaks) from code files, reducing their size by 20-30%.
+                            </p>
+                            <div class="bg-purple-50 rounded-lg p-6">
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="font-semibold text-purple-800 mb-3">Minification Tools:</h4>
+                                        <ul class="text-purple-600 text-sm space-y-2">
+                                            <li class="flex items-center">
+                                                <svg class="w-4 h-4 text-purple-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                UglifyJS for JavaScript
+                                            </li>
+                                            <li class="flex items-center">
+                                                <svg class="w-4 h-4 text-purple-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                CleanCSS for CSS files
+                                            </li>
+                                            <li class="flex items-center">
+                                                <svg class="w-4 h-4 text-purple-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                HTMLMinifier for HTML
+                                            </li>
+                                            <li class="flex items-center">
+                                                <svg class="w-4 h-4 text-purple-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                Minify.org (online tool)
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-purple-800 mb-3">Automatic Solutions:</h4>
+                                        <ul class="text-purple-600 text-sm space-y-2">
+                                            <li class="flex items-center">
+                                                <svg class="w-4 h-4 text-purple-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                Cloudflare Auto Minify
+                                            </li>
+                                            <li class="flex items-center">
+                                                <svg class="w-4 h-4 text-purple-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                WordPress minification plugins
+                                            </li>
+                                            <li class="flex items-center">
+                                                <svg class="w-4 h-4 text-purple-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                Build tools (Webpack, Gulp)
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="bg-white border-2 border-gray-200 rounded-xl p-8 mb-8 shadow-sm">
+                    <div class="flex items-start mb-6">
+                        <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                            <span class="text-2xl font-bold text-yellow-600">4</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-semibold text-primary mb-3">Use a Content Delivery Network (CDN)</h3>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                A CDN distributes your website's static files across multiple servers worldwide, reducing the physical distance between users and your content.
+                            </p>
+                            <div class="bg-yellow-50 rounded-lg p-6">
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="font-semibold text-yellow-800 mb-3">Popular CDN Providers:</h4>
+                                        <div class="space-y-3">
+                                            <div class="flex items-center justify-between p-3 bg-white rounded-lg">
+                                                <span class="font-medium text-yellow-700">Cloudflare</span>
+                                                <span class="text-yellow-600 text-sm">Free tier available</span>
+                                            </div>
+                                            <div class="flex items-center justify-between p-3 bg-white rounded-lg">
+                                                <span class="font-medium text-yellow-700">AWS CloudFront</span>
+                                                <span class="text-yellow-600 text-sm">Pay-as-you-go</span>
+                                            </div>
+                                            <div class="flex items-center justify-between p-3 bg-white rounded-lg">
+                                                <span class="font-medium text-yellow-700">MaxCDN</span>
+                                                <span class="text-yellow-600 text-sm">From $9/month</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-yellow-800 mb-3">Benefits:</h4>
+                                        <ul class="text-yellow-600 text-sm space-y-2">
+                                            <li class="flex items-center">
+                                                <svg class="w-4 h-4 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                50-60% faster load times globally
+                                            </li>
+                                            <li class="flex items-center">
+                                                <svg class="w-4 h-4 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                Reduced server load
+                                            </li>
+                                            <li class="flex items-center">
+                                                <svg class="w-4 h-4 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                Better uptime and reliability
+                                            </li>
+                                            <li class="flex items-center">
+                                                <svg class="w-4 h-4 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                DDoS protection included
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="bg-white border-2 border-gray-200 rounded-xl p-8 mb-8 shadow-sm">
+                    <div class="flex items-start mb-6">
+                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                            <span class="text-2xl font-bold text-red-600">5</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-semibold text-primary mb-3">Optimize Your Hosting Environment</h3>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                Your hosting provider and server configuration play a crucial role in website performance. Cheap shared hosting often bottlenecks speed.
+                            </p>
+                            <div class="bg-red-50 rounded-lg p-6">
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="font-semibold text-red-800 mb-3">Server Specifications:</h4>
+                                        <ul class="text-red-600 text-sm space-y-2">
+                                            <li class="flex items-center">
+                                                <svg class="w-4 h-4 text-red-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                SSD storage (3x faster than HDD)
+                                            </li>
+                                            <li class="flex items-center">
+                                                <svg class="w-4 h-4 text-red-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                PHP 8+ (30% faster than PHP 7)
+                                            </li>
+                                            <li class="flex items-center">
+                                                <svg class="w-4 h-4 text-red-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                HTTP/2 enabled
+                                            </li>
+                                            <li class="flex items-center">
+                                                <svg class="w-4 h-4 text-red-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                                </svg>
+                                                Gzip compression enabled
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-red-800 mb-3">Recommended Hosts:</h4>
+                                        <div class="space-y-2">
+                                            <div class="p-3 bg-white rounded-lg">
+                                                <div class="font-medium text-red-700">SiteGround</div>
+                                                <div class="text-red-600 text-sm">Great WordPress optimization</div>
+                                            </div>
+                                            <div class="p-3 bg-white rounded-lg">
+                                                <div class="font-medium text-red-700">Kinsta</div>
+                                                <div class="text-red-600 text-sm">Premium managed WordPress</div>
+                                            </div>
+                                            <div class="p-3 bg-white rounded-lg">
+                                                <div class="font-medium text-red-700">DigitalOcean</div>
+                                                <div class="text-red-600 text-sm">Flexible VPS solutions</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Items 6-10 Summary -->
+                <div class="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-xl p-8 mb-8">
+                    <h2 class="text-2xl font-bold text-primary mb-6">Quick Wins: Items 6-10</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                    <span class="text-lg font-bold text-indigo-600">6</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-primary">Implement Lazy Loading</h3>
+                                    <p class="text-gray-600 text-sm">Load images only when they're about to enter the viewport</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                    <span class="text-lg font-bold text-teal-600">7</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-primary">Reduce HTTP Requests</h3>
+                                    <p class="text-gray-600 text-sm">Combine CSS/JS files and use CSS sprites for icons</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                    <span class="text-lg font-bold text-pink-600">8</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-primary">Enable Gzip Compression</h3>
+                                    <p class="text-gray-600 text-sm">Reduce file sizes by 70% with server-side compression</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                    <span class="text-lg font-bold text-orange-600">9</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-primary">Remove Unused Plugins/Code</h3>
+                                    <p class="text-gray-600 text-sm">Audit and remove unnecessary plugins and code bloat</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-cyan-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                    <span class="text-lg font-bold text-cyan-600">10</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-primary">Optimize Database</h3>
+                                    <p class="text-gray-600 text-sm">Clean up database tables and optimize queries</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-6">Measuring Your Success</h2>
+
+                <div class="bg-green-50 rounded-xl p-8 mb-8">
+                    <h3 class="text-2xl font-semibold text-green-800 mb-6">Key Performance Metrics to Track</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-green-700 mb-3">Speed Metrics:</h4>
+                            <ul class="space-y-2 text-green-600">
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    First Contentful Paint (under 1.8s)
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    Largest Contentful Paint (under 2.5s)
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    Time to Interactive (under 3.8s)
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-green-700 mb-3">Business Metrics:</h4>
+                            <ul class="space-y-2 text-green-600">
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    Bounce rate reduction
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    Conversion rate improvement
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    Search ranking improvements
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-6">Maintenance: Keep It Fast</h2>
+
+                <div class="bg-secondary/5 rounded-xl p-8">
+                    <h3 class="text-2xl font-semibold text-primary mb-6">Monthly Performance Maintenance</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-secondary mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <strong>Run speed tests monthly</strong> - Use Google PageSpeed Insights and GTmetrix to monitor performance
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-secondary mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <strong>Update plugins and themes</strong> - Keep all software current for security and performance
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-secondary mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <strong>Clear cache regularly</strong> - Fresh cache ensures users get the latest optimizations
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-secondary mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <strong>Optimize new content</strong> - Compress images and minify code for all new additions
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </article>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-primary text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-6">Need Help Optimizing Your Website?</h2>
+            <p class="text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
+                These optimizations can be technical and time-consuming. Let our performance experts handle the heavy lifting while you focus on growing your business.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="bg-secondary text-white px-8 py-4 rounded-lg font-semibold hover:bg-secondary/90 transition-all transform hover:scale-105">
+                    Get Performance Audit
+                </a>
+                <a href="services.html" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary transition-all">
+                    View Our Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Articles -->
+    <section class="py-16 bg-neutral">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-primary text-center mb-12">Related Articles</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="bg-gradient-to-br from-red-500 to-red-600 h-32 flex items-center justify-center">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16c-.77.833.192 2.5 1.732 2.5z"></path>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">Website Redesign Warning Signs</h3>
+                        <p class="text-gray-600 text-sm mb-4">Know when it's time to refresh your website for better results.</p>
+                        <a href="blog-website-redesign-signs.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="bg-gradient-to-br from-green-500 to-green-600 h-32 flex items-center justify-center">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">Case Study: Double Leads in 30 Days</h3>
+                        <p class="text-gray-600 text-sm mb-4">How strategic optimization helped a local business dramatically increase conversions.</p>
+                        <a href="blog-case-study-double-leads.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="bg-gradient-to-br from-orange-500 to-orange-600 h-32 flex items-center justify-center">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">SEO Basics for Designers</h3>
+                        <p class="text-gray-600 text-sm mb-4">Build websites that rank high in search results from day one.</p>
+                        <a href="blog-seo-basics-designers.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <div class="text-2xl font-bold mb-4">Websetly</div>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        Premium web design for growing businesses. We create stunning, high-converting websites that help you stand out online.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="services.html#web-design" class="hover:text-secondary transition-colors">Web Design</a></li>
+                        <li><a href="services.html#development" class="hover:text-secondary transition-colors">Development</a></li>
+                        <li><a href="services.html#ui-ux-design" class="hover:text-secondary transition-colors">UI/UX Design</a></li>
+                        <li><a href="services.html#branding" class="hover:text-secondary transition-colors">Branding</a></li>
+                        <li><a href="services.html#seo-setup" class="hover:text-secondary transition-colors">SEO Setup</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="about.html" class="hover:text-secondary transition-colors">About</a></li>
+                        <li><a href="portfolio.html" class="hover:text-secondary transition-colors">Portfolio</a></li>
+                        <li><a href="blog.html" class="hover:text-secondary transition-colors">Blog</a></li>
+                        <li><a href="contact.html" class="hover:text-secondary transition-colors">Contact</a></li>
+                        <li><a href="privacy.html" class="hover:text-secondary transition-colors">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="hover:text-secondary transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Websetly. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

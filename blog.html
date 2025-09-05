@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Read the latest insights on web design, development, and digital marketing from Websetly's expert team. Stay updated with trends and tips to grow your online business.">
+    <meta name="keywords" content="web design blog, development tips, SEO advice, digital marketing, small business online presence, websetly blog">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://websetly.com/blog.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Websetly Blog - Web Design & Development Insights">
+    <meta property="og:description" content="Read the latest insights on web design, development, and digital marketing from Websetly's expert team.">
+    <meta property="og:image" content="https://websetly.com/images/og-image.jpg">
+    <meta property="og:url" content="https://websetly.com/blog.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Websetly Blog - Web Design & Development Insights">
+    <meta name="twitter:description" content="Read the latest insights on web design, development, and digital marketing from Websetly's expert team.">
+    <meta name="twitter:image" content="https://websetly.com/images/og-image.jpg">
+    
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <title>Blog - Web Design & Development Insights | Websetly</title>
+    <link rel="stylesheet" href="css/output.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YN57XMWHS1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-YN57XMWHS1');
+    </script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A192F',
+                        secondary: '#FF6B35',
+                        neutral: '#F5F5F5'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-primary bg-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md z-50 border-b border-neutral">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-primary">Websetly</div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-primary hover:text-secondary transition-colors font-medium">Home</a>
+                        <a href="about.html" class="text-primary hover:text-secondary transition-colors font-medium">About</a>
+                        <a href="services.html" class="text-primary hover:text-secondary transition-colors font-medium">Services</a>
+                        <a href="portfolio.html" class="text-primary hover:text-secondary transition-colors font-medium">Portfolio</a>
+                        <a href="blog.html" class="text-secondary font-medium">Blog</a>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <a href="contact.html" class="bg-secondary text-white px-6 py-3 rounded-lg font-medium hover:bg-secondary/90 transition-all transform hover:scale-105">
+                        Get Started
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-primary hover:text-secondary">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-neutral">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Home</a>
+                <a href="about.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">About</a>
+                <a href="services.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Services</a>
+                <a href="portfolio.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Portfolio</a>
+                <a href="blog.html" class="block px-3 py-2 text-secondary font-medium">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-br from-primary via-primary to-blue-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center" data-aos="fade-up" data-aos-duration="600">
+                <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                    Our <span class="text-secondary">Blog</span>
+                </h1>
+                <p class="text-xl text-blue-100 leading-relaxed max-w-3xl mx-auto">
+                    Discover expert insights on web design, development, SEO, and digital marketing. Stay ahead with the latest trends and actionable tips to grow your business online.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Article -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16">
+                <div class="bg-neutral rounded-2xl overflow-hidden">
+                    <div class="grid lg:grid-cols-2 gap-0">
+                        <div class="bg-gradient-to-br from-primary/10 to-secondary/10 p-12 flex items-center justify-center">
+                            <div class="text-center space-y-6">
+                                <div class="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto">
+                                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                </div>
+                                <div class="text-4xl font-bold text-primary">Featured</div>
+                                <div class="text-secondary font-medium">Latest Insights</div>
+                            </div>
+                        </div>
+                        <div class="p-12">
+                            <div class="space-y-6">
+                                <div class="flex items-center space-x-4">
+                                    <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm font-medium">Web Design</span>
+                                    <span class="text-gray-500 text-sm">September 2, 2025</span>
+                                </div>
+                                <h2 class="text-3xl font-bold text-primary">How to Know When Your Small Business Needs a Website Redesign</h2>
+                                <p class="text-lg text-gray-600 leading-relaxed">
+                                    Is your website driving conversions or driving customers away? Learn the key warning signs that indicate it's time for a redesign and discover the next steps to transform your online presence.
+                                </p>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center">
+                                        <span class="text-secondary font-semibold">W</span>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-primary">Websetly Team</div>
+                                        <div class="text-sm text-gray-500">5 min read</div>
+                                    </div>
+                                </div>
+                                <a href="blog-website-redesign-signs.html" class="inline-flex items-center text-secondary font-semibold hover:text-secondary/80 transition-colors">
+                                    Read Full Article
+                                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Articles Grid -->
+    <section class="py-20 bg-neutral">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Latest Articles</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Practical insights and actionable tips to help your business thrive online.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 h-48 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold">Budget Tips</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Startups</span>
+                            <span class="text-gray-500 text-sm">August 28, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">7 Cost-Effective Web Design Tips for Startups on a Budget</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Launching a startup? Learn how to create a professional website without breaking the bank. These proven strategies will help you maximize impact while minimizing costs.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center">
+                                    <span class="text-secondary font-semibold text-sm">W</span>
+                                </div>
+                                <span class="text-sm text-gray-500">4 min read</span>
+                            </div>
+                            <a href="blog-startup-web-design-budget.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
+                                Read More →
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="bg-gradient-to-br from-green-500 to-green-600 h-48 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold">Case Study</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Results</span>
+                            <span class="text-gray-500 text-sm">August 25, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">How We Helped a Local Service Business Double Leads in 30 Days</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Real results from a real client. Discover the exact strategies, design changes, and optimizations we implemented to achieve remarkable growth.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center">
+                                    <span class="text-secondary font-semibold text-sm">W</span>
+                                </div>
+                                <span class="text-sm text-gray-500">6 min read</span>
+                            </div>
+                            <a href="blog-case-study-double-leads.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
+                                Read More →
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="bg-gradient-to-br from-purple-500 to-purple-600 h-48 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold">Performance</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">Speed</span>
+                            <span class="text-gray-500 text-sm">August 22, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">Website Performance Checklist: 10 Improvements That Speed Up Your Site</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Site speed directly impacts conversions and SEO. Follow this practical checklist to dramatically improve your website's performance and user experience.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center">
+                                    <span class="text-secondary font-semibold text-sm">W</span>
+                                </div>
+                                <span class="text-sm text-gray-500">7 min read</span>
+                            </div>
+                            <a href="blog-website-performance-checklist.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
+                                Read More →
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="bg-gradient-to-br from-orange-500 to-orange-600 h-48 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold">SEO Guide</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">SEO</span>
+                            <span class="text-gray-500 text-sm">August 20, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">SEO Basics for Designers: How to Build Sites That Rank from Day One</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Master the essential SEO techniques every designer should know. Build websites that not only look great but also rank high in search results.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center">
+                                    <span class="text-secondary font-semibold text-sm">W</span>
+                                </div>
+                                <span class="text-sm text-gray-500">8 min read</span>
+                            </div>
+                            <a href="blog-seo-basics-designers.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
+                                Read More →
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-16">
+                <button class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 transition-all transform hover:scale-105">
+                    Load More Articles
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-20 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold mb-6">Stay Updated with Our Latest Insights</h2>
+                <p class="text-xl text-blue-200 mb-8">
+                    Get actionable web design and marketing tips delivered to your inbox every week. No spam, just valuable content to help your business grow.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+                    <input type="email" placeholder="Enter your email" class="flex-1 px-6 py-4 rounded-lg text-primary font-medium focus:outline-none focus:ring-4 focus:ring-secondary/30">
+                    <button class="bg-secondary text-white px-8 py-4 rounded-lg font-semibold hover:bg-secondary/90 transition-all transform hover:scale-105 whitespace-nowrap">
+                        Subscribe Now
+                    </button>
+                </div>
+                <p class="text-sm text-blue-200 mt-4">Join 500+ business owners already subscribed</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <div class="text-2xl font-bold mb-4">Websetly</div>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        Premium web design for growing businesses. We create stunning, high-converting websites that help you stand out online.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="services.html#web-design" class="hover:text-secondary transition-colors">Web Design</a></li>
+                        <li><a href="services.html#development" class="hover:text-secondary transition-colors">Development</a></li>
+                        <li><a href="services.html#ui-ux-design" class="hover:text-secondary transition-colors">UI/UX Design</a></li>
+                        <li><a href="services.html#branding" class="hover:text-secondary transition-colors">Branding</a></li>
+                        <li><a href="services.html#seo-setup" class="hover:text-secondary transition-colors">SEO Setup</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="about.html" class="hover:text-secondary transition-colors">About</a></li>
+                        <li><a href="portfolio.html" class="hover:text-secondary transition-colors">Portfolio</a></li>
+                        <li><a href="blog.html" class="hover:text-secondary transition-colors">Blog</a></li>
+                        <li><a href="contact.html" class="hover:text-secondary transition-colors">Contact</a></li>
+                        <li><a href="privacy.html" class="hover:text-secondary transition-colors">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="hover:text-secondary transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Websetly. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+            
+            // Initialize AOS
+            AOS.init();
+        });
+    </script>
+</body>
+</html>
