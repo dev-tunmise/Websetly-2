@@ -67,6 +67,13 @@
             width: 100% !important;
             z-index: 9999 !important;
         }
+
+        /* Hero section debug - ensure visibility */
+        .hero-section h1, .hero-section p {
+            color: white !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
     </style>
 </head>
 <body class="font-sans text-primary bg-white">
@@ -109,14 +116,15 @@
                 <a href="services.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Services</a>
                 <a href="portfolio.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Portfolio</a>
                 <a href="blog.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Blog</a>
+                <a href="contact.html" class="block px-3 py-2 text-primary hover:text-secondary font-medium">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-20 bg-gradient-to-br from-primary via-primary to-blue-900 text-white">
+    <section class="hero-section pt-32 pb-20 bg-gradient-to-br from-primary via-primary to-blue-900 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-4xl mx-auto text-center" data-aos="fade-up" data-aos-duration="600">
+            <div class="max-w-4xl mx-auto text-center">
                 <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                     Let's Build Something <span class="text-secondary">Amazing</span> Together
                 </h1>
