@@ -132,9 +132,9 @@
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-16">
-                <div class="bg-neutral rounded-2xl overflow-hidden">
+                <div class="bg-neutral rounded-2xl overflow-hidden shadow-lg">
                     <div class="grid lg:grid-cols-2 gap-0">
-                        <div class="bg-gradient-to-br from-primary/10 to-secondary/10 p-12 flex items-center justify-center">
+                        <div class="bg-gradient-to-br from-primary/10 to-secondary/10 p-8 lg:p-12 flex items-center justify-center">
                             <div class="text-center space-y-6">
                                 <div class="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto">
                                     <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -145,13 +145,13 @@
                                 <div class="text-secondary font-medium">Latest Insights</div>
                             </div>
                         </div>
-                        <div class="p-12 py-12">
+                        <div class="p-8 lg:p-12 flex flex-col justify-center">
                             <div class="space-y-6">
                                 <div class="flex items-center space-x-4">
                                     <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm font-medium">Business Growth</span>
                                     <span class="text-gray-500 text-sm">September 8, 2025</span>
                                 </div>
-                                <h2 class="text-3xl font-bold text-primary">Why Every Business Needs a Website</h2>
+                                <h2 class="text-2xl lg:text-3xl font-bold text-primary leading-tight">Why Every Business Needs a Website</h2>
                                 <p class="text-lg text-gray-600 leading-relaxed">
                                     In today's digital world, not having a website means losing customers to competitors. Discover the essential reasons your business can't afford to stay offline and how a professional website becomes your most powerful growth tool.
                                 </p>
@@ -293,8 +293,18 @@
                         </div>
                     </div>
                 </article>
+            </div>
 
-                <!-- NEW Article 4 - Essential Features -->
+            <!-- Load More Button -->
+            <div class="w-full text-center pt-20 mb-20">
+                <button id="load-more-btn" class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 transition-all transform hover:scale-105">
+                    Load More Articles
+                </button>
+            </div>
+
+            <!-- Hidden Articles (Load More) -->
+            <div id="hidden-articles" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8" style="display: none !important; visibility: hidden;">
+                <!-- Article 4 - Essential Features -->
                 <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
                     <div class="bg-gradient-to-br from-teal-500 to-teal-600 h-48 flex items-center justify-center">
                         <div class="text-center text-white">
@@ -329,7 +339,7 @@
                     </div>
                 </article>
 
-                <!-- NEW Article 5 - How to Choose Agency -->
+                <!-- Article 5 - How to Choose Agency -->
                 <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
                     <div class="bg-gradient-to-br from-pink-500 to-pink-600 h-48 flex items-center justify-center">
                         <div class="text-center text-white">
@@ -364,7 +374,7 @@
                     </div>
                 </article>
 
-                <!-- Existing Article 1 -->
+                <!-- Article 6 - Budget Tips -->
                 <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
                     <div class="bg-gradient-to-br from-blue-500 to-blue-600 h-48 flex items-center justify-center">
                         <div class="text-center text-white">
@@ -399,7 +409,7 @@
                     </div>
                 </article>
 
-                <!-- Article 2 -->
+                <!-- Article 7 - Case Study -->
                 <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
                     <div class="bg-gradient-to-br from-green-500 to-green-600 h-48 flex items-center justify-center">
                         <div class="text-center text-white">
@@ -413,19 +423,19 @@
                     </div>
                     <div class="p-6">
                         <div class="flex items-center space-x-4 mb-4">
-                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Results</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Success Story</span>
                             <span class="text-gray-500 text-sm">August 25, 2025</span>
                         </div>
-                        <h3 class="text-xl font-bold text-primary mb-3">How We Helped a Local Service Business Double Leads in 30 Days</h3>
+                        <h3 class="text-xl font-bold text-primary mb-3">Case Study: How New Design Doubled Client's Leads in 30 Days</h3>
                         <p class="text-gray-600 mb-4 leading-relaxed">
-                            Real results from a real client. Discover the exact strategies, design changes, and optimizations we implemented to achieve remarkable growth.
+                            See how strategic web design helped a local business generate 2x more leads. Real results from a real client redesign project.
                         </p>
                         <div class="flex items-center justify-between">
                             <div class="flex items-center space-x-2">
                                 <div class="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center">
                                     <span class="text-secondary font-semibold text-sm">W</span>
                                 </div>
-                                <span class="text-sm text-gray-500">6 min read</span>
+                                <span class="text-sm text-gray-500">5 min read</span>
                             </div>
                             <a href="blog-case-study-double-leads.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
                                 Read More →
@@ -434,7 +444,7 @@
                     </div>
                 </article>
 
-                <!-- Article 3 -->
+                <!-- Article 8 - Performance -->
                 <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
                     <div class="bg-gradient-to-br from-purple-500 to-purple-600 h-48 flex items-center justify-center">
                         <div class="text-center text-white">
@@ -448,12 +458,12 @@
                     </div>
                     <div class="p-6">
                         <div class="flex items-center space-x-4 mb-4">
-                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">Speed</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">Technical</span>
                             <span class="text-gray-500 text-sm">August 22, 2025</span>
                         </div>
-                        <h3 class="text-xl font-bold text-primary mb-3">Website Performance Checklist: 10 Improvements That Speed Up Your Site</h3>
+                        <h3 class="text-xl font-bold text-primary mb-3">The Ultimate Website Performance Checklist for 2025</h3>
                         <p class="text-gray-600 mb-4 leading-relaxed">
-                            Site speed directly impacts conversions and SEO. Follow this practical checklist to dramatically improve your website's performance and user experience.
+                            Page speed affects everything from user experience to search rankings. Use this comprehensive checklist to optimize your site's performance.
                         </p>
                         <div class="flex items-center justify-between">
                             <div class="flex items-center space-x-2">
@@ -469,7 +479,7 @@
                     </div>
                 </article>
 
-                <!-- Article 4 -->
+                <!-- Article 9 - SEO -->
                 <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
                     <div class="bg-gradient-to-br from-orange-500 to-orange-600 h-48 flex items-center justify-center">
                         <div class="text-center text-white">
@@ -503,13 +513,183 @@
                         </div>
                     </div>
                 </article>
-            </div>
 
-            <!-- Load More Button -->
-            <div class="text-center t-16">
-                <button class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 transition-all transform hover:scale-105">
-                    Load More Articles
-                </button>
+                <!-- NEW WHOGOHOST AFFILIATE ARTICLES -->
+                
+                <!-- Article 10 - Secure Domain -->
+                <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="bg-gradient-to-br from-blue-600 to-indigo-700 h-48 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold">Domain Security</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Domain Guide</span>
+                            <span class="text-gray-500 text-sm">September 16, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">How to Secure Your Domain Name Today with Whogohost</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Don't lose your perfect domain name to competitors. Learn how to quickly secure your domain with Nigeria's most trusted registrar.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center">
+                                    <span class="text-secondary font-semibold text-sm">W</span>
+                                </div>
+                                <span class="text-sm text-gray-500">7 min read</span>
+                            </div>
+                            <a href="blog-secure-domain-whogohost.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
+                                Read More →
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 11 - Best Domain Registrar -->
+                <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="bg-gradient-to-br from-emerald-600 to-teal-700 h-48 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold">Best Registrar</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium">Comparison</span>
+                            <span class="text-gray-500 text-sm">September 16, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">Why Whogohost is the Best Place to Buy Your Domain Name in Nigeria</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Compare Nigeria's top domain registrars and discover why over 100,000 businesses choose Whogohost for their domain needs.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center">
+                                    <span class="text-secondary font-semibold text-sm">W</span>
+                                </div>
+                                <span class="text-sm text-gray-500">10 min read</span>
+                            </div>
+                            <a href="blog-best-domain-registrar-nigeria-whogohost.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
+                                Read More →
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 12 - Registration Guide -->
+                <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="bg-gradient-to-br from-amber-600 to-orange-700 h-48 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold">Step Guide</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm font-medium">Tutorial</span>
+                            <span class="text-gray-500 text-sm">September 16, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">Step-by-Step Guide: Register Your Domain Name Easily</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Complete beginner's guide to registering your domain name with Whogohost in just 5 minutes. Screenshots included.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center">
+                                    <span class="text-secondary font-semibold text-sm">W</span>
+                                </div>
+                                <span class="text-sm text-gray-500">8 min read</span>
+                            </div>
+                            <a href="blog-register-domain-guide-whogohost.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
+                                Read More →
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 13 - Domain Costs -->
+                <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="bg-gradient-to-br from-green-600 to-emerald-700 h-48 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold">Cost Guide</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Price Guide</span>
+                            <span class="text-gray-500 text-sm">September 16, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">Domain Name Costs in Nigeria 2025: Complete Price Guide</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Uncover the true cost of domain registration in Nigeria. Compare prices and discover hidden fees to avoid.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center">
+                                    <span class="text-secondary font-semibold text-sm">W</span>
+                                </div>
+                                <span class="text-sm text-gray-500">12 min read</span>
+                            </div>
+                            <a href="blog-domain-name-cost-nigeria-whogohost.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
+                                Read More →
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 14 - .ng Domain Benefits -->
+                <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                    <div class="bg-gradient-to-br from-teal-600 to-cyan-700 h-48 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold">🇳🇬 .ng Benefits</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm font-medium">Local SEO</span>
+                            <span class="text-gray-500 text-sm">September 16, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">Why Nigerian Businesses Should Choose .ng Domains in 2025</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Discover the compelling benefits of .ng domains for local SEO, customer trust, and business growth in Nigeria.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center">
+                                    <span class="text-secondary font-semibold text-sm">W</span>
+                                </div>
+                                <span class="text-sm text-gray-500">11 min read</span>
+                            </div>
+                            <a href="blog-ng-domain-benefits-nigeria-whogohost.html" class="text-secondary font-semibold hover:text-secondary/80 transition-colors">
+                                Read More →
+                            </a>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
@@ -582,9 +762,54 @@
                     mobileMenu.classList.toggle('hidden');
                 });
             }
+
+            // Load More Articles functionality
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            const hiddenArticles = document.getElementById('hidden-articles');
+            let articlesVisible = false;
+
+            if (loadMoreBtn && hiddenArticles) {
+                loadMoreBtn.addEventListener('click', () => {
+                    if (!articlesVisible) {
+                        // Show hidden articles
+                        hiddenArticles.style.display = 'grid';
+                        hiddenArticles.style.visibility = 'visible';
+                        
+                        // Smooth scroll to the newly loaded content
+                        setTimeout(() => {
+                            hiddenArticles.scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'start' 
+                            });
+                        }, 100);
+
+                        // Update button text
+                        loadMoreBtn.textContent = 'Show Less Articles';
+                        articlesVisible = true;
+                    } else {
+                        // Hide articles
+                        hiddenArticles.style.display = 'none';
+                        hiddenArticles.style.visibility = 'hidden';
+                        
+                        // Scroll back to the button
+                        setTimeout(() => {
+                            loadMoreBtn.scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'center' 
+                            });
+                        }, 100);
+
+                        // Reset button text
+                        loadMoreBtn.textContent = 'Load More Articles';
+                        articlesVisible = false;
+                    }
+                });
+            }
             
             // Initialize AOS
-            AOS.init();
+            if (typeof AOS !== 'undefined') {
+                AOS.init();
+            }
         });
     </script>
 </body>
