@@ -28,7 +28,26 @@
     <meta name="twitter:title" content="We Build Websites That Get More Leads, Clients & Sales | Websetly">
     <meta name="twitter:description" content="Need a website that sells? We build fast, modern, SEO-optimized websites that grow your sales and online visibility.">
     
-    <link rel="stylesheet" href="css/output.css">
+    <!-- Tailwind CSS CDN (temporary) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#0A192F',
+                        'secondary': '#FF6B35',
+                        'accent': '#f59e0b',
+                        'neutral': '#F5F5F5',
+                        'dark': '#0f172a',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     
     <!-- Load fonts efficiently -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -70,6 +89,189 @@
             animation: fadeInUp 0.6s ease-out forwards;
         }
         
+        /* Subtle background animations */
+        @keyframes float-slow {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(5deg); }
+            66% { transform: translate(-20px, 20px) rotate(-5deg); }
+        }
+        
+        @keyframes float-slower {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-30px, -40px) scale(1.1); }
+        }
+        
+        @keyframes pulse-subtle {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.2; }
+        }
+        
+        .bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        
+        .bg-orb-1 {
+            animation: float-slow 20s ease-in-out infinite;
+        }
+        
+        .bg-orb-2 {
+            animation: float-slower 25s ease-in-out infinite;
+        }
+        
+        .bg-orb-3 {
+            animation: float-slow 30s ease-in-out infinite reverse;
+        }
+        
+        /* Floating particles */
+        @keyframes float-particle-1 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(100px, -100px) rotate(90deg); }
+            50% { transform: translate(200px, -50px) rotate(180deg); }
+            75% { transform: translate(100px, 50px) rotate(270deg); }
+        }
+        
+        @keyframes float-particle-2 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            33% { transform: translate(-150px, 80px) rotate(120deg) scale(1.2); }
+            66% { transform: translate(-80px, -120px) rotate(240deg) scale(0.8); }
+        }
+        
+        @keyframes float-particle-3 {
+            0%, 100% { transform: translate(0, 0) rotate(45deg); }
+            50% { transform: translate(-100px, 150px) rotate(225deg); }
+        }
+        
+        @keyframes float-particle-4 {
+            0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            25% { transform: translate(120px, 100px) scale(0.7) rotate(-90deg); }
+            50% { transform: translate(80px, -80px) scale(1.3) rotate(-180deg); }
+            75% { transform: translate(-50px, 120px) scale(0.9) rotate(-270deg); }
+        }
+        
+        @keyframes float-particle-5 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            20% { transform: translate(-60px, -90px) rotate(72deg) scale(1.1); }
+            40% { transform: translate(80px, -60px) rotate(144deg) scale(0.9); }
+            60% { transform: translate(90px, 70px) rotate(216deg) scale(1.2); }
+            80% { transform: translate(-70px, 80px) rotate(288deg) scale(0.85); }
+        }
+        
+        @keyframes float-particle-6 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(110px, -70px) rotate(-120deg); }
+            66% { transform: translate(-90px, 90px) rotate(-240deg); }
+        }
+        
+        .particle {
+            position: absolute;
+            opacity: 0.15;
+            pointer-events: none;
+            will-change: transform;
+        }
+        
+        .particle-circle {
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .particle-square {
+            background: rgba(255, 107, 53, 0.25);
+        }
+        
+        .particle-triangle {
+            width: 0;
+            height: 0;
+            background: transparent;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 17px solid rgba(96, 165, 250, 0.3);
+        }
+        
+        .particle-diamond {
+            background: rgba(168, 85, 247, 0.25);
+            transform: rotate(45deg);
+        }
+        
+        .particle-hexagon {
+            width: 20px;
+            height: 12px;
+            background: rgba(34, 211, 238, 0.25);
+            position: relative;
+        }
+        
+        .particle-hexagon::before,
+        .particle-hexagon::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+        }
+        
+        .particle-hexagon::before {
+            bottom: 100%;
+            border-bottom: 6px solid rgba(34, 211, 238, 0.25);
+        }
+        
+        .particle-hexagon::after {
+            top: 100%;
+            border-top: 6px solid rgba(34, 211, 238, 0.25);
+        }
+        
+        .particle-star {
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 14px solid rgba(251, 191, 36, 0.3);
+            position: relative;
+        }
+        
+        .particle-star::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 14px solid rgba(251, 191, 36, 0.3);
+            top: 5px;
+            left: -8px;
+        }
+        
+        .particle-plus {
+            width: 3px;
+            height: 15px;
+            background: rgba(248, 113, 113, 0.25);
+            position: relative;
+        }
+        
+        .particle-plus::before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 3px;
+            background: rgba(248, 113, 113, 0.25);
+            top: 6px;
+            left: -6px;
+        }
+        
+        .particle-ring {
+            border-radius: 50%;
+            border: 2px solid rgba(167, 243, 208, 0.3);
+            background: transparent;
+        }
+        
+        .particle-line {
+            width: 2px;
+            height: 20px;
+            background: linear-gradient(to bottom, rgba(196, 181, 253, 0.3), rgba(196, 181, 253, 0.1));
+        }
+        
         /* Mobile-optimized hero text */
         @media (max-width: 640px) {
             .hero-h1 {
@@ -93,6 +295,17 @@
         img[loading="lazy"].loaded {
             opacity: 1;
         }
+        
+        /* Navbar scroll effect */
+        nav {
+            transition: all 0.3s ease;
+        }
+        
+        nav.nav-scrolled {
+            background: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
     </style>
        <!-- Google tag (gtag.js) - Non-blocking analytics -->
 <script>
@@ -112,30 +325,35 @@
 </head>
 <body class="font-sans text-primary bg-white">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/95 backdrop-blur-md border-b border-neutral">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
+    <nav class="fixed w-full bg-transparent z-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
                 <div class="flex items-center">
-                    <div class="text-2xl font-bold text-primary">Websetly</div>
+                    <a href="index.html" class="text-xl font-bold text-white hover:text-secondary transition-colors">
+                        Websetly
+                    </a>
                 </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="index.html" class="text-primary hover:text-secondary transition-colors font-medium">Home</a>
-                        <a href="about.html" class="text-primary hover:text-secondary transition-colors font-medium">About</a>
-                        <a href="services.html" class="text-primary hover:text-secondary transition-colors font-medium">Services</a>
-                        <a href="portfolio.html" class="text-primary hover:text-secondary transition-colors font-medium">Portfolio</a>
-                        <a href="blog.html" class="text-primary hover:text-secondary transition-colors font-medium">Blog</a>
-                    </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-sm font-medium text-white/90 hover:text-white transition-colors">Home</a>
+                    <a href="about.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">About</a>
+                    <a href="services.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">Services</a>
+                    <a href="portfolio.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">Portfolio</a>
+                    <a href="blog.html" class="text-sm font-medium text-white/70 hover:text-white transition-colors">Blog</a>
                 </div>
-                <div class="hidden md:block">
-                    <a href="contact.html" class="bg-secondary text-white px-6 py-3 rounded-lg font-medium hover:bg-secondary/90 transition-all transform hover:scale-105">
+                
+                <!-- CTA Button -->
+                <div class="hidden md:flex items-center">
+                    <a href="contact.html" class="px-6 py-2 border border-white/30 text-white text-sm font-medium rounded-full hover:bg-white/10 backdrop-blur-sm transition-all">
                         Get Started
                     </a>
                 </div>
                 <!-- Mobile menu button -->
                 <div class="md:hidden">
                     <button id="mobile-menu-btn" 
-                            class="text-primary hover:text-secondary"
+                            class="text-white hover:text-secondary"
                             aria-controls="mobile-menu"
                             aria-expanded="false"
                             aria-label="Open navigation menu">
@@ -160,149 +378,486 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-20 pb-16 bg-gradient-to-br from-primary via-primary to-blue-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-8">
-                    <h1 class="hero-h1 text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                        We Build Websites That Help You Get More 
-                        <span class="text-secondary">Leads, Clients, and Sales.</span>
-                    </h1>
-                    <p class="text-xl text-blue-100 leading-relaxed max-w-lg">
-                        We build fast, modern, SEO-optimized websites that increase your online visibility and help more people discover your business.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="portfolio.html" class="bg-secondary text-white px-8 py-4 rounded-lg font-semibold hover:bg-secondary/90 transition-all transform hover:scale-105 text-center">
-                            View Our Work
-                        </a>
-                        <a href="contact.html" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary transition-all text-center">
-                            Start Your Project
-                        </a>
+    <section class="min-h-screen bg-gradient-to-br from-primary via-primary to-blue-900 text-white flex items-center justify-center relative overflow-hidden">
+        <!-- Subtle animated background orbs -->
+        <div class="bg-orb bg-orb-1 w-96 h-96 bg-secondary top-10 right-10"></div>
+        <div class="bg-orb bg-orb-2 w-[500px] h-[500px] bg-blue-400 bottom-20 left-10"></div>
+        <div class="bg-orb bg-orb-3 w-80 h-80 bg-purple-500 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+        
+        <!-- Floating particles -->
+        <div class="particle particle-circle w-5 h-5 top-[20%] left-[10%]" style="animation: float-particle-1 25s ease-in-out infinite; opacity: 0.25;"></div>
+        <div class="particle particle-square w-6 h-6 top-[15%] right-[15%]" style="animation: float-particle-2 30s ease-in-out infinite; opacity: 0.12;"></div>
+        <div class="particle particle-triangle top-[60%] left-[8%]" style="animation: float-particle-3 20s ease-in-out infinite; opacity: 0.18; transform: scale(1.3);"></div>
+        <div class="particle particle-diamond w-4 h-4 top-[25%] right-[25%]" style="animation: float-particle-4 28s ease-in-out infinite; opacity: 0.08;"></div>
+        <div class="particle particle-circle w-3 h-3 top-[70%] right-[12%]" style="animation: float-particle-1 22s ease-in-out infinite reverse; opacity: 0.3;"></div>
+        <div class="particle particle-hexagon top-[35%] left-[20%]" style="animation: float-particle-2 26s ease-in-out infinite reverse; opacity: 0.2; transform: scale(1.5);"></div>
+        <div class="particle particle-square w-2 h-2 top-[80%] left-[18%]" style="animation: float-particle-4 24s ease-in-out infinite; opacity: 0.1;"></div>
+        <div class="particle particle-diamond w-7 h-7 top-[45%] right-[8%]" style="animation: float-particle-3 27s ease-in-out infinite reverse; opacity: 0.15;"></div>
+        <div class="particle particle-circle w-4 h-4 top-[50%] left-[15%]" style="animation: float-particle-2 29s ease-in-out infinite; opacity: 0.22;"></div>
+        <div class="particle particle-triangle top-[10%] left-[30%]" style="animation: float-particle-4 23s ease-in-out infinite reverse; opacity: 0.28; transform: scale(0.8);"></div>
+        <div class="particle particle-square w-5 h-5 top-[65%] right-[20%]" style="animation: float-particle-1 21s ease-in-out infinite; opacity: 0.14;"></div>
+        <div class="particle particle-hexagon top-[85%] right-[30%]" style="animation: float-particle-3 25s ease-in-out infinite; opacity: 0.11; transform: scale(1.2);"></div>
+        
+        <!-- New particles with different shapes -->
+        <div class="particle particle-star top-[30%] left-[5%]" style="animation: float-particle-5 26s ease-in-out infinite; opacity: 0.24; transform: scale(1.1);"></div>
+        <div class="particle particle-plus top-[55%] right-[18%]" style="animation: float-particle-6 19s ease-in-out infinite; opacity: 0.16; transform: scale(1.4);"></div>
+        <div class="particle particle-ring w-6 h-6 top-[12%] right-[8%]" style="animation: float-particle-1 27s ease-in-out infinite reverse; opacity: 0.19;"></div>
+        <div class="particle particle-line top-[75%] left-[25%]" style="animation: float-particle-2 24s ease-in-out infinite; opacity: 0.13; transform: scale(0.9);"></div>
+        <div class="particle particle-star top-[40%] right-[35%]" style="animation: float-particle-3 31s ease-in-out infinite reverse; opacity: 0.09; transform: scale(0.7);"></div>
+        <div class="particle particle-circle w-7 h-7 top-[22%] left-[40%]" style="animation: float-particle-4 28s ease-in-out infinite; opacity: 0.07;"></div>
+        <div class="particle particle-plus top-[88%] left-[12%]" style="animation: float-particle-5 22s ease-in-out infinite reverse; opacity: 0.21; transform: scale(1.2);"></div>
+        <div class="particle particle-ring w-8 h-8 top-[48%] left-[3%]" style="animation: float-particle-6 29s ease-in-out infinite; opacity: 0.17;"></div>
+        <div class="particle particle-square w-4 h-4 top-[18%] left-[45%]" style="animation: float-particle-1 25s ease-in-out infinite; opacity: 0.26;"></div>
+        <div class="particle particle-diamond w-3 h-3 top-[92%] right-[15%]" style="animation: float-particle-2 20s ease-in-out infinite reverse; opacity: 0.29;"></div>
+        <div class="particle particle-line top-[8%] right-[40%]" style="animation: float-particle-3 23s ease-in-out infinite; opacity: 0.12; transform: scale(1.3);"></div>
+        <div class="particle particle-star top-[68%] right-[5%]" style="animation: float-particle-4 26s ease-in-out infinite reverse; opacity: 0.15; transform: scale(0.85);"></div>
+        <div class="particle particle-ring w-5 h-5 top-[33%] right-[45%]" style="animation: float-particle-5 27s ease-in-out infinite; opacity: 0.11;"></div>
+        <div class="particle particle-circle w-2 h-2 top-[58%] left-[35%]" style="animation: float-particle-6 21s ease-in-out infinite reverse; opacity: 0.27;"></div>
+        <div class="particle particle-plus top-[95%] left-[40%]" style="animation: float-particle-1 30s ease-in-out infinite; opacity: 0.08; transform: scale(0.95);"></div>
+        <div class="particle particle-triangle top-[5%] left-[18%]" style="animation: float-particle-2 24s ease-in-out infinite reverse; opacity: 0.23; transform: scale(1.15);"></div>
+        
+        <!-- Grid pattern overlay -->
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,black,transparent)]"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-32 pt-40 w-full relative z-10">
+            <div class="text-center space-y-6">
+                <!-- Badge -->
+                <div class="inline-block animate-fade-in-up">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 backdrop-blur-sm rounded-full text-xs sm:text-sm font-medium border border-white/20 text-blue-100">
+                        <span class="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-green-400"></span>
+                        </span>
+                        Trusted by 50+ businesses across Nigeria
                     </div>
                 </div>
-                <div class="relative group">
-                    <img src="images/websetly-hero.jpg" 
-                         alt="Professional web design and development workspace" 
-                         class="w-full h-96 object-cover rounded-2xl shadow-2xl transform transition-transform duration-700 group-hover:scale-105"
-                         width="600" height="384" loading="eager" decoding="async">
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent rounded-2xl transition-all duration-500 group-hover:from-primary/70"></div>
+                
+                <!-- Main Headline -->
+                <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight max-w-4xl mx-auto animate-fade-in-up tracking-tight" style="animation-delay: 0.1s;">
+                    We Build Websites That Get More <span class="text-secondary">Leads, Clients & Sales</span>
+                </h1>
+                
+                <!-- Subheadline -->
+                <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-blue-100/90 leading-relaxed max-w-xl mx-auto animate-fade-in-up font-normal" style="animation-delay: 0.2s;">
+                    Fast, modern, SEO-optimized websites that grow your sales and online visibility.
+                </p>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pt-6 sm:pt-8 animate-fade-in-up" style="animation-delay: 0.3s;">
+                    <a href="contact.html" class="w-full sm:w-auto group inline-flex items-center justify-center px-6 py-3 sm:px-9 sm:py-4 bg-secondary text-white text-sm sm:text-base font-semibold rounded-lg hover:bg-secondary/90 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-secondary/20">
+                        Start Your Project
+                        <svg class="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </a>
+                    <a href="portfolio.html" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 sm:px-9 sm:py-4 bg-white/10 backdrop-blur-sm text-white text-sm sm:text-base font-semibold rounded-lg hover:bg-white/20 transition-all duration-300 border border-white/20">
+                        View Our Work
+                    </a>
+                </div>
+                
+                <!-- Trust Indicators -->
+                <!-- <div class="flex flex-wrap items-center justify-center gap-8 pt-12 animate-fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="flex items-center gap-2 text-blue-100/80">
+                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-sm">100% Satisfaction</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-blue-100/80">
+                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-sm">7-14 Days Delivery</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-blue-100/80">
+                        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-sm">SEO Optimized</span>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 bg-neutral">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left: Content -->
+                <div class="space-y-6">
+                    <div class="inline-block">
+                        <span class="text-secondary font-semibold text-sm uppercase tracking-wider">About Websetly</span>
+                    </div>
+                    <h2 class="text-4xl font-bold text-primary leading-tight">
+                       We Build Websites That Help Your Business Grow
+                    </h2>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                       Websetly is a Nigeria based web design agency that builds clean, fast, and modern websites for businesses. We focus on simple user experience, strong branding, and designs that help you attract real customers.
+                    </p>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                       Whether you are starting fresh or upgrading your current site, we make the process easy and guide you every step of the way. Our goal is to help your business grow online with smart and effective web design.
+                    </p>
                     
-                    <!-- Floating elements for movement -->
-                    <div class="absolute top-4 right-4 w-3 h-3 bg-secondary rounded-full animate-bounce opacity-70"></div>
-                    <div class="absolute top-8 right-12 w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                    <div class="absolute top-6 right-20 w-1 h-1 bg-secondary/60 rounded-full animate-ping"></div>
                     
-                    <div class="absolute bottom-6 left-6 right-6">
-                        <div class="grid grid-cols-2 gap-4 text-white">
-                            <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center border border-white/30 transform transition-all duration-300 hover:scale-105 hover:bg-white/30 animate-fade-in-up" style="animation-delay: 0.3s">
-                                <div class="text-2xl font-bold text-secondary transition-colors duration-300 hover:text-white">150+</div>
-                                <div class="text-sm opacity-90">Projects Completed</div>
+                </div>
+
+                <!-- Right: Simple Visual -->
+                <div class="relative">
+                    <!-- Main content box -->
+                    <div class="bg-white rounded-l p-8 border-l-4 border-secondary shadow-sm">
+                        <div class="space-y-8">
+                            <!-- Quote/Tagline -->
+                            <div class="relative">
+                                
+                                <p class="text-xl font-semibold text-primary leading-relaxed  pt-4">
+                                    Simple websites. Real results. No hassle.
+                                </p>
                             </div>
-                            <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center border border-white/30 transform transition-all duration-300 hover:scale-105 hover:bg-white/30 animate-fade-in-up" style="animation-delay: 0.5s">
-                                <div class="text-2xl font-bold text-secondary transition-colors duration-300 hover:text-white">2 Years</div>
-                                <div class="text-sm opacity-90">In Business</div>
+
+                            <!-- Divider -->
+                            <div class="w-16 h-1 bg-secondary"></div>
+
+                            <!-- Key points with minimal icons -->
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 rounded-full bg-secondary flex-shrink-0"></div>
+                                    <span class="text-gray-700">Modern, professional designs</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 rounded-full bg-secondary flex-shrink-0"></div>
+                                    <span class="text-gray-700">Mobile-friendly & fast loading</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 rounded-full bg-secondary flex-shrink-0"></div>
+                                    <span class="text-gray-700">SEO optimized for visibility</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 rounded-full bg-secondary flex-shrink-0"></div>
+                                    <span class="text-gray-700">Delivered in 7-14 days</span>
+                                </div>
+                            </div>
+
+                            <!-- Simple stat display -->
+                            <div class="pt-4 border-t border-gray-100">
+                                <div class="flex items-baseline gap-2">
+                                    <span class="text-4xl font-bold text-secondary">50+</span>
+                                    <span class="text-gray-600">websites delivered with 100% satisfaction</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Subtle moving border animation -->
-                    <div class="absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-r from-secondary via-transparent to-primary bg-clip-border opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+
+                    <!-- Subtle accent element -->
+                    <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-secondary/5 rounded-2xl -z-10"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="py-20 bg-white">
+    <!-- <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-primary mb-4">Why Choose Websetly?</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    We combine cutting-edge design with proven business strategy to deliver websites that don't just look great, they drive results.
+                <h2 class="text-secondary font-semibold text-sm uppercase tracking-wider">Why Choose us?</h2>
+                <p class="text-4xl font-bold text-primary leading-tight">
+                    Why We Stand Out
                 </p>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center p-8 rounded-xl hover:shadow-lg transition-shadow">
-                    <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6">
+                <div class="text-center p-5 rounded-lg hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-semibold text-primary mb-4">Lightning Fast</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        We deliver professional websites in just 7-14 days. No endless revisions, no missed deadlines just results.
+                    <h3 class="text-lg font-semibold text-primary mb-2">Fast Delivery</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        We build and launch your website quickly without cutting corners.
                     </p>
                 </div>
-                <div class="text-center p-8 rounded-xl hover:shadow-lg transition-shadow">
-                    <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="text-center p-5 rounded-lg hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-semibold text-primary mb-4">Mobile-First</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Every design starts mobile-first and scales perfectly across all devices. Your customers get a flawless experience everywhere.
+                    <h3 class="text-lg font-semibold text-primary mb-2">Mobile-First Design</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Your site works perfectly on phones, tablets, and laptops.
                     </p>
                 </div>
-                <div class="text-center p-8 rounded-xl hover:shadow-lg transition-shadow">
-                    <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                <div class="text-center p-5 rounded-lg hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-semibold text-primary mb-4">Conversion-Focused</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Beautiful design meets smart strategy. We build websites that turn visitors into customers and grow your business.
+                    <h3 class="text-lg font-semibold text-primary mb-2">SEO-Ready Structure</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Your pages are built to rank better on Google from day one.
+                    </p>
+                </div>
+                <div class="text-center p-5 rounded-lg hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-primary mb-2">Simple, Clean Design</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Everything is easy to read, fast to load, and built for real users.
+                    </p>
+                </div>
+                <div class="text-center p-5 rounded-lg hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-primary mb-2">Local Experience</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        We understand how Nigerian businesses operate and what works online here.
                     </p>
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
-    <!-- Services Preview -->
+                    
+
+    <!-- Services Section -->
     <section class="py-20 bg-neutral">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-primary mb-4">Complete Web Solutions</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    From initial concept to launch and beyond, we handle every aspect of your online presence.
+                <h2 class="text-secondary font-semibold text-sm uppercase tracking-wider">WHAT WE DO</h2>
+                <p class="text-4xl font-bold text-primary leading-tight">
+                   Website Development Services
                 </p>
             </div>
+
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
-                    <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                        </svg>
+                <!-- Service 1: Website Design & Development -->
+                <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center">
+                            <svg class="w-7 h-7 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold text-primary mb-3">Web Design</h3>
-                    <p class="text-gray-600">Custom designs that reflect your brand and engage your audience</p>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Website Design & Development</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Professional, custom websites built to elevate your business. From concept to launch, we create modern, responsive sites that convert visitors into customers.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Custom design tailored to your brand</span>
+                        </li>
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Fully responsive & mobile-optimized</span>
+                        </li>
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Fast loading & SEO-ready</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
-                    <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-                        </svg>
+
+                <!-- Service 2: E-commerce Website Design -->
+                <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center">
+                            <svg class="w-7 h-7 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold text-primary mb-3">Development</h3>
-                    <p class="text-gray-600">Clean, fast code that performs perfectly across all platforms</p>
+                    <h3 class="text-2xl font-bold text-primary mb-4">E-commerce Website Design</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Sell your products online with a beautiful, user-friendly online store. We build secure e-commerce sites that make shopping easy and checkout seamless.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Secure payment integration</span>
+                        </li>
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Product management system</span>
+                        </li>
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Shopping cart & checkout optimization</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
-                    <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                        </svg>
+
+                <!-- Service 3: SEO (Search Engine Optimization) -->
+                <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center">
+                            <svg class="w-7 h-7 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold text-primary mb-3">UI/UX Design</h3>
-                    <p class="text-gray-600">Intuitive user experiences that guide visitors to take action</p>
+                    <h3 class="text-2xl font-bold text-primary mb-4">SEO (Search Engine Optimization)</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Get found on Google and drive organic traffic to your website. Our SEO services help you rank higher and reach more potential customers online.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Keyword research & optimization</span>
+                        </li>
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>On-page & technical SEO</span>
+                        </li>
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Local SEO & Google Business setup</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 4: Website Redesign -->
+                <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center">
+                            <svg class="w-7 h-7 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Website Redesign</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Transform your outdated website into a modern, high-performing asset. We refresh your design, improve functionality, and boost your online presence.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Modern, fresh design update</span>
+                        </li>
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Performance & speed optimization</span>
+                        </li>
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Improved user experience</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 5: Website Maintenance -->
+                <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center">
+                            <svg class="w-7 h-7 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Website Maintenance</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Keep your website running smoothly with ongoing support and updates. We handle the technical stuff so you can focus on growing your business.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Regular updates & backups</span>
+                        </li>
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Security monitoring & fixes</span>
+                        </li>
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Content updates & technical support</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 6: Social Media Management -->
+                <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center">
+                            <svg class="w-7 h-7 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Social Media Management</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Build your brand and engage with your audience across social platforms. We create, schedule, and manage your social media presence professionally.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Content creation & scheduling</span>
+                        </li>
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Community engagement</span>
+                        </li>
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-secondary mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Analytics & performance tracking</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="text-center mt-12">
-                <a href="services.html" class="bg-secondary text-white px-8 py-4 rounded-lg font-semibold hover:bg-secondary/90 transition-all transform hover:scale-105">
-                    View All Services
+
+            <!-- <div class="mt-12 text-center">
+                <p class="text-gray-600 mb-6 text-lg">
+                    Not sure what you need? <span class="font-semibold text-primary">Let's talk.</span> We'll figure it out together.
+                </p>
+                <a href="services.html" class="inline-block bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 transition-all shadow-lg">
+                    See Full Service Details
                 </a>
-            </div>
+            </div> -->
         </div>
     </section>
 
@@ -358,9 +913,9 @@
     <!-- CTA Section -->
     <section class="py-20 bg-primary text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-bold mb-6">Ready to Transform Your Business Online?</h2>
+            <h2 class="text-4xl font-bold mb-6">Are you Looking to Create a Website?</h2>
             <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                Join hundreds of successful businesses who've chosen Websetly for their web design needs. Let's build something amazing together.
+                Contact <a href="https://websetly.com">Websetly. </a>We'll help you create something clean, modern, and built around what your business actually needs.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="contact.html" class="bg-secondary text-white px-8 py-4 rounded-lg font-semibold hover:bg-secondary/90 transition-all transform hover:scale-105">
@@ -472,6 +1027,16 @@
                         document.head.appendChild(preloadLink);
                     }
                 }, { once: true });
+            });
+
+            // Navbar background on scroll
+            const nav = document.querySelector('nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    nav.classList.add('nav-scrolled');
+                } else {
+                    nav.classList.remove('nav-scrolled');
+                }
             });
         });
     </script>
