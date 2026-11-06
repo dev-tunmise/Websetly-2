@@ -1,0 +1,212 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Icon from '../components/Icon.astro';
+import { SITE, SERVICES } from '../consts';
+
+/**
+ * Contact. URL preserved (/contact).
+ *
+ * The Formspree endpoint is unchanged from the legacy form, so submissions keep
+ * arriving in the same inbox with no reconfiguration.
+ *
+ * When the analyzer hands off here it passes ?ref=analyzer&site=…. This is a
+ * statically-built page, so `Astro.url.searchParams` is empty at build time —
+ * the prefill is done in the inline script at the foot of the file instead.
+ */
+const title = 'Contact Websetly';
+const description =
+  'Tell us about your website and what you need help with. We review every message and come back to you with a view on whether we can help.';
+
+const contactSchema = {
+  '@type': 'ContactPage',
+  '@id': `${SITE.url}/contact#page`,
+  url: `${SITE.url}/contact`,
+  about: { '@id': `${SITE.url}/#organization` },
+};
+---
+
+<PageLayout
+  title={title}
+  description={description}
+  heading="Get in touch"
+  lede="Tell us about your website and what you need help with."
+  breadcrumbs={[{ name: 'Contact', href: '/contact' }]}
+  schemaEntities={[contactSchema]}
+>
+  <div class="container-page py-12 sm:py-16">
+    <div class="grid gap-12 lg:grid-cols-5 lg:gap-16">
+      <!-- ------------------------------------------------------- form -->
+      <div class="lg:col-span-3">
+        <div
+          id="analyzer-note"
+          hidden
+          class="card mb-8 border-brand-200 bg-brand-50"
+        >
+          <p class="font-medium text-ink-900">Your report is on the way.</p>
+          <p class="mt-1.5 text-[0.9375rem] text-ink-600">
+            Send this over and we will come back with a prioritised fix plan and
+            what each item is worth — no charge, no obligation.
+          </p>
+        </div>
+
+        <form
+          action={SITE.formspree}
+          method="POST"
+          class="space-y-5"
+          id="contact-form"
+        >
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label for="name" class="label">Your name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                autocomplete="name"
+                class="field"
+              />
+            </div>
+            <div>
+              <label for="email" class="label">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                autocomplete="email"
+                class="field"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="website" class="label">Your website</label>
+            <input
+              type="url"
+              id="website"
+              name="website"
+              inputmode="url"
+              autocomplete="url"
+              placeholder="yourstore.com"
+              class="field"
+            />
+          </div>
+
+          <div>
+            <label for="service" class="label">
+              What do you need? <span class="font-normal text-ink-500">(optional)</span>
+            </label>
+            <select id="service" name="service" class="field">
+              <option value="">Not sure yet — help me work it out</option>
+              {SERVICES.map((s) => <option value={s.title}>{s.title}</option>)}
+            </select>
+          </div>
+
+          <div>
+            <label for="message" class="label">What is going wrong?</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              class="field resize-y"
+              placeholder="Slow on mobile, Search Console says Core Web Vitals need improvement, checkout abandonment is high…"></textarea>
+          </div>
+
+          <!-- Honeypot. Bots fill it; people never see it. -->
+          <div class="hidden" aria-hidden="true">
+            <label for="company-website">Leave this empty</label>
+            <input type="text" id="company-website" name="_gotcha" tabindex="-1" />
+          </div>
+
+          <input
+            type="hidden"
+            name="_subject"
+            value="New enquiry from websetly.com"
+          />
+          <input
+            type="hidden"
+            name="source"
+            id="lead-source"
+            value="contact-page"
+          />
+
+          <button type="submit" class="btn btn-primary btn-lg w-full sm:w-auto">
+            Send message
+          </button>
+
+          <p class="text-sm text-ink-500">
+            We’ll review your message and get back to you as soon as
+            possible.
+          </p>
+        </form>
+      </div>
+
+      <!-- --------------------------------------------------- sidebar -->
+      <aside class="lg:col-span-2">
+        <div class="card card-muted">
+          <h2 class="text-lg">Prefer to skip the form?</h2>
+          <ul class="mt-5 space-y-4">
+            <li class="flex gap-3">
+              <Icon name="mail" size={18} class="mt-1 shrink-0 text-brand-600" />
+              <div>
+                <span class="block text-sm text-ink-500">Email</span>
+                <a
+                  href={`mailto:${SITE.email}`}
+                  class="text-ink-800 no-underline hover:text-brand-700 hover:underline"
+                >
+                  {SITE.email}
+                </a>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <Icon name="arrow-up-right" size={18} class="mt-1 shrink-0 text-brand-600" />
+              <div>
+                <span class="block text-sm text-ink-500">WhatsApp</span>
+                <a
+                  href={`https://wa.me/${SITE.whatsapp}`}
+                  rel="noopener"
+                  class="text-ink-800 no-underline hover:text-brand-700 hover:underline"
+                >
+                  {SITE.phone}
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card mt-5">
+          <h2 class="text-lg">Start with the free report</h2>
+          <p class="mt-2.5 text-[0.9375rem] leading-relaxed text-ink-600">
+            It takes 30 seconds and gives us both something concrete to talk
+            about. Most conversations go better this way.
+          </p>
+          <a href="/analyze" class="btn btn-primary mt-5">Analyze your site</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!--
+    Static page, so the ?ref=/?site= handoff from the analyzer is applied here
+    rather than at build time. Kept inline and tiny: it runs before paint and
+    adds no network request.
+  -->
+  <script is:inline>
+    (function () {
+      var p = new URLSearchParams(location.search);
+      var site = p.get('site');
+      if (site) {
+        var field = document.getElementById('website');
+        if (field && !field.value) field.value = site;
+      }
+      if (p.get('ref') === 'analyzer') {
+        var note = document.getElementById('analyzer-note');
+        if (note) note.hidden = false;
+        var src = document.getElementById('lead-source');
+        if (src) src.value = 'analyzer';
+      }
+    })();
+  </script>
+</PageLayout>

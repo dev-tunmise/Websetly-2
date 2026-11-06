@@ -1,0 +1,33 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { render } from 'astro:content';
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+import { getPublishedPosts, getRelated, type Post } from '../../lib/blog';
+
+/**
+ * Route for posts published from now on. Legacy posts keep their flat root
+ * URLs and are served by src/pages/[legacySlug].astro — see src/lib/blog.ts
+ * for the full rationale.
+ */
+export const getStaticPaths = (async () => {
+  const posts = await getPublishedPosts();
+  const modern = posts.filter((p) => !p.data.legacySlug);
+
+  return modern.map((post) => ({
+    params: { slug: post.id },
+    props: { post, related: getRelated(post, posts) },
+  }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  post: Post;
+  related: Post[];
+}
+
+const { post, related } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BlogPostLayout post={post} related={related} url={`/blog/${post.id}`}>
+  <Content />
+</BlogPostLayout>

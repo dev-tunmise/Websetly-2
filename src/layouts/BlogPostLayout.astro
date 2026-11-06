@@ -1,0 +1,240 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Icon from '../components/Icon.astro';
+import PostCard from '../components/PostCard.astro';
+import { SITE } from '../consts';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+  related: CollectionEntry<'blog'>[];
+  /** The URL this post lives at — flat for legacy posts, /blog/… for new ones. */
+  url: string;
+}
+
+const { post, related, url } = Astro.props;
+const { data } = post;
+
+const fmtDate = (d: Date) =>
+  d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const canonicalUrl = new URL(url, SITE.url).href;
+
+const trail = [
+  { name: 'Home', href: '/' },
+  { name: 'Blog', href: '/blog' },
+  { name: data.title, href: url },
+];
+
+// BlogPosting keyed to the same @id the breadcrumb points at, so the article
+// and its trail resolve as one entity.
+const articleSchema = {
+  '@type': 'BlogPosting',
+  '@id': `${canonicalUrl}#article`,
+  headline: data.title,
+  description: data.description,
+  datePublished: data.pubDate.toISOString(),
+  dateModified: (data.updatedDate ?? data.pubDate).toISOString(),
+  author: { '@type': 'Organization', name: data.author, url: SITE.url },
+  publisher: { '@id': `${SITE.url}/#organization` },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+  articleSection: data.category,
+  keywords: data.tags.join(', '),
+  inLanguage: SITE.lang,
+  ...(data.heroImage ? { image: new URL(data.heroImage.src, SITE.url).href } : {}),
+};
+---
+
+<BaseLayout
+  title={data.title}
+  description={data.description}
+  type="article"
+  canonical={data.canonicalOverride ?? canonicalUrl}
+  publishedTime={data.pubDate}
+  modifiedTime={data.updatedDate}
+  author={data.author}
+  image={data.heroImage?.src}
+  imageAlt={data.heroImageAlt}
+  schemaEntities={[articleSchema]}
+  breadcrumbs={trail}
+>
+  <article>
+    <header class="border-b border-ink-200 bg-ink-50">
+      <div class="container-page py-8 sm:py-12">
+        <Breadcrumbs items={trail} class="mb-6" />
+        <div class="container-prose mx-0">
+          <div class="flex flex-wrap items-center gap-3 text-sm text-ink-500">
+            <span class="pill pill-brand">{data.category}</span>
+            <time datetime={data.pubDate.toISOString()}>{fmtDate(data.pubDate)}</time>
+            {
+              data.readingTime && (
+                <span class="flex items-center gap-1.5">
+                  <Icon name="clock" size={14} />
+                  {data.readingTime} min read
+                </span>
+              )
+            }
+          </div>
+          <h1 class="mt-5 text-4xl">{data.title}</h1>
+          <p class="mt-5 text-lg leading-relaxed text-ink-600">{data.description}</p>
+          {
+            data.updatedDate && (
+              <p class="mt-4 text-sm text-ink-500">
+                Updated <time datetime={data.updatedDate.toISOString()}>{fmtDate(data.updatedDate)}</time>
+              </p>
+            )
+          }
+        </div>
+      </div>
+    </header>
+
+    {
+      data.heroImage && (
+        <div class="container-page pt-10">
+          <Image
+            src={data.heroImage}
+            alt={data.heroImageAlt ?? ''}
+            widths={[640, 960, 1280]}
+            sizes="(min-width: 1024px) 960px, 100vw"
+            loading="eager"
+            fetchpriority="high"
+            class="rounded-xl border border-ink-200"
+          />
+        </div>
+      )
+    }
+
+    <div class="container-page py-12 sm:py-16">
+      <div class="container-prose mx-0 post-body">
+        <slot />
+      </div>
+    </div>
+  </article>
+
+  <!-- Every post routes back to the offer. Blog traffic that never reaches the
+       analyzer is traffic the repositioning does not monetise. -->
+  <aside class="border-y border-ink-200 bg-ink-50">
+    <div class="container-page py-12">
+      <div class="container-prose mx-0">
+        <h2 class="text-2xl">How fast is your site right now?</h2>
+        <p class="mt-3 text-ink-600">
+          Get your Core Web Vitals, Lighthouse score and the specific fixes —
+          free, in about 30 seconds.
+        </p>
+        <a href="/analyze" class="btn btn-primary mt-6">Analyze your site</a>
+      </div>
+    </div>
+  </aside>
+
+  {
+    related.length > 0 && (
+      <section class="section">
+        <div class="container-page">
+          <h2 class="text-2xl">Related reading</h2>
+          <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {related.map((p) => (
+              <PostCard post={p} />
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+</BaseLayout>
+
+<style>
+  /* Scoped article typography. Kept here rather than in global.css because it
+     only ever applies to rendered Markdown. */
+  .post-body :global(h2) {
+    font-size: var(--text-2xl);
+    margin-top: 2.75rem;
+    margin-bottom: 1rem;
+    scroll-margin-top: 6rem;
+  }
+  .post-body :global(h3) {
+    font-size: var(--text-xl);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    scroll-margin-top: 6rem;
+  }
+  .post-body :global(h4) {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .post-body :global(p) {
+    margin-bottom: 1.25rem;
+    font-size: var(--text-lg);
+    line-height: 1.75;
+  }
+  .post-body :global(ul),
+  .post-body :global(ol) {
+    margin: 0 0 1.5rem;
+    padding-left: 1.5rem;
+    font-size: var(--text-lg);
+    line-height: 1.75;
+  }
+  .post-body :global(ul) {
+    list-style: disc;
+  }
+  .post-body :global(ol) {
+    list-style: decimal;
+  }
+  .post-body :global(li) {
+    margin-bottom: 0.5rem;
+    padding-left: 0.25rem;
+  }
+  .post-body :global(li)::marker {
+    color: var(--color-brand-400);
+  }
+  .post-body :global(a) {
+    color: var(--color-brand-700);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .post-body :global(a:hover) {
+    color: var(--color-brand-800);
+  }
+  .post-body :global(strong) {
+    color: var(--color-ink-900);
+    font-weight: 600;
+  }
+  .post-body :global(blockquote) {
+    margin: 1.75rem 0;
+    padding: 0.25rem 0 0.25rem 1.25rem;
+    border-left: 3px solid var(--color-brand-300);
+    color: var(--color-ink-700);
+    font-size: var(--text-lg);
+  }
+  .post-body :global(pre) {
+    margin: 1.5rem 0;
+    padding: 1.125rem;
+    border-radius: var(--radius-lg);
+    background: var(--color-ink-900);
+    color: var(--color-ink-100);
+    overflow-x: auto;
+    font-size: var(--text-sm);
+  }
+  .post-body :global(code) {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+  }
+  .post-body :global(:not(pre) > code) {
+    background: var(--color-ink-100);
+    padding: 0.125em 0.375em;
+    border-radius: var(--radius-sm);
+    color: var(--color-ink-800);
+  }
+  .post-body :global(img) {
+    border-radius: var(--radius-lg);
+    margin: 1.75rem 0;
+  }
+  .post-body :global(hr) {
+    margin: 2.5rem 0;
+    border: 0;
+    border-top: 1px solid var(--color-ink-200);
+  }
+</style>

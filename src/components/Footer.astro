@@ -1,0 +1,192 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { SITE, SERVICES } from '../consts';
+
+/**
+ * The footer is a large part of the site's internal-linking backbone: it puts a
+ * short list of service pages on every page, which is how those URLs accumulate
+ * internal PageRank after launch.
+ */
+const year = new Date().getFullYear();
+
+/**
+ * A curated six rather than the whole catalogue. Website Monitoring and
+ * Accessibility Audits are deliberately absent here; they are still linked from
+ * /services, which is itself in the main nav, so neither is orphaned.
+ *
+ * Listed by slug and resolved against SERVICES so the labels can never drift
+ * from the service pages, and a typo fails the build rather than silently
+ * dropping a link.
+ */
+const FOOTER_SERVICE_SLUGS = [
+  'website-performance-optimization',
+  'technical-seo',
+  'website-development',
+  'shopify-store-design',
+  'website-redesign',
+  'website-maintenance',
+];
+
+const footerServices = FOOTER_SERVICE_SLUGS.map((slug) => {
+  const service = SERVICES.find((s) => s.slug === slug);
+  if (!service) throw new Error(`Footer references unknown service: ${slug}`);
+  return service;
+});
+
+/* Case Studies (/portfolio) and Pricing are temporarily offline — see
+   src/pages/_portfolio.astro. Restore these two entries when the pages return. */
+const quickLinks = [
+  { label: 'About', href: '/about' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/contact' },
+];
+
+/* WhatsApp and phone are the same line; both are listed because visitors reach
+   for one or the other and will not think to try the alternative. */
+const contactInfo = [
+  {
+    icon: 'mail',
+    label: 'Email',
+    value: SITE.email,
+    href: `mailto:${SITE.email}`,
+  },
+  {
+    icon: 'message-circle',
+    label: 'WhatsApp',
+    value: SITE.phone,
+    href: `https://wa.me/${SITE.whatsapp}`,
+    external: true,
+  },
+  {
+    icon: 'phone',
+    label: 'Phone',
+    value: SITE.phone,
+    href: `tel:${SITE.phone}`,
+  },
+];
+
+const resources = [
+  { label: 'Free Site Analysis', href: '/analyze' },
+  { label: 'Privacy Policy', href: '/privacy' },
+  { label: 'Terms of Service', href: '/terms' },
+];
+---
+
+<footer class="border-t border-ink-200 bg-ink-50">
+  <div class="container-page py-14 sm:py-16">
+    <!-- Grid while stacked, flex once there is room for a single row: the
+         columns then size to their content instead of to a 12-column unit, so
+         nothing has to wrap mid-word to fit its share. -->
+    <div class="grid gap-10 sm:grid-cols-2 lg:flex lg:justify-between lg:gap-8">
+      <div class="lg:max-w-[15rem]">
+        <a href="/" class="no-underline" aria-label="Websetly — home">
+          <Logo class="text-lg" />
+        </a>
+        <p class="mt-4 max-w-xs text-sm leading-relaxed text-ink-600">
+          We find what is slowing your website down, fix it, and prove the
+          difference with real user data.
+        </p>
+        <a
+          href="/analyze"
+          class="btn btn-primary mt-6"
+          data-analytics="footer-analyze"
+        >
+          Analyze your site
+        </a>
+      </div>
+
+      <nav aria-labelledby="ft-services">
+        <h2 id="ft-services" class="text-sm font-semibold text-ink-900">Services</h2>
+        <ul class="mt-4 space-y-2.5">
+          {
+            footerServices.map((s) => (
+              <li>
+                <a
+                  href={`/services/${s.slug}`}
+                  class="text-sm text-ink-600 no-underline hover:text-brand-700 hover:underline"
+                >
+                  {s.title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="ft-quick">
+        <h2 id="ft-quick" class="text-sm font-semibold text-ink-900">Quick Links</h2>
+        <ul class="mt-4 space-y-2.5">
+          {
+            quickLinks.map((l) => (
+              <li>
+                <a
+                  href={l.href}
+                  class="text-sm text-ink-600 no-underline hover:text-brand-700 hover:underline"
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="ft-resources">
+        <h2 id="ft-resources" class="text-sm font-semibold text-ink-900">Resources</h2>
+        <ul class="mt-4 space-y-2.5">
+          {
+            resources.map((l) => (
+              <li>
+                <a
+                  href={l.href}
+                  class="text-sm text-ink-600 no-underline hover:text-brand-700 hover:underline"
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <div class="lg:shrink-0">
+        <h2 class="text-sm font-semibold text-ink-900">Contact Info</h2>
+        <ul class="mt-4 space-y-3">
+          {
+            contactInfo.map((c) => (
+              <li class="flex gap-2.5">
+                <Icon
+                  name={c.icon as any}
+                  size={16}
+                  class="mt-0.5 shrink-0 text-brand-600"
+                />
+                <div>
+                  <span class="block text-xs text-ink-500">{c.label}</span>
+                  <a
+                    href={c.href}
+                    rel={c.external ? 'noopener' : undefined}
+                    class="text-sm text-ink-700 no-underline hover:text-brand-700 hover:underline"
+                  >
+                    {c.value}
+                  </a>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <hr class="rule mt-12" />
+
+    <div
+      class="mt-6 flex flex-col-reverse items-start justify-between gap-4 sm:flex-row sm:items-center"
+    >
+      <p class="text-sm text-ink-500">
+        &copy; {year} {SITE.name}. All rights reserved.
+      </p>
+      <p class="text-sm text-ink-500">{SITE.tagline}</p>
+    </div>
+  </div>
+</footer>

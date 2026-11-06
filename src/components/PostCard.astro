@@ -1,0 +1,88 @@
+---
+import { Image } from 'astro:assets';
+import Icon from '../components/Icon.astro';
+import { postUrl, formatDate, type Post } from '../lib/blog';
+
+interface Props {
+  post: Post;
+  /** The first card in a listing can carry the image at higher priority. */
+  eager?: boolean;
+  /**
+   * Heading level for the card title. Cards under a section heading are h3;
+   * on /blog the cards ARE the page's top-level content, so they must be h2 or
+   * the outline skips a level.
+   */
+  as?: 'h2' | 'h3';
+}
+
+const { post, eager = false, as: Heading = 'h3' }: Props = Astro.props;
+const { data } = post;
+const href = postUrl(post);
+---
+
+<article class="card card-interactive flex flex-col p-0 overflow-hidden">
+  {
+    data.heroImage ? (
+      <Image
+        src={data.heroImage}
+        alt={data.heroImageAlt ?? ''}
+        widths={[400, 800]}
+        sizes="(min-width: 1024px) 520px, (min-width: 640px) 50vw, 100vw"
+        loading={eager ? 'eager' : 'lazy'}
+        decoding={eager ? 'sync' : 'async'}
+        class="aspect-[16/9] w-full object-cover"
+      />
+    ) : (
+      /* Placeholder until a hero image is added to the post's frontmatter.
+         It holds the same 16/9 box the real image will occupy, so adding one
+         later changes the picture and nothing else about the layout. */
+      <div
+        class="flex aspect-[16/9] w-full items-center justify-center border-b border-ink-200 bg-linear-to-br from-brand-50 to-ink-100"
+        aria-hidden="true"
+      >
+        <Icon name="trending-up" size={30} class="text-brand-300" />
+      </div>
+    )
+  }
+
+  <div class="flex flex-1 flex-col p-6">
+    <div class="flex items-center gap-3 text-sm text-ink-500">
+      <span class="pill pill-brand">{data.category}</span>
+      {
+        data.readingTime && (
+          <span class="flex items-center gap-1.5">
+            <Icon name="clock" size={13} />
+            {data.readingTime} min
+          </span>
+        )
+      }
+    </div>
+
+    <Heading class="mt-4 text-lg leading-snug">
+      <!-- The whole card is clickable via the stretched pseudo-element, but the
+           link text remains the title so screen readers announce it correctly. -->
+      <a
+        href={href}
+        class="text-ink-900 no-underline after:absolute after:inset-0 after:content-['']"
+      >
+        {data.title}
+      </a>
+    </Heading>
+
+    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-ink-600">
+      {data.description}
+    </p>
+
+    <div class="mt-auto pt-5">
+      <time datetime={data.pubDate.toISOString()} class="text-sm text-ink-500">
+        {formatDate(data.pubDate)}
+      </time>
+    </div>
+  </div>
+</article>
+
+<style>
+  article {
+    position: relative;
+  }
+</style>

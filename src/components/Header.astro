@@ -1,0 +1,97 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { NAV } from '../consts';
+
+/**
+ * Sticky header. A short link list and one action — a longer menu would blur
+ * the single conversion goal.
+ *
+ * The mobile menu is a native <details>, so it costs zero JavaScript, works
+ * before hydration, and is keyboard- and screen-reader-operable for free.
+ */
+const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const isActive = (href: string) =>
+  href === '/' ? path === '/' : path === href || path.startsWith(`${href}/`);
+---
+
+<header
+  class="sticky top-0 z-50 border-b border-ink-200 bg-white/85 backdrop-blur-md"
+>
+  <nav class="container-page" aria-label="Main">
+    <div class="flex h-16 items-center justify-between gap-6 lg:h-18">
+      <a
+        href="/"
+        class="rounded-sm text-lg text-ink-900 no-underline"
+        aria-label="Websetly — home"
+      >
+        <Logo />
+      </a>
+
+      <!-- Desktop -->
+      <ul class="hidden items-center gap-1 lg:flex">
+        {
+          NAV.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class:list={[
+                  'rounded-md px-3 py-2 text-[0.9375rem] font-medium no-underline transition-colors',
+                  isActive(item.href)
+                    ? 'text-ink-900'
+                    : 'text-ink-600 hover:bg-ink-50 hover:text-ink-900',
+                ]}
+                aria-current={isActive(item.href) ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="hidden items-center gap-2 lg:flex">
+        <a href="/contact" class="btn btn-ghost">Talk to us</a>
+        <a href="/analyze" class="btn btn-primary">Analyze your site</a>
+      </div>
+
+      <!-- Mobile trigger -->
+      <details class="lg:hidden [&[open]_.i-open]:hidden [&:not([open])_.i-close]:hidden">
+        <summary
+          class="flex h-11 w-11 cursor-pointer items-center justify-center rounded-md text-ink-700 marker:content-none hover:bg-ink-50 [&::-webkit-details-marker]:hidden"
+          aria-label="Menu"
+        >
+          <Icon name="menu" size={22} class="i-open" />
+          <Icon name="x" size={22} class="i-close" />
+        </summary>
+
+        <div
+          class="fixed inset-x-0 top-16 z-50 max-h-[calc(100dvh-4rem)] overflow-y-auto border-b border-ink-200 bg-white p-5 shadow-lg"
+        >
+          <ul class="flex flex-col gap-1">
+            {
+              NAV.map((item) => (
+                <li>
+                  <a
+                    href={item.href}
+                    class:list={[
+                      'block rounded-md px-3 py-3 text-base font-medium no-underline',
+                      isActive(item.href) ? 'bg-ink-50 text-ink-900' : 'text-ink-700',
+                    ]}
+                    aria-current={isActive(item.href) ? 'page' : undefined}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+          <div class="mt-4 flex flex-col gap-2">
+            <a href="/analyze" class="btn btn-primary btn-lg">Analyze your site</a>
+            <a href="/contact" class="btn btn-secondary">Talk to us</a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </nav>
+</header>

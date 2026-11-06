@@ -1,0 +1,62 @@
+---
+/**
+ * Section shell. Enforces consistent vertical rhythm and — importantly — makes
+ * the section kicker a <p class="eyebrow"> rather than a heading. The legacy
+ * site marked kickers up as <h2>, which produced a broken outline on every page
+ * (an h2 reading "WHAT WE DO" followed by h3s that were the real sections).
+ */
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  /** Supporting line under the title. Keep to one sentence. */
+  lede?: string;
+  /** Heading level for `title`. Sections on a page should be h2. */
+  as?: 'h2' | 'h3';
+  align?: 'left' | 'center';
+  /** Subtle tint to separate adjacent sections without a hard border. */
+  tone?: 'white' | 'muted';
+  id?: string;
+  class?: string;
+  /** Narrower measure for text-led sections. */
+  width?: 'default' | 'prose';
+}
+
+const {
+  eyebrow,
+  title,
+  lede,
+  as: Heading = 'h2',
+  align = 'left',
+  tone = 'white',
+  id,
+  class: className = '',
+  width = 'default',
+}: Props = Astro.props;
+---
+
+<section
+  id={id}
+  class:list={[
+    'section',
+    tone === 'muted' && 'bg-ink-50',
+    className,
+  ]}
+>
+  <div class={width === 'prose' ? 'container-page' : 'container-page'}>
+    {
+      (eyebrow || title || lede) && (
+        <div
+          class:list={[
+            'mb-10 sm:mb-14',
+            align === 'center' ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl',
+          ]}
+        >
+          {eyebrow && <p class="eyebrow mb-3">{eyebrow}</p>}
+          {title && <Heading class="text-3xl sm:text-4xl">{title}</Heading>}
+          {lede && <p class="mt-4 text-lg text-ink-600">{lede}</p>}
+        </div>
+      )
+    }
+    <slot />
+  </div>
+</section>

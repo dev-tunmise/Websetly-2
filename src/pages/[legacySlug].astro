@@ -1,0 +1,43 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { render } from 'astro:content';
+import BlogPostLayout from '../layouts/BlogPostLayout.astro';
+import { getPublishedPosts, getRelated, type Post } from '../lib/blog';
+
+/**
+ * SEO-CRITICAL ROUTE — preserves the legacy flat blog URLs.
+ *
+ * The previous site published posts at the site root, e.g.
+ *   https://websetly.com/blog-seo-basics-designers
+ * All 15 of those URLs are indexed. This route regenerates them at exactly the
+ * same paths, so the migration needs no redirects and loses no link equity.
+ *
+ * Astro resolves static routes (/about, /services, …) before dynamic ones, so
+ * this root-level catch-all cannot shadow a real page. It only matches slugs
+ * that correspond to a post carrying a `legacySlug`.
+ *
+ * Posts created from now on omit `legacySlug` and are served by
+ * src/pages/blog/[slug].astro instead.
+ */
+export const getStaticPaths = (async () => {
+  const posts = await getPublishedPosts();
+  const legacy = posts.filter((p) => p.data.legacySlug);
+
+  return legacy.map((post) => ({
+    params: { legacySlug: post.data.legacySlug! },
+    props: { post, related: getRelated(post, posts) },
+  }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  post: Post;
+  related: Post[];
+}
+
+const { post, related } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BlogPostLayout post={post} related={related} url={`/${post.data.legacySlug}`}>
+  <Content />
+</BlogPostLayout>

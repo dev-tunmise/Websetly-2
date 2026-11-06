@@ -1,0 +1,43 @@
+---
+import Icon from './Icon.astro';
+
+/**
+ * Visible breadcrumbs. The matching BreadcrumbList JSON-LD is emitted by
+ * Schema.astro from the same array, so the visible trail and the structured
+ * data can never drift apart.
+ */
+interface Props {
+  items: { name: string; href: string }[];
+  class?: string;
+}
+const { items, class: className = '' } = Astro.props;
+---
+
+<nav aria-label="Breadcrumb" class={className}>
+  <ol class="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm text-ink-500">
+    {
+      items.map((item, i) => {
+        const last = i === items.length - 1;
+        return (
+          <li class="flex items-center gap-1.5">
+            {i > 0 && (
+              <Icon name="arrow-right" size={13} class="text-ink-300 shrink-0" />
+            )}
+            {last ? (
+              <span aria-current="page" class="text-ink-700">
+                {item.name}
+              </span>
+            ) : (
+              <a
+                href={item.href}
+                class="rounded-sm text-ink-500 no-underline hover:text-brand-700 hover:underline"
+              >
+                {item.name}
+              </a>
+            )}
+          </li>
+        );
+      })
+    }
+  </ol>
+</nav>

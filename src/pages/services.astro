@@ -1,0 +1,58 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Section from '../components/Section.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CTASection from '../components/CTASection.astro';
+import { PRIMARY_SERVICES, SERVICES, SITE } from '../consts';
+
+/**
+ * The services hub. URL preserved from the legacy site (/services), but the
+ * catalogue behind it is entirely repositioned.
+ *
+ * Legacy in-page anchors (#web-design, #development, #ui-ux-design, #branding,
+ * #seo-setup) were linked from every footer on the old site. They are re-emitted
+ * on the services that replaced them so old inbound links and bookmarks land
+ * somewhere sensible rather than at the top of an unfamiliar page.
+ */
+const title = 'Website Performance & Technical SEO Services';
+const description =
+  'Core Web Vitals, page speed, technical SEO, accessibility, conversion and monitoring services for businesses and e-commerce stores that already have a website.';
+
+const serviceSchema = SERVICES.map((s) => ({
+  '@type': 'Service',
+  '@id': `${SITE.url}/services/${s.slug}#service`,
+  name: s.title,
+  description: s.summary,
+  url: `${SITE.url}/services/${s.slug}`,
+  provider: { '@id': `${SITE.url}/#organization` },
+  serviceType: s.title,
+}));
+---
+
+<PageLayout
+  title={title}
+  description={description}
+  heading="What we do"
+  lede="We make websites better, faster and easier to find on the web."
+  breadcrumbs={[{ name: 'Services', href: '/services' }]}
+  schemaEntities={serviceSchema}
+>
+  <Section>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        PRIMARY_SERVICES.map((s) => (
+          <div class="scroll-mt-28">
+            {/* Old inbound links used in-page anchors, and one service can
+                inherit several of them. */}
+            {s.legacyAnchors?.map((anchor) => (
+              <span id={anchor} class="block scroll-mt-28" />
+            ))}
+            <ServiceCard service={s} variant="full" as="h2" />
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+
+  <CTASection source="services-closing" />
+</PageLayout>

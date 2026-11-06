@@ -1,0 +1,48 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { PRIMARY_SERVICES } from '../consts';
+
+/**
+ * 404. Cloudflare Pages serves dist/404.html automatically for unmatched paths.
+ *
+ * This matters more than usual here: the audit found that the live site returns
+ * HTTP 200 with the homepage body for unknown paths (/pricing and /case-studies
+ * both returned index.html at 200 before this rebuild). Soft 404s let search
+ * engines index infinite duplicate URLs. A real 404 document fixes it.
+ */
+---
+
+<PageLayout
+  title="Page not found"
+  description="That page does not exist. Here is where to go instead."
+  heading="That page does not exist"
+  lede="It may have moved, or the link may be wrong. Here is where most people are heading."
+  eyebrow="404"
+  noindex
+>
+  <div class="container-page py-12 sm:py-16">
+    <div class="flex flex-wrap gap-3">
+      <a href="/analyze" class="btn btn-primary">Analyze your site</a>
+      <a href="/" class="btn btn-secondary">Back to home</a>
+      <a href="/blog" class="btn btn-ghost">Read the blog</a>
+    </div>
+
+    <div class="mt-14">
+      <h2 class="text-xl">Services</h2>
+      <ul class="mt-5 grid gap-x-8 gap-y-2.5 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          PRIMARY_SERVICES.map((s) => (
+            <li>
+              <a
+                href={`/services/${s.slug}`}
+                class="text-ink-700 no-underline hover:text-brand-700 hover:underline"
+              >
+                {s.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</PageLayout>

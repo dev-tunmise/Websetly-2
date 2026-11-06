@@ -1,0 +1,64 @@
+---
+import type { GetStaticPaths } from 'astro';
+import PageLayout from '../../../layouts/PageLayout.astro';
+import BlogList from '../../../components/BlogList.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { getPublishedPosts, POSTS_PER_PAGE, type Post } from '../../../lib/blog';
+
+/**
+ * Blog index, pages 2 and up. Page 1 is /blog — see src/pages/blog.astro.
+ *
+ * Only pages 2..n are generated here: emitting a /blog/page/1 as well would
+ * duplicate /blog at a second URL and split its ranking signals.
+ */
+export const getStaticPaths: GetStaticPaths = async () => {
+  const allPosts = await getPublishedPosts();
+  const totalPages = Math.max(1, Math.ceil(allPosts.length / POSTS_PER_PAGE));
+
+  return Array.from({ length: Math.max(0, totalPages - 1) }, (_, i) => {
+    const page = i + 2;
+    const start = (page - 1) * POSTS_PER_PAGE;
+    return {
+      params: { page: String(page) },
+      props: {
+        posts: allPosts.slice(start, start + POSTS_PER_PAGE),
+        allPosts,
+        page,
+        totalPages,
+      },
+    };
+  });
+};
+
+interface Props {
+  posts: Post[];
+  allPosts: Post[];
+  page: number;
+  totalPages: number;
+}
+
+const { posts, allPosts, page, totalPages } = Astro.props as Props;
+
+const title = `Website Performance & SEO Blog — Page ${page}`;
+const description = `Page ${page} of practical guides on website performance, Core Web Vitals, technical SEO, accessibility and conversion.`;
+---
+
+<PageLayout
+  title={title}
+  description={description}
+  heading="Latest articles"
+  lede="Guides on website performance, SEO, accessibility, and growth."
+  breadcrumbs={[
+    { name: 'Blog', href: '/blog' },
+    { name: `Page ${page}`, href: `/blog/page/${page}` },
+  ]}
+>
+  <BlogList
+    posts={posts}
+    allPosts={allPosts}
+    page={page}
+    totalPages={totalPages}
+  />
+
+  <CTASection source="blog-closing" />
+</PageLayout>

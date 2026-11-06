@@ -1,0 +1,78 @@
+---
+import PageLayout from './PageLayout.astro';
+import { SITE } from '../consts';
+
+/**
+ * Shared shell for /privacy and /terms. Legal copy is carried over from the
+ * previous site verbatim except where the service description needed updating
+ * for the repositioning — this is the client's legal text, not ours to rewrite.
+ */
+interface Props {
+  title: string;
+  description: string;
+  heading: string;
+  updated: string;
+  path: string;
+}
+
+const { title, description, heading, updated, path } = Astro.props;
+---
+
+<PageLayout
+  title={title}
+  description={description}
+  heading={heading}
+  lede={`Last updated: ${updated}`}
+  eyebrow="Legal"
+  breadcrumbs={[{ name: heading, href: path }]}
+>
+  <div class="container-page py-12 sm:py-16">
+    <div class="container-prose mx-0 legal-body">
+      <slot />
+
+      <h2>Contact us</h2>
+      <p>
+        If you have any questions about this document, please contact us at:
+      </p>
+      <ul>
+        <li>
+          Email: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+        </li>
+        <li>Phone: {SITE.phone}</li>
+        <li>Address: {SITE.address.locality}, Nigeria</li>
+      </ul>
+    </div>
+  </div>
+</PageLayout>
+
+<style>
+  .legal-body :global(h2) {
+    font-size: var(--text-xl);
+    margin-top: 2.5rem;
+    margin-bottom: 0.875rem;
+  }
+  .legal-body :global(h2:first-child) {
+    margin-top: 0;
+  }
+  .legal-body :global(p) {
+    margin-bottom: 1.125rem;
+    line-height: 1.75;
+  }
+  .legal-body :global(ul) {
+    margin: 0 0 1.5rem;
+    padding-left: 1.5rem;
+    list-style: disc;
+    line-height: 1.75;
+  }
+  .legal-body :global(li) {
+    margin-bottom: 0.5rem;
+  }
+  .legal-body :global(li)::marker {
+    color: var(--color-brand-400);
+  }
+  .legal-body :global(a) {
+    color: var(--color-brand-700);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+</style>

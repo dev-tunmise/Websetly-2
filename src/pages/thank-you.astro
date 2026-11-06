@@ -1,0 +1,50 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import { getPublishedPosts } from '../lib/blog';
+
+/**
+ * Formspree redirect target. URL preserved (/thank-you).
+ * noindex — a confirmation page has no business in search results, and the
+ * legacy version was indexable.
+ */
+const posts = (await getPublishedPosts()).slice(0, 3);
+---
+
+<PageLayout
+  title="Thanks — we have your message"
+  description="Your message has reached Websetly. We reply within one business day."
+  heading="Thanks — we have your message"
+  lede="We reply within one business day, usually sooner. If it is urgent, WhatsApp is faster than email."
+  eyebrow="Message sent"
+  noindex
+  bare={false}
+  breadcrumbs={[{ name: 'Thank you', href: '/thank-you' }]}
+>
+  <div class="container-page py-12 sm:py-16">
+    <div class="card card-muted max-w-2xl">
+      <h2 class="text-lg">While you wait</h2>
+      <p class="mt-2.5 leading-relaxed text-ink-600">
+        If you have not run the free report yet, it takes about 30 seconds and
+        gives us both something concrete to work from when we reply.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/analyze" class="btn btn-primary">Analyze your site</a>
+        <a href="/services" class="btn btn-secondary">See what we do</a>
+      </div>
+    </div>
+
+    {
+      posts.length > 0 && (
+        <div class="mt-14">
+          <h2 class="text-2xl">Recent writing</h2>
+          <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {posts.map((p) => (
+              <PostCard post={p} />
+            ))}
+          </div>
+        </div>
+      )
+    }
+  </div>
+</PageLayout>

@@ -1,0 +1,118 @@
+---
+import PostCard from './PostCard.astro';
+import Icon from './Icon.astro';
+import { blogPageUrl, type Post } from '../lib/blog';
+
+/**
+ * The blog index body, shared by /blog and /blog/page/N so the two can never
+ * drift apart. Everything that differs between them (which posts, which page)
+ * arrives as props.
+ */
+interface Props {
+  /** Posts for THIS page only. */
+  posts: Post[];
+  /** Every published post — the category counts are totals, not per-page. */
+  allPosts: Post[];
+  page: number;
+  totalPages: number;
+}
+
+const { posts, allPosts, page, totalPages }: Props = Astro.props;
+
+const hasPrev = page > 1;
+const hasNext = page < totalPages;
+
+/* Shared between the anchor and the span so the two are the same control in
+   two states, not two controls that happen to look alike. */
+const stepClass = 'btn btn-secondary gap-1.5';
+const stepDisabled = `${stepClass} cursor-default text-ink-400 opacity-60`;
+
+const categories = [...new Set(allPosts.map((p) => p.data.category))].sort();
+
+/** Page numbers to render. Small archive, so all of them fit comfortably. */
+const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+---
+
+<div class="container-page py-12 sm:py-16">
+  {
+    categories.length > 1 && (
+      <div class="mb-10 flex flex-wrap gap-2">
+        <span class="pill pill-brand">All ({allPosts.length})</span>
+        {categories.map((c) => (
+          <span class="pill">
+            {c} ({allPosts.filter((p) => p.data.category === c).length})
+          </span>
+        ))}
+      </div>
+    )
+  }
+
+  {
+    posts.length > 0 ? (
+      <div class="grid gap-6 sm:grid-cols-2">
+        {posts.map((p, i) => (
+          <PostCard post={p} eager={page === 1 && i < 2} as="h2" />
+        ))}
+      </div>
+    ) : (
+      <p class="text-ink-600">No posts published yet.</p>
+    )
+  }
+
+  {
+    totalPages > 1 && (
+      <nav class="mt-12 flex items-center justify-center gap-2" aria-label="Blog pages">
+        {/* A disabled step is a <span>, not a dead <a>. An anchor pointing at a
+            page that does not exist is a broken link whatever CSS says about
+            its pointer events. */}
+        {hasPrev ? (
+          <a href={blogPageUrl(page - 1)} class={stepClass} rel="prev">
+            <Icon name="arrow-right" size={16} class="rotate-180" />
+            Previous
+          </a>
+        ) : (
+          <span class={stepDisabled} aria-hidden="true">
+            <Icon name="arrow-right" size={16} class="rotate-180" />
+            Previous
+          </span>
+        )}
+
+        <ol class="mx-2 hidden items-center gap-1 sm:flex">
+          {pages.map((n) => (
+            <li>
+              <a
+                href={blogPageUrl(n)}
+                class:list={[
+                  'flex h-11 min-w-11 items-center justify-center rounded-md px-3 text-[0.9375rem] font-medium no-underline transition-colors',
+                  n === page
+                    ? 'bg-brand-600 text-white'
+                    : 'text-ink-600 hover:bg-ink-100 hover:text-ink-900',
+                ]}
+                aria-current={n === page ? 'page' : undefined}
+              >
+                {n}
+                <span class="sr-only"> — page {n}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+
+        <span class="mx-2 text-sm text-ink-500 sm:hidden">
+          Page {page} of {totalPages}
+        </span>
+
+        {hasNext ? (
+          <a href={blogPageUrl(page + 1)} class={stepClass} rel="next">
+            Next
+            <Icon name="arrow-right" size={16} />
+          </a>
+        ) : (
+          <span class={stepDisabled} aria-hidden="true">
+            Next
+            <Icon name="arrow-right" size={16} />
+          </span>
+        )}
+      </nav>
+    )
+  }
+</div>

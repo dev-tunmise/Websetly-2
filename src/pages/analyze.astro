@@ -1,0 +1,119 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Section from '../components/Section.astro';
+import AnalyzerForm from '../components/AnalyzerForm.astro';
+import Icon from '../components/Icon.astro';
+import { SITE } from '../consts';
+
+/**
+ * The lead-generation engine. This is the only page that loads the analyzer
+ * script — every other page links here rather than paying for the JavaScript.
+ *
+ * The page renders complete and useful with no query string and no JavaScript:
+ * the form works and the explanation is readable. Results are injected into
+ * #analyzer-result only when ?url= is present.
+ */
+const title = 'Free Website Performance Analysis';
+const description =
+  'Paste your URL and get a real report: Core Web Vitals from real users, Lighthouse scores, and the specific fixes ranked by the load time each one saves.';
+
+/** The four areas a report covers, in the order the report presents them. */
+const covers = [
+  {
+    icon: 'gauge',
+    title: 'Performance',
+    body: 'How quickly your website loads and responds.',
+  },
+  {
+    icon: 'activity',
+    title: 'Core Web Vitals',
+    body: 'LCP, INP and CLS — the metrics Google uses to measure user experience.',
+  },
+  {
+    icon: 'search',
+    title: 'SEO',
+    body: 'Issues affecting how easily search engines can crawl, understand and rank your site.',
+  },
+  {
+    icon: 'accessibility',
+    title: 'Accessibility & Best Practices',
+    body: 'Problems that affect usability, accessibility and technical quality.',
+  },
+];
+
+const softwareSchema = {
+  '@type': 'WebApplication',
+  '@id': `${SITE.url}/analyze#app`,
+  name: 'Websetly Website Analyzer',
+  applicationCategory: 'DeveloperApplication',
+  operatingSystem: 'Any',
+  url: `${SITE.url}/analyze`,
+  description,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  provider: { '@id': `${SITE.url}/#organization` },
+};
+---
+
+<PageLayout
+  title={title}
+  description={description}
+  heading="Analyze your website"
+  lede="Free, no signup. You get your Core Web Vitals, Lighthouse scores across four categories, and the specific opportunities ranked by what each one is worth."
+  breadcrumbs={[{ name: 'Analyze', href: '/analyze' }]}
+  schemaEntities={[softwareSchema]}
+>
+  <Fragment slot="hero-extra">
+    <div class="mt-8 max-w-xl">
+      <AnalyzerForm
+        id="analyze-page"
+        size="lg"
+        source="analyze-page"
+        buttonLabel="Analyze"
+      />
+    </div>
+  </Fragment>
+
+  <!-- Results mount. Empty and invisible until a ?url= is supplied. -->
+  <div class="container-page">
+    <div
+      id="analyzer-result"
+      class="pt-12 empty:pt-0"
+      data-form-endpoint={SITE.formspree}
+    >
+    </div>
+  </div>
+
+  <!-- ============================================== WHAT IT COVERS -->
+  <Section
+    title="What your report covers"
+    lede="A clear overview of the areas we check:"
+  >
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        covers.map((c) => (
+          <div class="card reveal">
+            <span
+              class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-50 text-brand-700"
+              aria-hidden="true"
+            >
+              <Icon name={c.icon as any} size={20} />
+            </span>
+            <h3 class="mt-5 text-lg">{c.title}</h3>
+            <p class="mt-2.5 text-[0.9375rem] leading-relaxed text-ink-600">
+              {c.body}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="mt-8 max-w-2xl text-sm leading-relaxed text-ink-500">
+      We use Google Lighthouse and real-world data where available to give you a
+      clearer picture of how your website performs.
+    </p>
+  </Section>
+
+  <script>
+    import '../scripts/analyzer.ts';
+  </script>
+</PageLayout>

@@ -1,0 +1,104 @@
+---
+import { SITE, SERVICES } from '../consts';
+
+/**
+ * Structured data. One `@graph` per page keeps every entity cross-referenced by
+ * @id, which is what lets Google resolve "this Article was published by this
+ * Organization" instead of treating them as unrelated blobs.
+ */
+interface Props {
+  /** Extra entities merged into the graph (Article, Service, FAQPage, ...). */
+  entities?: Record<string, unknown>[];
+  /** Rendered as a BreadcrumbList when present. */
+  breadcrumbs?: { name: string; href: string }[];
+}
+
+const { entities = [], breadcrumbs } = Astro.props;
+
+const orgId = `${SITE.url}/#organization`;
+const siteId = `${SITE.url}/#website`;
+
+const organization = {
+  '@type': 'ProfessionalService',
+  '@id': orgId,
+  name: SITE.name,
+  url: SITE.url,
+  description: SITE.description,
+  slogan: SITE.tagline,
+  foundingDate: SITE.founded,
+  email: SITE.email,
+  telephone: SITE.phone,
+  image: new URL(SITE.defaultImage, SITE.url).href,
+  logo: {
+    '@type': 'ImageObject',
+    url: new URL('/favicon.svg', SITE.url).href,
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: SITE.address.locality,
+    addressRegion: SITE.address.region,
+    addressCountry: SITE.address.country,
+  },
+  areaServed: { '@type': 'Place', name: 'Worldwide' },
+  sameAs: [SITE.social.linkedin, `https://twitter.com/${SITE.social.twitter.replace('@', '')}`],
+  // Declaring the catalogue here is what makes the repositioning legible to
+  // search engines rather than only to human readers.
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Website Performance & Growth Services',
+    itemListElement: SERVICES.map((s) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: s.title,
+        description: s.summary,
+        url: `${SITE.url}/services/${s.slug}`,
+      },
+    })),
+  },
+};
+
+const website = {
+  '@type': 'WebSite',
+  '@id': siteId,
+  url: SITE.url,
+  name: SITE.name,
+  description: SITE.description,
+  publisher: { '@id': orgId },
+  inLanguage: SITE.lang,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${SITE.url}/blog?q={search_term_string}`,
+    },
+    'query-input': 'required name=search_term_string',
+  },
+};
+
+const breadcrumbEntity = breadcrumbs?.length
+  ? {
+      '@type': 'BreadcrumbList',
+      '@id': `${new URL(Astro.url.pathname, SITE.url).href}#breadcrumb`,
+      itemListElement: breadcrumbs.map((b, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: b.name,
+        item: new URL(b.href, SITE.url).href,
+      })),
+    }
+  : null;
+
+const graph = [organization, website, breadcrumbEntity, ...entities].filter(Boolean);
+
+const json = {
+  '@context': 'https://schema.org',
+  '@graph': graph,
+};
+---
+
+<script
+  type="application/ld+json"
+  is:inline
+  set:html={JSON.stringify(json)}
+/>

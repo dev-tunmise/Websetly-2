@@ -1,0 +1,36 @@
+---
+/**
+ * Wordmark. The name is unchanged — this repositioning keeps all existing brand
+ * equity. The only new element is the speed mark, which reads as a rising
+ * signal and ties the name to the performance positioning.
+ */
+interface Props {
+  class?: string;
+  /** Renders white for use on dark surfaces. */
+  inverted?: boolean;
+}
+const { class: className = '', inverted = false } = Astro.props;
+---
+
+<span
+  class={`inline-flex items-baseline gap-2 font-semibold tracking-tight ${className}`}
+>
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
+    fill="none"
+    aria-hidden="true"
+    class="translate-y-[2px] shrink-0"
+  >
+    <path
+      d="M2 14.5 6.5 9l3.5 3.5L18 4"
+      stroke={inverted ? '#93cfae' : 'var(--color-brand-600)'}
+      stroke-width="2.25"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+    <circle cx="18" cy="4" r="2" fill={inverted ? '#93cfae' : 'var(--color-brand-600)'}
+    ></circle>
+  </svg>
+  <span class={inverted ? 'text-white' : 'text-ink-900'}>Websetly</span>
+</span>
