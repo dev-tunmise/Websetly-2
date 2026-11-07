@@ -1,72 +1,71 @@
 ---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
-import AnalyzerForm from '../components/AnalyzerForm.astro';
-import ServiceCard from '../components/ServiceCard.astro';
 import PostCard from '../components/PostCard.astro';
-import CTASection from '../components/CTASection.astro';
 import HeroVisual from '../components/HeroVisual.astro';
-import Icon from '../components/Icon.astro';
-import { PRIMARY_SERVICES, SITE } from '../consts';
-import { PROBLEMS, PROCESS, TRUST_STATS } from '../data/homepage';
-import { TESTIMONIALS } from '../data/testimonials';
+import { SITE } from '../consts';
+import { PROCESS } from '../data/homepage';
 import { getPublishedPosts } from '../lib/blog';
 
 const posts = (await getPublishedPosts()).slice(0, 3);
 
-/* The case-studies section is temporarily removed along with the /portfolio
-   hub it linked into — see src/pages/_portfolio.astro. The content collection
-   itself is untouched, so restoring this is a matter of putting the query and
-   the section back. */
+const projects = (await getCollection('caseStudies', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 4);
 
-const title = 'Website Performance & Growth Agency';
-const description =
-  'We improve Core Web Vitals, technical SEO and conversion rates for businesses and e-commerce stores. Get a free performance report in 30 seconds.';
+/* Description and live site address for each project, keyed by case study file name.
+   Add each real web address between the quotes after url.
+   Leave url empty ('') and that card will not show a button. */
+const projectInfo: Record<string, { description: string; url: string }> = {
+  'excellence-academy': {
+    description:
+      'A school website that makes it easier for parents to learn about the school and its admissions process.',
+    url: '',
+  },
+  'mashinc-realty': {
+    description:
+      'A real estate website that helps people explore available properties.',
+    url: '',
+  },
+  'techflow-saas': {
+    description: 'A website for a B2B software platform.',
+    url: '',
+  },
+  'lumiere-restaurant': {
+    description: 'A website for a restaurant.',
+    url: '',
+  },
+};
 
-/**
- * FAQPage schema drawn from the questions the legacy site already ranked for,
- * rewritten for the new positioning. This is the homepage's best shot at a
- * rich result.
- */
-const faqs = [
+const services = [
   {
-    q: 'How quickly will I see results?',
-    a: 'Lab improvements are visible immediately after we ship a fix. Core Web Vitals in Search Console are assessed on a rolling 28-day window of real user data, so field improvements typically surface there within four to six weeks.',
+    title: 'Website Design & Development',
+    body: 'We design and build websites that look good and work well on all devices.',
   },
   {
-    q: 'Do you work with Shopify and WordPress?',
-    a: 'Yes. Most of our work is on existing Shopify, WooCommerce, WordPress and custom stacks. We do not require you to replatform — the entire point is to fix what you already have.',
+    title: 'Website Redesign',
+    body: 'Give your existing website a fresh look and make it easier for people to use.',
   },
   {
-    q: 'What does the free report include?',
-    a: 'Your Core Web Vitals from real Chrome user data where available, Lighthouse scores for performance, accessibility, best practices and SEO, and the specific opportunities ranked by the load time each one would save.',
+    title: 'Website Optimization',
+    body: 'We improve your website’s speed, performance and overall experience.',
   },
   {
-    q: 'Do you still build new websites?',
-    a: 'Yes, as a secondary service. If an audit concludes the platform itself is the constraint, we build a replacement engineered for Core Web Vitals and accessibility from the first commit, with a full redirect map so no rankings are lost.',
+    title: 'SEO',
+    body: 'Help more people find your website through Google search.',
   },
 ];
 
-const faqSchema = {
-  '@type': 'FAQPage',
-  '@id': `${SITE.url}/#faq`,
-  mainEntity: faqs.map((f) => ({
-    '@type': 'Question',
-    name: f.q,
-    acceptedAnswer: { '@type': 'Answer', text: f.a },
-  })),
-};
+const title = 'Website Design, Development & Optimization';
+const description =
+  'Websetly builds new websites, redesigns existing ones and improves websites that need better performance.';
 ---
 
-<BaseLayout
-  title={`${title} | ${SITE.name}`}
-  description={description}
-  schemaEntities={[faqSchema]}
->
-  <!-- ================================================== 1. HERO + ANALYZER -->
+<BaseLayout title={`${title} | ${SITE.name}`} description={description}>
+  <!-- ================================================== 1. HERO -->
   <section class="relative overflow-hidden border-b border-ink-200">
-    <!-- A single soft wash, not a heavy gradient. It gives the hero depth
-         without competing with the form. -->
     <div
       class="pointer-events-none absolute inset-0 bg-linear-to-b from-brand-50/60 via-white to-white"
       aria-hidden="true"
@@ -78,92 +77,52 @@ const faqSchema = {
         class="grid items-center gap-16 lg:grid-cols-[minmax(0,1fr)_26rem]"
       >
         <div class="max-w-3xl">
-          <p class="eyebrow mb-4">Website Performance &amp; Growth</p>
-          <h1 class="text-5xl">
-            Faster websites. Better rankings.<br class="hidden sm:block" />
-            <span class="text-brand-700">More revenue.</span>
+          <p class="eyebrow mb-4">Web Design Agency</p>
+          <h1 class="text-[2.75rem] leading-[1.1] sm:text-5xl lg:text-[4.5rem] lg:leading-[1.05]">
+            <span class="block">We build,</span>
+            <span class="block">We redesign,</span>
+            <span class="block text-brand-700">We optimize.</span>
           </h1>
           <p class="mt-6 max-w-2xl text-xl leading-relaxed text-ink-600">
-            We find what is slowing your website down, then fix it. Start with a
-            free report.
+           We create websites for businesses and help improve existing ones.
           </p>
 
-          <div class="mt-9 max-w-xl">
-            <AnalyzerForm size="lg" source="homepage-hero" />
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a href="/contact" class="btn btn-primary btn-lg sm:min-w-52">Contact Us</a>
+            <a href="/analyze" class="btn btn-secondary btn-lg sm:min-w-52">Analyze Your Site</a>
           </div>
         </div>
 
-        <!-- Desktop only. On mobile it would push the form below the fold to
-             restate a promise the headline has already made. -->
         <HeroVisual class="hidden lg:block" />
       </div>
     </div>
   </section>
 
-  <!-- ============================================== 2. TRUST INDICATORS -->
-  <section class="border-b border-ink-200 bg-white">
-    <div class="container-page py-8 sm:py-10">
-      <dl class="grid grid-cols-2 gap-6 text-center sm:grid-cols-4 sm:gap-8">
-        {
-          TRUST_STATS.map((s) => (
-            <div>
-              <dt class="sr-only">{s.label}</dt>
-              <dd>
-                <span class="block text-2xl font-semibold text-brand-600 sm:text-3xl">
-                  {s.value}
-                </span>
-                <span class="mt-1 block text-sm text-ink-500">{s.label}</span>
-              </dd>
-            </div>
-          ))
-        }
-      </dl>
-    </div>
-  </section>
-
-  <!-- ========================================== 3. PROBLEMS WE SOLVE -->
-  <Section
-    eyebrow="What we fix"
-    title="The problems costing you customers"
-    tone="muted"
-  >
-    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+  <!-- ================================================ 2. SERVICES -->
+  <Section eyebrow="Services" title="What we do">
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {
-        PROBLEMS.map((p) => (
-          <div class="card reveal bg-white">
-            <span
-              class="flex h-10 w-10 items-center justify-center rounded-lg bg-sky-50 text-sky-700"
-              aria-hidden="true"
-            >
-              <Icon name={p.icon as any} size={20} />
-            </span>
-            <h3 class="mt-5 text-lg">{p.title}</h3>
+        services.map((s) => (
+          <a
+            href="/services"
+            class="card card-interactive reveal flex flex-col"
+          >
+            <h3 class="text-lg">{s.title}</h3>
             <p class="mt-2.5 text-[0.9375rem] leading-relaxed text-ink-600">
-              {p.body}
+              {s.body}
             </p>
-          </div>
+          </a>
         ))
       }
     </div>
-  </Section>
-
-  <!-- ==================================================== 4. SERVICES -->
-  <Section
-    eyebrow="Services"
-    title="What we do"
-  >
-    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-      {PRIMARY_SERVICES.map((s) => <ServiceCard service={s} />)}
+    <div class="mt-8">
+      <a href="/services" class="btn btn-secondary">View All Services</a>
     </div>
   </Section>
 
-  <!-- ===================================================== 5. PROCESS -->
-  <Section
-    eyebrow="How it works"
-    title="Measure, diagnose, fix, monitor"
-    tone="muted"
-  >
-    <ol class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+  <!-- =============================================== 3. HOW WE WORK -->
+  <Section eyebrow="Process" title="How We Work" tone="muted">
+    <ol class="grid gap-5 sm:grid-cols-3">
       {
         PROCESS.map((p) => (
           <li class="card reveal bg-white">
@@ -180,33 +139,48 @@ const faqSchema = {
     </ol>
   </Section>
 
-  <!-- ================================================ 8. TESTIMONIALS -->
+  <!-- ================================================ 4. PORTFOLIO -->
   {
-    TESTIMONIALS.length > 0 && (
-      <Section eyebrow="In their words" title="What clients say">
-        <div class="grid gap-5 lg:grid-cols-3">
-          {TESTIMONIALS.slice(0, 3).map((t) => (
-            <figure class="card reveal flex flex-col">
-              <blockquote class="flex-1 text-[0.9375rem] leading-relaxed text-ink-700">
-                {t.quote}
-              </blockquote>
-              <figcaption class="mt-6 border-t border-ink-200 pt-5">
-                <span class="block font-medium text-ink-900">{t.name}</span>
-                <span class="block text-sm text-ink-500">
-                  {t.role}, {t.company}
-                </span>
-              </figcaption>
-            </figure>
+    projects.length > 0 && (
+      <Section eyebrow="Portfolio" title="Selected projects">
+        <div class="grid gap-5 sm:grid-cols-2">
+          {projects.map((p) => (
+            <article class="card reveal flex flex-col">
+              {p.data.heroImage && (
+                <Image
+                  src={p.data.heroImage}
+                  alt={p.data.heroImageAlt ?? p.data.client}
+                  width={800}
+                  height={533}
+                  class="mb-5 aspect-[3/2] w-full rounded-lg object-cover"
+                />
+              )}
+              <h3 class="text-lg">{p.data.client}</h3>
+              <p class="mt-2.5 flex-1 text-[0.9375rem] leading-relaxed text-ink-600">
+                {projectInfo[p.id]?.description}
+              </p>
+              {projectInfo[p.id]?.url && (
+                <a
+                  href={projectInfo[p.id].url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit ${p.data.client} website (opens in a new tab)`}
+                  class="btn btn-secondary mt-5 self-start"
+                >
+                  Visit Site
+                </a>
+              )}
+            </article>
           ))}
         </div>
       </Section>
     )
   }
 
-  <!-- ============================================== 9. BLOG PREVIEWS -->
+  <!-- ===================================================== 5. BLOG -->
   {
     posts.length > 0 && (
-      <Section eyebrow="Blog" title="Latest articles">
+      <Section eyebrow="Blog" title="Latest articles" tone="muted">
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((p, i) => (
             <PostCard post={p} eager={i === 0} />
@@ -219,33 +193,18 @@ const faqSchema = {
     )
   }
 
-  <!-- FAQ. Rendered visibly as well as in schema — Google devalues structured
-       data that has no on-page equivalent. -->
-  <Section title="Common questions" tone="muted" align="center">
-    <!-- Centred on the same measure as the heading above it, so the header and
-         the list share one axis instead of the header centring over a
-         left-aligned column. -->
-    <div class="mx-auto max-w-2xl">
-      {
-        faqs.map((f) => (
-          <details class="group border-b border-ink-200 first:border-t">
-            <summary class="flex cursor-pointer list-none items-start justify-between gap-6 py-5 text-left text-lg font-medium text-ink-900 marker:content-none hover:text-brand-700 [&::-webkit-details-marker]:hidden">
-              <span>{f.q}</span>
-              {/* Nudged onto the cap height of the first line so it sits level
-                  with the question rather than with the flex box. */}
-              <Icon
-                name="chevron-down"
-                size={20}
-                class="mt-1 shrink-0 text-ink-400 transition-transform group-open:rotate-180"
-              />
-            </summary>
-            <p class="pb-5 text-left leading-relaxed text-ink-600">{f.a}</p>
-          </details>
-        ))
-      }
+  <!-- ====================================================== 6. CTA -->
+  <section class="section">
+    <div class="container-page">
+      <div class="rounded-2xl bg-brand-900 px-6 py-14 text-center sm:px-12">
+        <h2 class="text-3xl text-white">Ready to build or improve your website?</h2>
+        <p class="mx-auto mt-4 max-w-xl text-lg text-brand-100">
+          Tell us what you need. Let’s talk about how we can help.
+        </p>
+        <div class="mt-8">
+          <a href="/contact" class="btn btn-secondary btn-lg">Contact Us</a>
+        </div>
+      </div>
     </div>
-  </Section>
-
-  <!-- ================================================= 10. FINAL CTA -->
-  <CTASection source="homepage-closing" />
+  </section>
 </BaseLayout>

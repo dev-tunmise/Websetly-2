@@ -2,103 +2,79 @@
 import { Image } from 'astro:assets';
 import PageLayout from '../layouts/PageLayout.astro';
 import Section from '../components/Section.astro';
-import CTASection from '../components/CTASection.astro';
-import ourStory from '../assets/site/our-story.jpg';
-import { SITE } from '../consts';
+import founder from '../assets/site/founder.jpg';
 
-/**
- * About. URL preserved (/about).
- *
- * The story is the same true story — founded 2023, boutique team, 150+ projects
- * — retold through the new positioning. Nothing here claims anything the
- * previous site did not already claim.
- */
 const title = 'About Websetly';
 const description =
-  'We started out building websites. We kept being hired to fix slow ones — so that became the work. Here is how we got here and how we operate.';
-
-const values = [
-  {
-    title: 'Measure before, measure after',
-    body: 'Every engagement opens and closes with numbers. If we cannot show you what changed, we have not finished. This rules out a lot of work that looks impressive and moves nothing.',
-  },
-  {
-    title: 'Fix causes, not symptoms',
-    body: 'Caching a slow page hides the problem for a while. We would rather find out why the page was slow. It takes longer to diagnose and much less time to maintain.',
-  },
-  {
-    title: 'No jargon as a defence',
-    body: 'If we cannot explain a recommendation in a sentence you could repeat to your finance director, we do not understand it well enough to charge you for it.',
-  },
-];
+  'Websetly builds new websites, redesigns existing ones and improves websites that need better performance. Meet the founder.';
 ---
 
 <PageLayout
   title={title}
   description={description}
-  heading="Who we are"
-  lede="We build and improve websites with a focus on performance, usability and growth."
+  heading="About Websetly"
+  lede="We build, redesign and improve websites."
   breadcrumbs={[{ name: 'About', href: '/about' }]}
 >
+  <!-- ============================================ 1. ABOUT WEBSETLY -->
   <Section>
-    <div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
-      <div class="space-y-5 text-lg leading-relaxed text-ink-600">
-        <p>
-          Websetly started in {SITE.founded} building websites for small
-          businesses and startups. We were good at it, and we shipped a lot of
-          them — over 150 projects across schools, restaurants, real estate and
-          SaaS.
-        </p>
-        <p>
-          Then a pattern showed up. The clients coming back to us mostly did not
-          need a new website. They needed the one they had to stop losing them
-          customers: pages that took six seconds on a phone, Search Console
-          warnings nobody could translate into actions, checkouts that leaked
-          buyers at the same step every time.
-        </p>
-        <p>
-          That work turned out to be more valuable than the redesigns — cheaper
-          for the client, faster to deliver, and far easier to prove. So we
-          reorganised the whole company around it. We still build new sites when
-          an audit says the platform itself is the problem, but it is no longer
-          the point.
-        </p>
-        <p class="text-ink-800">
-          Today Websetly is a website performance and growth agency. We find what
-          is costing you speed, rankings and revenue, we fix it, and we show you
-          the difference in your own data.
-        </p>
-      </div>
+    <div class="max-w-3xl space-y-5 text-lg leading-relaxed text-ink-600">
+      <p>
+        Websetly is a web development and website optimization company. We
+        build new websites, redesign existing ones and improve websites that
+        are slow or hard to use.
+      </p>
+      <p>
+        We work with businesses, startups, professionals, individuals and
+        online stores.
+      </p>
+      <p>
+        Whether you need a website from scratch or want to improve the one you
+        already have, we keep things simple. We listen to what you need,
+        explain things in plain words and build a website that works for you.
+      </p>
+    </div>
+  </Section>
 
-      <div>
-        <Image
-          src={ourStory}
-          alt="The Websetly team working through a website performance audit"
-          widths={[520, 900]}
-          sizes="(min-width: 1024px) 520px, 100vw"
-          loading="lazy"
-          class="rounded-xl border border-ink-200"
-        />
+  <!-- ============================================ 2. MEET THE FOUNDER -->
+  <Section eyebrow="Founder" title="Meet the Founder" tone="muted">
+    <div class="grid items-center gap-10 lg:grid-cols-[20rem_minmax(0,1fr)] lg:gap-16">
+      <div
+        class="flex aspect-[4/5] w-full max-w-xs items-center justify-center rounded-xl border border-ink-200 bg-brand-50"
+        role="img"
+        aria-label="Photo of Tunmise, founder of Websetly (coming soon)"
+      >
+        <span class="text-6xl font-semibold text-brand-700">T</span>
+      </div>
+      <div class="max-w-2xl space-y-5 text-lg leading-relaxed text-ink-600">
+        <p>
+          Hi, I’m Tunmise, the founder of Websetly and a Software Engineering
+          student at Caleb University.
+        </p>
+        <p>
+          I started learning web development in 2023 and have since been
+          building websites and improving my skills through practical projects.
+        </p>
+        <p>
+          I started Websetly to help businesses and individuals build better
+          websites and make the most of their online presence.
+        </p>
       </div>
     </div>
   </Section>
 
-  <Section
-    eyebrow="How we work"
-    title="Three things we will not compromise on"
-    tone="muted"
-  >
-    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        values.map((v) => (
-          <div class="card reveal bg-white">
-            <h3 class="text-lg">{v.title}</h3>
-            <p class="mt-2.5 leading-relaxed text-ink-600">{v.body}</p>
-          </div>
-        ))
-      }
+  <!-- ============================================ 3. CTA -->
+  <section class="section">
+    <div class="container-page">
+      <div class="rounded-2xl bg-brand-900 px-6 py-14 text-center sm:px-12">
+        <h2 class="text-3xl text-white">Ready to build or improve your website?</h2>
+        <p class="mx-auto mt-4 max-w-xl text-lg text-brand-100">
+          Tell us what you need. Let’s talk about how we can help.
+        </p>
+        <div class="mt-8">
+          <a href="/contact" class="btn btn-secondary btn-lg">Contact Us</a>
+        </div>
+      </div>
     </div>
-  </Section>
-
-  <CTASection source="about-closing" />
+  </section>
 </PageLayout>

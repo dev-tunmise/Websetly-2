@@ -1,49 +1,25 @@
 ---
 import Logo from './Logo.astro';
 import Icon from './Icon.astro';
-import { SITE, SERVICES } from '../consts';
+import { SITE } from '../consts';
 
-/**
- * The footer is a large part of the site's internal-linking backbone: it puts a
- * short list of service pages on every page, which is how those URLs accumulate
- * internal PageRank after launch.
- */
 const year = new Date().getFullYear();
 
-/**
- * A curated six rather than the whole catalogue. Website Monitoring and
- * Accessibility Audits are deliberately absent here; they are still linked from
- * /services, which is itself in the main nav, so neither is orphaned.
- *
- * Listed by slug and resolved against SERVICES so the labels can never drift
- * from the service pages, and a typo fails the build rather than silently
- * dropping a link.
- */
-const FOOTER_SERVICE_SLUGS = [
-  'website-performance-optimization',
-  'technical-seo',
-  'website-development',
-  'shopify-store-design',
-  'website-redesign',
-  'website-maintenance',
+const footerServices = [
+  { label: 'Website Development', href: '/services/website-development' },
+  { label: 'Shopify Store Design', href: '/services/shopify-store-design' },
+  { label: 'Website Redesign', href: '/services/website-redesign' },
+  { label: 'Speed & Performance', href: '/services/website-performance-optimization' },
+  { label: 'SEO', href: '/services/technical-seo' },
+  { label: 'Website Maintenance', href: '/services/website-maintenance' },
 ];
 
-const footerServices = FOOTER_SERVICE_SLUGS.map((slug) => {
-  const service = SERVICES.find((s) => s.slug === slug);
-  if (!service) throw new Error(`Footer references unknown service: ${slug}`);
-  return service;
-});
-
-/* Case Studies (/portfolio) and Pricing are temporarily offline — see
-   src/pages/_portfolio.astro. Restore these two entries when the pages return. */
 const quickLinks = [
   { label: 'About', href: '/about' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
 ];
 
-/* WhatsApp and phone are the same line; both are listed because visitors reach
-   for one or the other and will not think to try the alternative. */
 const contactInfo = [
   {
     icon: 'mail',
@@ -58,12 +34,6 @@ const contactInfo = [
     href: `https://wa.me/${SITE.whatsapp}`,
     external: true,
   },
-  {
-    icon: 'phone',
-    label: 'Phone',
-    value: SITE.phone,
-    href: `tel:${SITE.phone}`,
-  },
 ];
 
 const resources = [
@@ -75,25 +45,16 @@ const resources = [
 
 <footer class="border-t border-ink-200 bg-ink-50">
   <div class="container-page py-14 sm:py-16">
-    <!-- Grid while stacked, flex once there is room for a single row: the
-         columns then size to their content instead of to a 12-column unit, so
-         nothing has to wrap mid-word to fit its share. -->
     <div class="grid gap-10 sm:grid-cols-2 lg:flex lg:justify-between lg:gap-8">
       <div class="lg:max-w-[15rem]">
         <a href="/" class="no-underline" aria-label="Websetly — home">
           <Logo class="text-lg" />
         </a>
         <p class="mt-4 max-w-xs text-sm leading-relaxed text-ink-600">
-          We find what is slowing your website down, fix it, and prove the
-          difference with real user data.
+          We build, redesign and optimize websites for businesses, startups and
+          online stores.
         </p>
-        <a
-          href="/analyze"
-          class="btn btn-primary mt-6"
-          data-analytics="footer-analyze"
-        >
-          Analyze your site
-        </a>
+        
       </div>
 
       <nav aria-labelledby="ft-services">
@@ -103,10 +64,10 @@ const resources = [
             footerServices.map((s) => (
               <li>
                 <a
-                  href={`/services/${s.slug}`}
+                  href={s.href}
                   class="text-sm text-ink-600 no-underline hover:text-brand-700 hover:underline"
                 >
-                  {s.title}
+                  {s.label}
                 </a>
               </li>
             ))
@@ -186,7 +147,7 @@ const resources = [
       <p class="text-sm text-ink-500">
         &copy; {year} {SITE.name}. All rights reserved.
       </p>
-      <p class="text-sm text-ink-500">{SITE.tagline}</p>
+      <p class="text-sm text-ink-500">Web Design, Development &amp; Optimization</p>
     </div>
   </div>
 </footer>

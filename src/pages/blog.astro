@@ -1,32 +1,19 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import BlogList from '../components/BlogList.astro';
-import CTASection from '../components/CTASection.astro';
 import { getPublishedPosts, postUrl, POSTS_PER_PAGE } from '../lib/blog';
 import { SITE } from '../consts';
 
-/**
- * Blog hub, page 1. URL preserved (/blog).
- *
- * Pages 2+ live at /blog/page/N — see src/pages/blog/page/[page].astro. They are
- * a separate route rather than a rest parameter on this one so they can never
- * collide with /blog/:slug, and so /blog itself stays a plain static file.
- *
- * Note this page was NOT in the legacy sitemap.xml even though it was linked
- * from every page's navigation and had 15 posts hanging off it — one of the
- * bigger technical SEO defects found in the audit. It is now generated into the
- * sitemap automatically along with every post.
- */
+/* Blog hub, page 1. Pages 2+ live at /blog/page/N
+   (see src/pages/blog/page/[page].astro). */
 const allPosts = await getPublishedPosts();
 const posts = allPosts.slice(0, POSTS_PER_PAGE);
 const totalPages = Math.max(1, Math.ceil(allPosts.length / POSTS_PER_PAGE));
 
-const title = 'Website Performance & SEO Blog';
+const title = 'Websetly Blog | Website Tips and Guides';
 const description =
-  'Practical guides on making websites faster: Core Web Vitals, page speed, technical SEO, accessibility and conversion — written for people who have to ship the fix.';
+  'Simple guides on building, redesigning and improving websites, plus tips on domains, SEO and getting more from your online presence.';
 
-/* Schema lists the whole archive, not just this page — it describes the blog,
-   which does not change as you page through it. */
 const blogSchema = {
   '@type': 'Blog',
   '@id': `${SITE.url}/blog#blog`,
@@ -47,12 +34,24 @@ const blogSchema = {
 <PageLayout
   title={title}
   description={description}
-  heading="Latest articles"
-  lede="Guides on website performance, SEO, accessibility, and growth."
+  heading="Blog"
+  lede="Simple guides on building and improving your website."
   breadcrumbs={[{ name: 'Blog', href: '/blog' }]}
   schemaEntities={[blogSchema]}
 >
   <BlogList posts={posts} allPosts={allPosts} page={1} totalPages={totalPages} />
 
-  <CTASection source="blog-closing" />
+  <section class="section">
+    <div class="container-page">
+      <div class="rounded-2xl bg-brand-900 px-6 py-14 text-center sm:px-12">
+        <h2 class="text-3xl text-white">Ready to build or improve your website?</h2>
+        <p class="mx-auto mt-4 max-w-xl text-lg text-brand-100">
+          Tell us what you need. Let’s talk about how we can help.
+        </p>
+        <div class="mt-8">
+          <a href="/contact" class="btn btn-secondary btn-lg">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </PageLayout>

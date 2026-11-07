@@ -49,7 +49,7 @@ const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   {
     posts.length > 0 ? (
-      <div class="grid gap-6 sm:grid-cols-2">
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {posts.map((p, i) => (
           <PostCard post={p} eager={page === 1 && i < 2} as="h2" />
         ))}

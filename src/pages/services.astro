@@ -1,22 +1,56 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import Section from '../components/Section.astro';
-import ServiceCard from '../components/ServiceCard.astro';
-import CTASection from '../components/CTASection.astro';
-import { PRIMARY_SERVICES, SERVICES, SITE } from '../consts';
+import { SERVICES, SITE } from '../consts';
 
-/**
- * The services hub. URL preserved from the legacy site (/services), but the
- * catalogue behind it is entirely repositioned.
- *
- * Legacy in-page anchors (#web-design, #development, #ui-ux-design, #branding,
- * #seo-setup) were linked from every footer on the old site. They are re-emitted
- * on the services that replaced them so old inbound links and bookmarks land
- * somewhere sensible rather than at the top of an unfamiliar page.
- */
-const title = 'Website Performance & Technical SEO Services';
+const title = 'Website Design, Development & Optimization Services';
 const description =
-  'Core Web Vitals, page speed, technical SEO, accessibility, conversion and monitoring services for businesses and e-commerce stores that already have a website.';
+  'Websetly builds business websites, online stores and Shopify and WordPress sites. We also redesign, speed up and maintain existing websites.';
+
+/* Cards without an href are not links, because they have no page yet. */
+const buildServices = [
+  {
+    title: 'Business Websites',
+    body: 'A clear, professional website for your business, built to work on phones, tablets and computers.',
+    href: '/services/website-development',
+  },
+  {
+    title: 'Online Stores',
+    body: 'An online store where customers can browse your products and place orders easily.',
+  },
+  {
+    title: 'Shopify Stores',
+    body: 'A Shopify store set up and designed to match your brand.',
+    href: '/services/shopify-store-design',
+  },
+  {
+    title: 'WordPress Websites',
+    body: 'A WordPress website you can update and manage yourself.',
+  },
+];
+
+const improveServices = [
+  {
+    title: 'Website Redesign',
+    body: 'A fresh look for your current website, with a layout that is easier to use.',
+    href: '/services/website-redesign',
+  },
+  {
+    title: 'Speed & Performance',
+    body: 'We find what makes your website slow and fix it, so pages open faster.',
+    href: '/services/website-performance-optimization',
+  },
+  {
+    title: 'SEO',
+    body: 'Changes that help more people find your website on Google.',
+    href: '/services/technical-seo',
+  },
+  {
+    title: 'Website Maintenance',
+    body: 'Regular updates, backups and checks to keep your website safe and working.',
+    href: '/services/website-maintenance',
+  },
+];
 
 const serviceSchema = SERVICES.map((s) => ({
   '@type': 'Service',
@@ -32,27 +66,62 @@ const serviceSchema = SERVICES.map((s) => ({
 <PageLayout
   title={title}
   description={description}
-  heading="What we do"
-  lede="We make websites better, faster and easier to find on the web."
+  heading="Our Services"
+  lede="We build new websites and improve existing ones."
   breadcrumbs={[{ name: 'Services', href: '/services' }]}
   schemaEntities={serviceSchema}
 >
-  <Section>
-    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+  <!-- ===================================== 1. WEBSITE DEVELOPMENT -->
+  <span id="web-design" class="block scroll-mt-28"></span>
+  <span id="development" class="block scroll-mt-28"></span>
+  <Section eyebrow="Build" title="Website Development">
+    <p class="max-w-2xl text-lg leading-relaxed text-ink-600">
+      We design and build new websites for businesses, professionals and online
+      stores.
+    </p>
+    <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {
-        PRIMARY_SERVICES.map((s) => (
-          <div class="scroll-mt-28">
-            {/* Old inbound links used in-page anchors, and one service can
-                inherit several of them. */}
-            {s.legacyAnchors?.map((anchor) => (
-              <span id={anchor} class="block scroll-mt-28" />
-            ))}
-            <ServiceCard service={s} variant="full" as="h2" />
-          </div>
-        ))
+        buildServices.map((s) => {
+          const Tag = s.href ? 'a' : 'div';
+          return (
+            <Tag
+              href={s.href}
+              class:list={['card reveal flex flex-col', s.href && 'card-interactive']}
+            >
+              <h3 class="text-lg">{s.title}</h3>
+              <p class="mt-2.5 text-[0.9375rem] leading-relaxed text-ink-600">
+                {s.body}
+              </p>
+            </Tag>
+          );
+        })
       }
+    </div>
+    <div class="mt-10">
+      <a href="/contact" class="btn btn-primary btn-lg">Contact Us</a>
     </div>
   </Section>
 
-  <CTASection source="services-closing" />
+  <!-- ===================================== 2. WEBSITE OPTIMIZATION -->
+  <span id="seo-setup" class="block scroll-mt-28"></span>
+  <Section eyebrow="Improve" title="Website Optimization" tone="muted">
+    <p class="max-w-2xl text-lg leading-relaxed text-ink-600">
+      We improve websites that are slow, outdated or hard to find.
+    </p>
+    <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        improveServices.map((s) => (
+          <a href={s.href} class="card card-interactive reveal flex flex-col">
+            <h3 class="text-lg">{s.title}</h3>
+            <p class="mt-2.5 text-[0.9375rem] leading-relaxed text-ink-600">
+              {s.body}
+            </p>
+          </a>
+        ))
+      }
+    </div>
+    <div class="mt-10">
+      <a href="/analyze" class="btn btn-primary btn-lg">Analyze Your Site</a>
+    </div>
+  </Section>
 </PageLayout>

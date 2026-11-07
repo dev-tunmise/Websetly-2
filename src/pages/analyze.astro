@@ -6,16 +6,12 @@ import Icon from '../components/Icon.astro';
 import { SITE } from '../consts';
 
 /**
- * The lead-generation engine. This is the only page that loads the analyzer
- * script — every other page links here rather than paying for the JavaScript.
- *
- * The page renders complete and useful with no query string and no JavaScript:
- * the form works and the explanation is readable. Results are injected into
+ * The only page that loads the analyzer script. Results are injected into
  * #analyzer-result only when ?url= is present.
  */
-const title = 'Free Website Performance Analysis';
+const title = 'Free Website Analysis';
 const description =
-  'Paste your URL and get a real report: Core Web Vitals from real users, Lighthouse scores, and the specific fixes ranked by the load time each one saves.';
+  'Enter your website address to get a free report on its speed, search visibility and accessibility. No signup needed.';
 
 /** The four areas a report covers, in the order the report presents them. */
 const covers = [
@@ -58,7 +54,7 @@ const softwareSchema = {
   title={title}
   description={description}
   heading="Analyze your website"
-  lede="Free, no signup. You get your Core Web Vitals, Lighthouse scores across four categories, and the specific opportunities ranked by what each one is worth."
+  lede="Enter your website address to get a free report on its speed, search visibility and accessibility. No signup needed."
   breadcrumbs={[{ name: 'Analyze', href: '/analyze' }]}
   schemaEntities={[softwareSchema]}
 >
@@ -86,7 +82,7 @@ const softwareSchema = {
   <!-- ============================================== WHAT IT COVERS -->
   <Section
     title="What your report covers"
-    lede="A clear overview of the areas we check:"
+    lede="Here is what we check:"
   >
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {
@@ -108,8 +104,12 @@ const softwareSchema = {
     </div>
 
     <p class="mt-8 max-w-2xl text-sm leading-relaxed text-ink-500">
-      We use Google Lighthouse and real-world data where available to give you a
-      clearer picture of how your website performs.
+      Reports are powered by Google Lighthouse.
+    </p>
+
+    <p class="mt-4 max-w-2xl text-base leading-relaxed text-ink-600">
+      Want help fixing what the report finds?
+      <a href="/contact" class="font-medium text-brand-700 hover:underline">Contact us</a>.
     </p>
   </Section>
 

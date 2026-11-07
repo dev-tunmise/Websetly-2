@@ -1,21 +1,11 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import Icon from '../components/Icon.astro';
-import { SITE, SERVICES } from '../consts';
+import { SITE } from '../consts';
 
-/**
- * Contact. URL preserved (/contact).
- *
- * The Formspree endpoint is unchanged from the legacy form, so submissions keep
- * arriving in the same inbox with no reconfiguration.
- *
- * When the analyzer hands off here it passes ?ref=analyzer&site=…. This is a
- * statically-built page, so `Astro.url.searchParams` is empty at build time —
- * the prefill is done in the inline script at the foot of the file instead.
- */
 const title = 'Contact Websetly';
 const description =
-  'Tell us about your website and what you need help with. We review every message and come back to you with a view on whether we can help.';
+  'Tell us what you need. Whether it is a new website, a redesign or improvements to your current site, we will get back to you.';
 
 const contactSchema = {
   '@type': 'ContactPage',
@@ -23,13 +13,23 @@ const contactSchema = {
   url: `${SITE.url}/contact`,
   about: { '@id': `${SITE.url}/#organization` },
 };
+
+const serviceOptions = [
+  'New website',
+  'Online store (Shopify or other)',
+  'WordPress website',
+  'Website redesign',
+  'Speed and performance',
+  'SEO',
+  'Website maintenance',
+];
 ---
 
 <PageLayout
   title={title}
   description={description}
   heading="Get in touch"
-  lede="Tell us about your website and what you need help with."
+  lede="Tell us what you need and we'll get back to you."
   breadcrumbs={[{ name: 'Contact', href: '/contact' }]}
   schemaEntities={[contactSchema]}
 >
@@ -42,10 +42,9 @@ const contactSchema = {
           hidden
           class="card mb-8 border-brand-200 bg-brand-50"
         >
-          <p class="font-medium text-ink-900">Your report is on the way.</p>
+          <p class="font-medium text-ink-900">Your report is ready.</p>
           <p class="mt-1.5 text-[0.9375rem] text-ink-600">
-            Send this over and we will come back with a prioritised fix plan and
-            what each item is worth — no charge, no obligation.
+            Send us a message and we'll tell you what we would fix first.
           </p>
         </div>
 
@@ -81,14 +80,16 @@ const contactSchema = {
           </div>
 
           <div>
-            <label for="website" class="label">Your website</label>
+            <label for="website" class="label">
+              Your website <span class="font-normal text-ink-500">(if you have one)</span>
+            </label>
             <input
               type="url"
               id="website"
               name="website"
               inputmode="url"
               autocomplete="url"
-              placeholder="yourstore.com"
+              placeholder="yourwebsite.com"
               class="field"
             />
           </div>
@@ -98,20 +99,20 @@ const contactSchema = {
               What do you need? <span class="font-normal text-ink-500">(optional)</span>
             </label>
             <select id="service" name="service" class="field">
-              <option value="">Not sure yet — help me work it out</option>
-              {SERVICES.map((s) => <option value={s.title}>{s.title}</option>)}
+              <option value="">Not sure yet</option>
+              {serviceOptions.map((o) => <option value={o}>{o}</option>)}
             </select>
           </div>
 
           <div>
-            <label for="message" class="label">What is going wrong?</label>
+            <label for="message" class="label">Tell us about your project</label>
             <textarea
               id="message"
               name="message"
               rows="5"
               required
               class="field resize-y"
-              placeholder="Slow on mobile, Search Console says Core Web Vitals need improvement, checkout abandonment is high…"></textarea>
+              placeholder="For example: I need a website for my business, or I want to improve my current site."></textarea>
           </div>
 
           <!-- Honeypot. Bots fill it; people never see it. -->
@@ -177,22 +178,17 @@ const contactSchema = {
         </div>
 
         <div class="card mt-5">
-          <h2 class="text-lg">Start with the free report</h2>
+          <h2 class="text-lg">Already have a website?</h2>
           <p class="mt-2.5 text-[0.9375rem] leading-relaxed text-ink-600">
-            It takes 30 seconds and gives us both something concrete to talk
-            about. Most conversations go better this way.
+            Get a free report on its speed and performance.
           </p>
-          <a href="/analyze" class="btn btn-primary mt-5">Analyze your site</a>
+          <a href="/analyze" class="btn btn-secondary mt-5">Analyze your site</a>
         </div>
       </aside>
     </div>
   </div>
 
-  <!--
-    Static page, so the ?ref=/?site= handoff from the analyzer is applied here
-    rather than at build time. Kept inline and tiny: it runs before paint and
-    adds no network request.
-  -->
+  <!-- Applies the ?ref=/?site= handoff from the analyzer. Do not remove. -->
   <script is:inline>
     (function () {
       var p = new URLSearchParams(location.search);
