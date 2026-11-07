@@ -1,0 +1,80 @@
+---
+import { Image } from 'astro:assets';
+import PageLayout from '../layouts/PageLayout.astro';
+import Section from '../components/Section.astro';
+import founder from '../assets/site/founder.jpg';
+
+const title = 'About Websetly';
+const description =
+  'Websetly builds new websites, redesigns existing ones and improves websites that need better performance. Meet the founder.';
+---
+
+<PageLayout
+  title={title}
+  description={description}
+  heading="About Websetly"
+  lede="We build, redesign and improve websites."
+  breadcrumbs={[{ name: 'About', href: '/about' }]}
+>
+  <!-- ============================================ 1. ABOUT WEBSETLY -->
+  <Section>
+    <div class="max-w-3xl space-y-5 text-lg leading-relaxed text-ink-600">
+      <p>
+        Websetly is a web development and website optimization company. We
+        build new websites, redesign existing ones and improve websites that
+        are slow or hard to use.
+      </p>
+      <p>
+        We work with businesses, startups, professionals, individuals and
+        online stores.
+      </p>
+      <p>
+        Whether you need a website from scratch or want to improve the one you
+        already have, we keep things simple. We listen to what you need,
+        explain things in plain words and build a website that works for you.
+      </p>
+    </div>
+  </Section>
+
+  <!-- ============================================ 2. MEET THE FOUNDER -->
+  <Section eyebrow="Founder" title="Meet the Founder" tone="muted">
+    <div class="grid items-center gap-10 lg:grid-cols-[20rem_minmax(0,1fr)] lg:gap-16">
+      <div
+        class="flex aspect-[4/5] w-full max-w-xs items-center justify-center rounded-xl border border-ink-200 bg-brand-50"
+        role="img"
+        aria-label="Photo of Tunmise, founder of Websetly (coming soon)"
+      >
+        <span class="text-6xl font-semibold text-brand-700">T</span>
+      </div>
+      <div class="max-w-2xl space-y-5 text-lg leading-relaxed text-ink-600">
+        <p>
+          Hi, I’m Tunmise, the founder of Websetly and a Software Engineering
+          student at Caleb University.
+        </p>
+        <p>
+          I started learning web development in 2023 and have since been
+          building websites and improving my skills through practical projects.
+        </p>
+        <p>
+          I started Websetly to help businesses and individuals build better
+          websites and make the most of their online presence.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- ============================================ 3. CTA -->
+  <section class="section">
+    <div class="container-page">
+      <div class="rounded-2xl bg-brand-900 px-6 py-14 text-center sm:px-12">
+        <h2 class="text-3xl text-white">Ready to build or improve your website?</h2>
+        <p class="mx-auto mt-4 max-w-xl text-lg text-brand-100">
+          Tell us what you need. Let’s talk about how we can help.
+        </p>
+        <div class="mt-8">
+          <a href="/contact" class="btn btn-secondary btn-lg">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>

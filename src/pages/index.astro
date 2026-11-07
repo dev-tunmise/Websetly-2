@@ -1,0 +1,210 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import PostCard from '../components/PostCard.astro';
+import HeroVisual from '../components/HeroVisual.astro';
+import { SITE } from '../consts';
+import { PROCESS } from '../data/homepage';
+import { getPublishedPosts } from '../lib/blog';
+
+const posts = (await getPublishedPosts()).slice(0, 3);
+
+const projects = (await getCollection('caseStudies', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 4);
+
+/* Description and live site address for each project, keyed by case study file name.
+   Add each real web address between the quotes after url.
+   Leave url empty ('') and that card will not show a button. */
+const projectInfo: Record<string, { description: string; url: string }> = {
+  'excellence-academy': {
+    description:
+      'A school website that makes it easier for parents to learn about the school and its admissions process.',
+    url: '',
+  },
+  'mashinc-realty': {
+    description:
+      'A real estate website that helps people explore available properties.',
+    url: '',
+  },
+  'techflow-saas': {
+    description: 'A website for a B2B software platform.',
+    url: '',
+  },
+  'lumiere-restaurant': {
+    description: 'A website for a restaurant.',
+    url: '',
+  },
+};
+
+const services = [
+  {
+    title: 'Website Design & Development',
+    body: 'We design and build websites that look good and work well on all devices.',
+  },
+  {
+    title: 'Website Redesign',
+    body: 'Give your existing website a fresh look and make it easier for people to use.',
+  },
+  {
+    title: 'Website Optimization',
+    body: 'We improve your website’s speed, performance and overall experience.',
+  },
+  {
+    title: 'SEO',
+    body: 'Help more people find your website through Google search.',
+  },
+];
+
+const title = 'Website Design, Development & Optimization';
+const description =
+  'Websetly builds new websites, redesigns existing ones and improves websites that need better performance.';
+---
+
+<BaseLayout title={`${title} | ${SITE.name}`} description={description}>
+  <!-- ================================================== 1. HERO -->
+  <section class="relative overflow-hidden border-b border-ink-200">
+    <div
+      class="pointer-events-none absolute inset-0 bg-linear-to-b from-brand-50/60 via-white to-white"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div class="container-page relative pt-14 pb-16 sm:pt-20 sm:pb-24">
+      <div
+        class="grid items-center gap-16 lg:grid-cols-[minmax(0,1fr)_26rem]"
+      >
+        <div class="max-w-3xl">
+          <p class="eyebrow mb-4">Web Design Agency</p>
+          <h1 class="text-[2.75rem] leading-[1.1] sm:text-5xl lg:text-[4.5rem] lg:leading-[1.05]">
+            <span class="block">We build,</span>
+            <span class="block">We redesign,</span>
+            <span class="block text-brand-700">We optimize.</span>
+          </h1>
+          <p class="mt-6 max-w-2xl text-xl leading-relaxed text-ink-600">
+           We create websites for businesses and help improve existing ones.
+          </p>
+
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a href="/contact" class="btn btn-primary btn-lg sm:min-w-52">Contact Us</a>
+            <a href="/analyze" class="btn btn-secondary btn-lg sm:min-w-52">Analyze Your Site</a>
+          </div>
+        </div>
+
+        <HeroVisual class="hidden lg:block" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================ 2. SERVICES -->
+  <Section eyebrow="Services" title="What we do">
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        services.map((s) => (
+          <a
+            href="/services"
+            class="card card-interactive reveal flex flex-col"
+          >
+            <h3 class="text-lg">{s.title}</h3>
+            <p class="mt-2.5 text-[0.9375rem] leading-relaxed text-ink-600">
+              {s.body}
+            </p>
+          </a>
+        ))
+      }
+    </div>
+    <div class="mt-8">
+      <a href="/services" class="btn btn-secondary">View All Services</a>
+    </div>
+  </Section>
+
+  <!-- =============================================== 3. HOW WE WORK -->
+  <Section eyebrow="Process" title="How We Work" tone="muted">
+    <ol class="grid gap-5 sm:grid-cols-3">
+      {
+        PROCESS.map((p) => (
+          <li class="card reveal bg-white">
+            <span class="font-mono text-sm font-semibold text-brand-600">
+              {p.step}
+            </span>
+            <h3 class="mt-4 text-lg">{p.title}</h3>
+            <p class="mt-2.5 text-[0.9375rem] leading-relaxed text-ink-600">
+              {p.body}
+            </p>
+          </li>
+        ))
+      }
+    </ol>
+  </Section>
+
+  <!-- ================================================ 4. PORTFOLIO -->
+  {
+    projects.length > 0 && (
+      <Section eyebrow="Portfolio" title="Selected projects">
+        <div class="grid gap-5 sm:grid-cols-2">
+          {projects.map((p) => (
+            <article class="card reveal flex flex-col">
+              {p.data.heroImage && (
+                <Image
+                  src={p.data.heroImage}
+                  alt={p.data.heroImageAlt ?? p.data.client}
+                  width={800}
+                  height={533}
+                  class="mb-5 aspect-[3/2] w-full rounded-lg object-cover"
+                />
+              )}
+              <h3 class="text-lg">{p.data.client}</h3>
+              <p class="mt-2.5 flex-1 text-[0.9375rem] leading-relaxed text-ink-600">
+                {projectInfo[p.id]?.description}
+              </p>
+              {projectInfo[p.id]?.url && (
+                <a
+                  href={projectInfo[p.id].url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit ${p.data.client} website (opens in a new tab)`}
+                  class="btn btn-secondary mt-5 self-start"
+                >
+                  Visit Site
+                </a>
+              )}
+            </article>
+          ))}
+        </div>
+      </Section>
+    )
+  }
+
+  <!-- ===================================================== 5. BLOG -->
+  {
+    posts.length > 0 && (
+      <Section eyebrow="Blog" title="Latest articles" tone="muted">
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {posts.map((p, i) => (
+            <PostCard post={p} eager={i === 0} />
+          ))}
+        </div>
+        <div class="mt-8">
+          <a href="/blog" class="btn btn-secondary">Read the blog</a>
+        </div>
+      </Section>
+    )
+  }
+
+  <!-- ====================================================== 6. CTA -->
+  <section class="section">
+    <div class="container-page">
+      <div class="rounded-2xl bg-brand-900 px-6 py-14 text-center sm:px-12">
+        <h2 class="text-3xl text-white">Ready to build or improve your website?</h2>
+        <p class="mx-auto mt-4 max-w-xl text-lg text-brand-100">
+          Tell us what you need. Let’s talk about how we can help.
+        </p>
+        <div class="mt-8">
+          <a href="/contact" class="btn btn-secondary btn-lg">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

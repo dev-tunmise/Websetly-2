@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Websetly mark: the rising signal from the wordmark, on the brand green.
+       Replaces the previous navy-to-orange gradient tile. -->
+  <rect width="32" height="32" rx="7.5" fill="#2e7d59"/>
+  <path d="M7 21.5 12.5 14.5 17 19 25.5 9"
+        fill="none" stroke="#ffffff" stroke-width="3"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="25.5" cy="9" r="2.75" fill="#ffffff"/>
+</svg>

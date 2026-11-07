@@ -1,0 +1,122 @@
+---
+import type { GetStaticPaths } from 'astro';
+import PageLayout from '../../layouts/PageLayout.astro';
+import Section from '../../components/Section.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import CTASection from '../../components/CTASection.astro';
+import Icon from '../../components/Icon.astro';
+import { SERVICES, SITE, type Service } from '../../consts';
+
+export const getStaticPaths = (() =>
+  SERVICES.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }))) satisfies GetStaticPaths;
+
+interface Props {
+  service: Service;
+}
+
+const { service } = Astro.props;
+
+const url = `${SITE.url}/services/${service.slug}`;
+
+const schema = {
+  '@type': 'Service',
+  '@id': `${url}#service`,
+  name: service.title,
+  description: service.metaDescription,
+  url,
+  serviceType: service.title,
+  provider: { '@id': `${SITE.url}/#organization` },
+  areaServed: { '@type': 'Place', name: 'Worldwide' },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: `${service.title} deliverables`,
+    itemListElement: service.deliverables.map((d) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name: d },
+    })),
+  },
+};
+
+// Sibling services for internal linking. Every service page links to three
+// others, so no service page is a crawl dead end.
+const related = SERVICES.filter(
+  (s) => s.slug !== service.slug && s.primary === service.primary,
+).slice(0, 3);
+---
+
+<PageLayout
+  title={service.seoTitle}
+  description={service.metaDescription}
+  heading={service.title}
+  lede={service.intro}
+  eyebrow={service.primary ? 'Service' : 'Secondary service'}
+  breadcrumbs={[
+    { name: 'Services', href: '/services' },
+    { name: service.title, href: `/services/${service.slug}` },
+  ]}
+  schemaEntities={[schema]}
+>
+  <Fragment slot="hero-extra">
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href="/analyze" class="btn btn-primary">Analyze your site free</a>
+      <a href="/contact" class="btn btn-secondary">Talk to us about this</a>
+    </div>
+  </Fragment>
+
+  <Section title="What you get" as="h2">
+    <div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
+      <ul class="space-y-4">
+        {
+          service.deliverables.map((d) => (
+            <li class="flex gap-3">
+              <Icon name="check" size={19} class="mt-1 shrink-0 text-brand-600" />
+              <span class="text-lg leading-relaxed text-ink-700">{d}</span>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="card card-muted h-fit">
+        <h3 class="text-lg">What changes for you</h3>
+        <ul class="mt-5 space-y-3.5">
+          {
+            service.outcomes.map((o) => (
+              <li class="flex gap-3">
+                <Icon
+                  name="arrow-right"
+                  size={17}
+                  class="mt-1 shrink-0 text-brand-600"
+                />
+                <span class="leading-relaxed text-ink-700">{o}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </Section>
+
+  {
+    related.length > 0 && (
+      <Section
+        title="Related services"
+        lede="These are usually run alongside this one."
+        tone="muted"
+      >
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {related.map((s) => (
+            <ServiceCard service={s} />
+          ))}
+        </div>
+      </Section>
+    )
+  }
+
+  <CTASection
+    title={`Find out if you need ${service.title.toLowerCase()}`}
+    source={`service-${service.slug}`}
+  />
+</PageLayout>

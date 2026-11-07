@@ -1,0 +1,68 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+/**
+ * Standard interior page: breadcrumb trail, one h1, one supporting line.
+ * Every interior page uses this so heading hierarchy and breadcrumb schema are
+ * correct by construction rather than by remembering.
+ */
+interface Props {
+  title: string;
+  description: string;
+  /** Page <h1>. Defaults to `title` minus the brand suffix. */
+  heading?: string;
+  lede?: string;
+  eyebrow?: string;
+  breadcrumbs?: { name: string; href: string }[];
+  image?: string;
+  noindex?: boolean;
+  schemaEntities?: Record<string, unknown>[];
+  /** Hide the default hero when a page supplies its own. */
+  bare?: boolean;
+}
+
+const {
+  title,
+  description,
+  heading,
+  lede,
+  eyebrow,
+  breadcrumbs = [],
+  image,
+  noindex,
+  schemaEntities,
+  bare = false,
+} = Astro.props;
+
+const trail = [{ name: 'Home', href: '/' }, ...breadcrumbs];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image={image}
+  noindex={noindex}
+  schemaEntities={schemaEntities}
+  breadcrumbs={trail}
+>
+  <slot name="head" slot="head" />
+
+  {
+    !bare && (
+      <div class="border-b border-ink-200 bg-ink-50">
+        <div class="container-page py-8 sm:py-12">
+          {trail.length > 1 && <Breadcrumbs items={trail} class="mb-6" />}
+          <div class="max-w-3xl">
+            {eyebrow && <p class="eyebrow mb-3">{eyebrow}</p>}
+            <h1 class="text-4xl">{heading ?? title}</h1>
+            {lede && <p class="mt-5 text-lg leading-relaxed text-ink-600">{lede}</p>}
+          </div>
+          <slot name="hero-extra" />
+        </div>
+      </div>
+    )
+  }
+
+  <slot />
+</BaseLayout>

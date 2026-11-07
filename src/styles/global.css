@@ -1,0 +1,509 @@
+@import 'tailwindcss';
+
+/* ==========================================================================
+   WEBSETLY DESIGN SYSTEM
+   --------------------------------------------------------------------------
+   Direction: calm, minimal, premium. White is the canvas. Green is the single
+   primary accent (actions, success, performance). Blue is a quieter secondary
+   used for information and surfaces — never competing with green for attention.
+
+   Contrast discipline: light blue and light green cannot carry text at their
+   light end, so the ramps run dark enough that every token used for text or a
+   solid button clears WCAG AA (4.5:1) on white. Verified ratios are noted per
+   token. Tints 50–300 are surface-only and must never hold text.
+   ========================================================================== */
+
+@theme {
+  /* --- Green — PRIMARY accent -------------------------------------------- */
+  --color-brand-50: #f1f9f5;
+  --color-brand-100: #dff1e7;
+  --color-brand-200: #bee3ce;
+  --color-brand-300: #93cfae;
+  --color-brand-400: #63b48c;
+  --color-brand-500: #429a70;
+  --color-brand-600: #2e7d59; /* 5.01:1 on white — solid buttons, links */
+  --color-brand-700: #246347; /* 7.03:1 — hover, emphasis text */
+  --color-brand-800: #1b4a35;
+  --color-brand-900: #143728;
+
+  /* --- Blue — SECONDARY accent ------------------------------------------- */
+  --color-sky-50: #f2f7fb;
+  --color-sky-100: #e2eef7;
+  --color-sky-200: #c4dcef;
+  --color-sky-300: #9ac3e1;
+  --color-sky-400: #6ba4ce;
+  --color-sky-500: #4886b4;
+  --color-sky-600: #356c96; /* 5.62:1 on white */
+  --color-sky-700: #2a5675;
+  --color-sky-800: #21435b;
+  --color-sky-900: #1a3446;
+
+  /* --- Ink — cool neutral ramp ------------------------------------------- */
+  --color-ink-50: #f7f9fa;
+  --color-ink-100: #eef2f5;
+  --color-ink-200: #e1e8ed; /* hairline borders */
+  --color-ink-300: #c6d2da;
+  --color-ink-400: #9aaab6; /* decorative / disabled only */
+  --color-ink-500: #5f7383; /* 4.94:1 — meta, captions */
+  --color-ink-600: #47596a; /* 7.15:1 — body copy */
+  --color-ink-700: #33424f;
+  --color-ink-800: #232e38;
+  --color-ink-900: #161e25; /* headings */
+  --color-ink-950: #0d1317;
+
+  /* --- Semantic ----------------------------------------------------------- */
+  --color-good: #2e7d59;
+  --color-warn: #9a6b1f; /* 4.63:1 — amber dark enough for text */
+  --color-bad: #b3402f; /* 4.83:1 */
+
+  /* --- Type -------------------------------------------------------------- */
+  --font-sans:
+    'Inter var', 'Inter', ui-sans-serif, system-ui, -apple-system,
+    'Segoe UI', Roboto, sans-serif;
+  --font-mono:
+    ui-monospace, 'SF Mono', 'Cascadia Mono', 'JetBrains Mono', Menlo, monospace;
+
+  /* Fluid type scale. Each step clamps between a mobile and desktop size so
+     headings stay confident on large screens without a JS resize listener. */
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.5;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.55;
+  --text-base: 1rem;
+  --text-base--line-height: 1.65;
+  --text-lg: 1.0625rem;
+  --text-lg--line-height: 1.65;
+  --text-xl: clamp(1.125rem, 0.4vw + 1.03rem, 1.25rem);
+  --text-xl--line-height: 1.55;
+  --text-2xl: clamp(1.375rem, 0.8vw + 1.19rem, 1.75rem);
+  --text-2xl--line-height: 1.35;
+  --text-3xl: clamp(1.625rem, 1.4vw + 1.3rem, 2.25rem);
+  --text-3xl--line-height: 1.25;
+  --text-4xl: clamp(2rem, 2.4vw + 1.44rem, 3rem);
+  --text-4xl--line-height: 1.15;
+  --text-5xl: clamp(2.5rem, 4vw + 1.56rem, 4rem);
+  --text-5xl--line-height: 1.08;
+
+  /* --- Radius — one consistent family ------------------------------------ */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.125rem;
+  --radius-2xl: 1.5rem;
+
+  /* --- Shadows — soft, low-contrast, used sparingly ----------------------- */
+  --shadow-xs: 0 1px 2px 0 rgb(22 30 37 / 0.04);
+  --shadow-sm: 0 1px 3px 0 rgb(22 30 37 / 0.05), 0 1px 2px -1px rgb(22 30 37 / 0.04);
+  --shadow-md: 0 4px 12px -2px rgb(22 30 37 / 0.06), 0 2px 6px -2px rgb(22 30 37 / 0.04);
+  --shadow-lg: 0 12px 32px -8px rgb(22 30 37 / 0.10), 0 4px 12px -4px rgb(22 30 37 / 0.05);
+
+  /* --- Motion — subtle, and always short ---------------------------------- */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+
+@layer base {
+  /* Self-hosted variable Inter. No Google Fonts request, so no render-blocking
+     third-party round-trip and no CLS from a late swap. */
+  @font-face {
+    font-family: 'Inter var';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('/fonts/inter-latin-var.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+      U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+      U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    /* Offset for the sticky header when jumping to an anchor. */
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    background-color: #fff;
+    color: var(--color-ink-600);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* Inter's optical sizing + slightly tightened tracking reads as "designed"
+       rather than default. */
+    font-optical-sizing: auto;
+  }
+
+  h1, h2, h3, h4 {
+    color: var(--color-ink-900);
+    font-weight: 600;
+    letter-spacing: -0.021em;
+    text-wrap: balance;
+  }
+
+  h1 { letter-spacing: -0.032em; }
+
+  p, li {
+    text-wrap: pretty;
+  }
+
+  /* A single, visible, consistent focus ring everywhere — required for AA and
+     the thing most agency sites get wrong. */
+  :focus-visible {
+    outline: 2px solid var(--color-brand-600);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  ::selection {
+    background-color: var(--color-brand-100);
+    color: var(--color-brand-900);
+  }
+
+  img, svg, video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Honour the OS reduced-motion setting rather than animating regardless. */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ==========================================================================
+   COMPONENT PRIMITIVES
+   Only patterns reused across many pages live here. Everything else stays as
+   utilities at the call site so there is no dead CSS to ship.
+   ========================================================================== */
+
+@layer components {
+  /* --- Layout ------------------------------------------------------------ */
+  .container-page {
+    width: 100%;
+    margin-inline: auto;
+    max-width: 76rem;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .container-page { padding-inline: 2rem; }
+  }
+  @media (min-width: 1024px) {
+    .container-page { padding-inline: 2.5rem; }
+  }
+
+  .container-prose {
+    width: 100%;
+    margin-inline: auto;
+    max-width: 44rem;
+  }
+
+  /* Generous, consistent vertical rhythm between sections. */
+  .section {
+    padding-block: clamp(3.5rem, 7vw, 7rem);
+  }
+  .section-tight {
+    padding-block: clamp(2.5rem, 4.5vw, 4rem);
+  }
+
+  /* --- Buttons ------------------------------------------------------------ */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 550;
+    font-size: var(--text-base);
+    line-height: 1.2;
+    padding: 0.8125rem 1.375rem;
+    /* 44px min target — AA pointer sizing. */
+    min-height: 2.75rem;
+    white-space: nowrap;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition:
+      background-color 160ms var(--ease-out-soft),
+      border-color 160ms var(--ease-out-soft),
+      color 160ms var(--ease-out-soft),
+      box-shadow 160ms var(--ease-out-soft);
+  }
+  .btn:disabled,
+  .btn[aria-disabled='true'] {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  .btn-primary {
+    background-color: var(--color-brand-600);
+    color: #fff;
+    box-shadow: var(--shadow-xs);
+  }
+  .btn-primary:hover:not(:disabled) {
+    background-color: var(--color-brand-700);
+  }
+
+  .btn-secondary {
+    background-color: #fff;
+    color: var(--color-ink-800);
+    border-color: var(--color-ink-200);
+    box-shadow: var(--shadow-xs);
+  }
+  .btn-secondary:hover:not(:disabled) {
+    border-color: var(--color-ink-300);
+    background-color: var(--color-ink-50);
+  }
+
+  .btn-ghost {
+    background-color: transparent;
+    color: var(--color-ink-700);
+  }
+  .btn-ghost:hover:not(:disabled) {
+    background-color: var(--color-ink-100);
+  }
+
+  .btn-lg {
+    font-size: var(--text-lg);
+    padding: 0.9375rem 1.75rem;
+    min-height: 3.125rem;
+  }
+
+  /* --- Card --------------------------------------------------------------- */
+  .card {
+    background-color: #fff;
+    border: 1px solid var(--color-ink-200);
+    border-radius: var(--radius-xl);
+    padding: 1.75rem;
+  }
+  /* Only interactive cards lift, and only slightly. */
+  .card-interactive {
+    transition:
+      border-color 180ms var(--ease-out-soft),
+      box-shadow 180ms var(--ease-out-soft);
+  }
+  .card-interactive:hover {
+    border-color: var(--color-ink-300);
+    box-shadow: var(--shadow-md);
+  }
+
+  .card-muted {
+    background-color: var(--color-ink-50);
+    border-color: transparent;
+  }
+
+  /* --- Eyebrow ------------------------------------------------------------
+     Section kickers are styled text, NOT headings. The legacy site used <h2>
+     for these, which broke the document outline on every page. */
+  .eyebrow {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-brand-700);
+  }
+
+  /* --- Pill / tag ---------------------------------------------------------- */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    border-radius: 999px;
+    padding: 0.3125rem 0.75rem;
+    font-size: var(--text-xs);
+    font-weight: 550;
+    background-color: var(--color-ink-100);
+    color: var(--color-ink-700);
+  }
+  .pill-brand {
+    background-color: var(--color-brand-50);
+    color: var(--color-brand-700);
+  }
+  .pill-sky {
+    background-color: var(--color-sky-50);
+    color: var(--color-sky-700);
+  }
+
+  /* --- Form fields --------------------------------------------------------- */
+  .field {
+    width: 100%;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-ink-300);
+    background-color: #fff;
+    padding: 0.8125rem 1rem;
+    min-height: 2.75rem;
+    font-size: var(--text-base);
+    color: var(--color-ink-900);
+    transition: border-color 160ms var(--ease-out-soft), box-shadow 160ms var(--ease-out-soft);
+  }
+  .field::placeholder { color: var(--color-ink-400); }
+  .field:focus {
+    outline: none;
+    border-color: var(--color-brand-600);
+    box-shadow: 0 0 0 3px var(--color-brand-100);
+  }
+  .field[aria-invalid='true'] {
+    border-color: var(--color-bad);
+  }
+
+  .label {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 550;
+    color: var(--color-ink-800);
+    margin-bottom: 0.4375rem;
+  }
+
+  /* --- Metric help tooltip --------------------------------------------------
+     Lives here rather than in a component because the analyzer report is
+     injected as an HTML string at runtime, where scoped styles do not reach.
+
+     Revealed on hover AND on focus, which is what makes it work on a phone:
+     tapping the button focuses it. The text stays in the DOM at opacity 0
+     rather than display:none, so aria-describedby still announces it. */
+  .metric-help {
+    position: relative;
+    display: inline-flex;
+    flex-shrink: 0;
+  }
+
+  .metric-help-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 999px;
+    color: var(--color-ink-400);
+    cursor: pointer;
+    transition:
+      color 140ms var(--ease-out-soft),
+      background-color 140ms var(--ease-out-soft);
+  }
+  .metric-help-btn:hover {
+    color: var(--color-ink-700);
+    background-color: var(--color-ink-100);
+  }
+
+  .metric-help-text {
+    position: absolute;
+    bottom: calc(100% + 0.5rem);
+    right: -0.25rem;
+    z-index: 20;
+    width: max-content;
+    max-width: 15rem;
+    border-radius: var(--radius-md);
+    background-color: var(--color-ink-900);
+    color: #fff;
+    padding: 0.5rem 0.75rem;
+    font-size: var(--text-xs);
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 140ms var(--ease-out-soft);
+  }
+
+  .metric-help-btn:hover + .metric-help-text,
+  .metric-help-btn:focus + .metric-help-text {
+    opacity: 1;
+  }
+
+  /* --- Hairline divider ---------------------------------------------------- */
+  .rule {
+    border: 0;
+    border-top: 1px solid var(--color-ink-200);
+  }
+
+  /* --- Skip link ----------------------------------------------------------- */
+  .skip-link {
+    position: absolute;
+    left: 0.75rem;
+    top: -100%;
+    z-index: 100;
+    background: #fff;
+    color: var(--color-ink-900);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    font-weight: 550;
+  }
+  .skip-link:focus {
+    top: 0.75rem;
+  }
+}
+
+/* ==========================================================================
+   UTILITIES
+   ========================================================================== */
+
+@utility text-balance-none {
+  text-wrap: initial;
+}
+
+/* State changes inside the analyzer report panel. Short and small: the panel
+   stays put and only its contents cross-fade, so nothing jumps under the
+   pointer. Collapsed by the global reduced-motion rule above. */
+@keyframes analyzer-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.analyzer-fade {
+  animation: analyzer-fade-in 260ms var(--ease-out-soft) both;
+}
+
+/* One shared entrance animation, CSS-only, driven by the scroll-linked
+   animation timeline where supported. Replaces the 14KB AOS library the legacy
+   site loaded from a third-party CDN on every page. */
+@utility reveal {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: reveal-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 22%;
+  }
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Browsers without animation-timeline get the finished state, never a blank
+   section. */
+@supports not (animation-timeline: view()) {
+  .reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

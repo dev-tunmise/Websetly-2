@@ -1,0 +1,22 @@
+# https://websetly.com/robots.txt
+#
+# Note: Cloudflare prepends a managed block to this file at the edge, which is
+# where the AI-crawler directives on the live site come from. Anything below is
+# appended after it — do not duplicate those rules here.
+
+User-agent: *
+Allow: /
+
+# Query-string variants of the analyzer are the same page with different
+# results. Canonical tags already point at /analyze; this keeps them out of the
+# crawl budget entirely.
+Disallow: /analyze?
+Disallow: /contact?
+
+# Confirmation page — no search value.
+Disallow: /thank-you
+
+# The legacy site set `Crawl-delay: 1`, which slows Googlebot for no benefit on
+# a static site. Deliberately removed.
+
+Sitemap: https://websetly.com/sitemap-index.xml

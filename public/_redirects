@@ -1,0 +1,54 @@
+# Cloudflare Pages redirects.
+#
+# DELIBERATELY SHORT. Every URL the live site currently ranks for is regenerated
+# at its exact existing path by the new build, so almost nothing needs
+# redirecting:
+#
+#   /                                  -> unchanged
+#   /about /services                   -> unchanged
+#   /contact /privacy /terms /blog     -> unchanged
+#   /portfolio /pricing                -> temporarily redirected, see below
+#   /thank-you                         -> unchanged
+#   /blog-*  (15 posts)                -> unchanged, see src/pages/[legacySlug].astro
+#
+# Cloudflare Pages already 308-redirects the `.html` forms (/about.html ->
+# /about) on its own, and `build.format: 'file'` keeps that behaviour identical
+# to today. Adding explicit .html rules here would only create redirect chains.
+
+# TEMPORARILY OFFLINE — case studies and pricing.
+#
+# The pages still exist in the repo (src/pages/_portfolio*, _pricing.astro) but
+# the underscore prefix keeps Astro from building them, so there is no document
+# at these paths. Without these rules the URLs would 404, which tells Google to
+# drop them permanently — and both are indexed today.
+#
+# 302, not 301, because the intent is to bring them back. A 302 keeps the
+# original URL in Google's index and transfers nothing away from it; a 301
+# would hand the ranking to the destination and be cached by browsers, making
+# the takedown much harder to reverse.
+#
+# TO RESTORE: drop the `_` prefixes, re-add the nav entries in src/consts.ts and
+# the footer, and delete this block.
+/portfolio                 /services           302
+/portfolio/*               /services           302
+/case-studies              /services           302
+/case-studies/*            /services           302
+/pricing                   /contact            302
+
+# Convenience aliases for the primary offer — worth having for print, email
+# signatures and anything typed by hand.
+/audit                     /analyze            301
+/free-audit                /analyze            301
+/speed-test                /analyze            301
+/pagespeed                 /analyze            301
+
+# The legacy sitemap listed .html URLs that Cloudflare already redirects. This
+# one is listed explicitly because the root form is ambiguous.
+/index.html                /                   301
+
+# Services retired in the Aug 2026 catalogue rework. Nothing published linked
+# them, but they existed in a build, so point them at their nearest successor
+# rather than serving a 404.
+/services/core-web-vitals            /services/website-performance-optimization   301
+/services/website-speed-optimization /services/website-performance-optimization   301
+/services/conversion-optimization    /services/website-redesign                   301

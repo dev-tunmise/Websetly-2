@@ -1,0 +1,57 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import BlogList from '../components/BlogList.astro';
+import { getPublishedPosts, postUrl, POSTS_PER_PAGE } from '../lib/blog';
+import { SITE } from '../consts';
+
+/* Blog hub, page 1. Pages 2+ live at /blog/page/N
+   (see src/pages/blog/page/[page].astro). */
+const allPosts = await getPublishedPosts();
+const posts = allPosts.slice(0, POSTS_PER_PAGE);
+const totalPages = Math.max(1, Math.ceil(allPosts.length / POSTS_PER_PAGE));
+
+const title = 'Websetly Blog | Website Tips and Guides';
+const description =
+  'Simple guides on building, redesigning and improving websites, plus tips on domains, SEO and getting more from your online presence.';
+
+const blogSchema = {
+  '@type': 'Blog',
+  '@id': `${SITE.url}/blog#blog`,
+  name: `${SITE.name} Blog`,
+  description,
+  url: `${SITE.url}/blog`,
+  publisher: { '@id': `${SITE.url}/#organization` },
+  blogPost: allPosts.slice(0, 20).map((p) => ({
+    '@type': 'BlogPosting',
+    headline: p.data.title,
+    url: new URL(postUrl(p), SITE.url).href,
+    datePublished: p.data.pubDate.toISOString(),
+    description: p.data.description,
+  })),
+};
+---
+
+<PageLayout
+  title={title}
+  description={description}
+  heading="Blog"
+  lede="Simple guides on building and improving your website."
+  breadcrumbs={[{ name: 'Blog', href: '/blog' }]}
+  schemaEntities={[blogSchema]}
+>
+  <BlogList posts={posts} allPosts={allPosts} page={1} totalPages={totalPages} />
+
+  <section class="section">
+    <div class="container-page">
+      <div class="rounded-2xl bg-brand-900 px-6 py-14 text-center sm:px-12">
+        <h2 class="text-3xl text-white">Ready to build or improve your website?</h2>
+        <p class="mx-auto mt-4 max-w-xl text-lg text-brand-100">
+          Tell us what you need. Let’s talk about how we can help.
+        </p>
+        <div class="mt-8">
+          <a href="/contact" class="btn btn-secondary btn-lg">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>

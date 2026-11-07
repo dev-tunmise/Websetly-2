@@ -1,164 +1,106 @@
-# Websetly - Professional Web Design Agency
+# Websetly
 
-A modern, responsive website for Websetly web design agency built with HTML5, Tailwind CSS, and optimized for performance and SEO.
+**Website Performance & Growth Agency** — websetly.com
 
-## 🚀 Features
+Astro 5 · Tailwind 4 · TypeScript · static output on Cloudflare Pages.
 
-- **Modern Design**: Clean, professional design with smooth animations
-- **Fully Responsive**: Mobile-first approach, works on all devices
-- **SEO Optimized**: Complete meta tags, Open Graph, and Twitter Cards
-- **Performance Optimized**: Minified CSS, optimized images, fast loading
-- **Contact Form**: Integrated with Formspree for easy form handling
-- **Analytics Ready**: Google Analytics integration ready
+> Repositioned from a web design agency in 2026. All 24 previously-indexed URLs
+> are preserved at their exact paths. See [`docs/REDESIGN-PLAN.md`](docs/REDESIGN-PLAN.md)
+> for the full rationale — **read the URL strategy section before renaming any
+> route.**
 
-## 📁 Project Structure
+---
 
-```
-Websetly-2/
-├── css/
-│   └── output.css          # Compiled Tailwind CSS
-├── images/                 # All website images and assets
-├── src/
-│   └── input.css          # Tailwind source file
-├── index.html             # Homepage
-├── about.html             # About page
-├── services.html          # Services page
-├── portfolio.html         # Portfolio page
-├── contact.html           # Contact page
-├── privacy.html           # Privacy policy
-├── terms.html             # Terms of service
-├── package.json           # Node.js dependencies
-├── tailwind.config.js     # Tailwind configuration
-└── vercel.json           # Vercel deployment config
+## Quick start
+
+```bash
+npm install
+npm run dev        # http://localhost:4321
 ```
 
-## 🛠️ Technologies Used
+## Scripts
 
-- **HTML5**: Semantic markup
-- **Tailwind CSS**: Utility-first CSS framework
-- **JavaScript**: Interactive components
-- **Formspree**: Form handling service
-- **Google Analytics**: Website analytics
-- **Vercel**: Hosting and deployment
+| Command | Does |
+|---|---|
+| `npm run dev` | Dev server with HMR |
+| `npm run build` | Static build → `dist/` |
+| `npm run preview` | Serve the built output |
+| `npm run check` | TypeScript + Astro diagnostics |
+| `node scripts/audit-build.mjs` | **Post-build gate — run before every deploy** |
+| `node scripts/generate-og-image.mjs` | Regenerate the OG card + touch icon |
+| `node scripts/migrate-blog.mjs` | One-shot legacy HTML → Markdown (already run) |
 
-## 📝 Setup Instructions
+## Project layout
 
-### Prerequisites
-- Node.js (v14 or higher)
-- npm or yarn
-
-### Local Development
-
-1. **Clone the repository**
-   ```bash
-   git clone <your-repo-url>
-   cd Websetly-2
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Build CSS (production)**
-   ```bash
-   npm run build
-   ```
-
-4. **Watch CSS changes (development)**
-   ```bash
-   npm run dev
-   ```
-
-5. **Open in browser**
-   - Open `index.html` in your browser
-   - Or use Live Server extension in VS Code
-
-## 🚀 Deployment
-
-### Vercel Deployment
-
-1. **Connect to Vercel**
-   - Visit [vercel.com](https://vercel.com)
-   - Import your GitHub repository
-   - Vercel will auto-detect the settings
-
-2. **Manual Deploy**
-   ```bash
-   npm install -g vercel
-   vercel
-   ```
-
-### Other Hosting Options
-
-The site can be deployed to any static hosting service:
-- Netlify
-- GitHub Pages
-- AWS S3
-- Firebase Hosting
-
-## ⚙️ Configuration
-
-### Google Analytics
-1. Get your Google Analytics tracking ID
-2. Replace `YOUR_GA_TRACKING_ID` in all HTML files
-3. Uncomment the analytics code in `index.html`
-
-### Formspree Setup
-1. Sign up at [formspree.io](https://formspree.io)
-2. Create a new form
-3. Replace `YOUR_FORMSPREE_ID` in `contact.html`
-
-### Domain Setup
-1. Update canonical URLs in all HTML files
-2. Replace `https://websetly.com` with your actual domain
-3. Update Open Graph and Twitter Card URLs
-
-## 🎨 Customization
-
-### Colors
-Update colors in `tailwind.config.js`:
-```javascript
-colors: {
-  'primary': '#0A192F',    // Dark blue
-  'secondary': '#FF6B35',  // Orange
-  'neutral': '#F5F5F5',    // Light gray
-}
+```
+src/
+├── consts.ts           Site config + the service catalogue. Single source of
+│                       truth — nav, footer, schema and sitemap all read it.
+├── content.config.ts   Zod schemas for the blog and case-study collections
+├── content/
+│   ├── blog/           15 posts migrated from the legacy site
+│   └── case-studies/   4 case studies
+├── data/               homepage.ts · pricing.ts · testimonials.ts
+├── lib/blog.ts         postUrl() — where the blog URL decision lives
+├── scripts/analyzer.ts PageSpeed Insights client (only loaded on /analyze)
+├── components/ layouts/ pages/ styles/ assets/
+public/                 _headers · _redirects · robots.txt · fonts · og image
+docs/REDESIGN-PLAN.md   Audit findings, IA, design system, roadmap
 ```
 
-### Content
-- Update company information in all HTML files
-- Replace placeholder images in the `images/` folder
-- Modify services, portfolio items, and testimonials
+## Things that will bite you
 
-### Fonts
-The site uses Inter font from Google Fonts. To change:
-1. Update the Google Fonts link in HTML files
-2. Update `fontFamily` in `tailwind.config.js`
+**Do not change `build.format` in `astro.config.mjs`.** `'file'` emits
+`about.html`, which Cloudflare Pages serves at `/about` — matching every
+currently-indexed URL. Switching to `'directory'` moves the entire site to
+trailing-slash URLs and forces a site-wide redirect.
 
-## 📱 Responsive Design
+**Do not rename the flat `blog-*` slugs.** Those 15 URLs are indexed and carry
+link equity. Posts with a `legacySlug` in frontmatter render at `/<legacySlug>`;
+new posts omit it and render at `/blog/<slug>`.
 
-The website is built mobile-first and includes:
-- Responsive navigation with mobile menu
-- Fluid typography and spacing
-- Optimized images for different screen sizes
-- Touch-friendly interactive elements
+**Do not rename `/portfolio`.** The nav label says "Case Studies"; the path is
+preserved because it ranks.
 
-## 🔍 SEO Features
+**Colour tokens are contrast-locked.** The 50–300 tints are surface-only and
+must never hold text. Text and solid buttons use 600/700, which are checked
+against white in the plan document. The build audit fails if the retired orange
+(`#FF6B35`) reappears.
 
-- **Meta Tags**: Title, description, keywords for each page
-- **Open Graph**: Social media sharing optimization
-- **Twitter Cards**: Twitter sharing optimization
-- **Structured Data**: Ready for schema markup
-- **Semantic HTML**: Proper heading hierarchy
-- **Alt Text**: All images have descriptive alt text
+## Writing a blog post
 
-## 📞 Support
+Create `src/content/blog/my-post.md`:
 
-For questions or support, contact:
-- Email: awomoyitunmise@gmail.com
-- Website: [websetly.com](https://websetly.com)
+```yaml
+---
+title: 'Under 120 characters'
+description: 'Between 70 and 165 characters — the schema enforces this.'
+pubDate: 2026-08-06
+category: 'Performance'   # or Core Web Vitals | Technical SEO | Accessibility |
+                          #    Conversion | Case Study | Guides
+tags: ['core web vitals', 'lcp']
+readingTime: 6
+draft: false
+---
+```
 
-## 📄 License
+It publishes at `/blog/my-post`, and appears in the hub, the sitemap and the RSS
+feed automatically. **Omit `legacySlug`** — that field exists only for the
+migrated posts.
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+## Before launch
+
+- [ ] Set `PSI_API_KEY` in the Cloudflare Pages environment (Settings →
+      Environment variables). It is read by `functions/api/pagespeed.js` at the
+      edge and is never sent to the browser. Without it the proxy falls back to
+      Google's keyless quota and will fail under load.
+- [ ] Restrict the key in the Google Cloud console: HTTP referrers limited to
+      `websetly.com/*`, and API access limited to PageSpeed Insights.
+- [ ] Confirm the WhatsApp number in `consts.ts` — the legacy site published two
+      different ones.
+- [ ] Check the `@websetly` Twitter handle and LinkedIn URL in `consts.ts`.
+
+## Deployment
+
+Cloudflare Pages · build command `npm run build` · output directory `dist`.
+`public/_headers` and `public/_redirects` are applied automatically.

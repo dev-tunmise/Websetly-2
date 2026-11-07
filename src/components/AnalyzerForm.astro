@@ -1,0 +1,196 @@
+---
+import Icon from './Icon.astro';
+
+/**
+ * The primary conversion surface.
+ *
+ * It is a plain GET form pointing at /analyze, so it works with JavaScript
+ * disabled, before hydration, and from a search result. The actual measurement
+ * runs on /analyze, which is the only page that loads the analyzer script.
+ *
+ * The field is `type="text"`, not `type="url"`, on purpose: native URL
+ * validation rejects `yourstore.com` outright and demands a scheme, which is
+ * exactly the friction this form exists to remove. Validation is done instead
+ * by the script below, which normalises the input to a complete URL before
+ * submitting. With JavaScript off the raw value is still submitted and
+ * /analyze normalises it on arrival, so nothing is lost.
+ */
+interface Props {
+  /** Autofocus and larger sizing for the hero placement. */
+  size?: 'default' | 'lg';
+  id?: string;
+  class?: string;
+  buttonLabel?: string;
+  /** Distinguishes hero vs footer vs CTA submissions in analytics. */
+  source?: string;
+  /**
+   * 'onDark' lightens the hint and error text for placement on a solid dark
+   * panel. The input itself keeps its white background either way.
+   */
+  tone?: 'default' | 'onDark';
+  /**
+   * Alignment of the hint and validation message under the field. The field
+   * itself is full-width either way; this only moves the text beneath it.
+   */
+  align?: 'left' | 'center';
+}
+
+const {
+  size = 'default',
+  id = 'analyzer',
+  class: className = '',
+  buttonLabel = 'Analyze your site',
+  source = 'hero',
+  tone = 'default',
+  align = 'left',
+} = Astro.props;
+
+const inputId = `${id}-url`;
+const hintId = `${id}-hint`;
+const errorId = `${id}-error`;
+---
+
+<form
+  action="/analyze"
+  method="get"
+  class={`w-full ${className}`}
+  data-analyzer
+  data-source={source}
+  role="search"
+>
+  <label for={inputId} class="sr-only">Your website address</label>
+
+  <div
+    class="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:gap-2 sm:rounded-xl sm:border sm:border-ink-200 sm:bg-white sm:p-2 sm:shadow-sm sm:focus-within:border-brand-400 sm:focus-within:ring-3 sm:focus-within:ring-brand-100"
+  >
+    <div class="relative flex-1">
+      <span
+        class="pointer-events-none absolute inset-y-0 left-3.5 hidden items-center text-ink-400 sm:flex"
+        aria-hidden="true"
+      >
+        <Icon name="search" size={18} />
+      </span>
+      <input
+        type="text"
+        id={inputId}
+        name="url"
+        required
+        inputmode="url"
+        autocomplete="url"
+        autocapitalize="none"
+        spellcheck="false"
+        placeholder="yourstore.com"
+        aria-describedby={`${errorId} ${hintId}`}
+        class:list={[
+          'field w-full sm:border-0 sm:bg-transparent sm:pl-10 sm:shadow-none sm:focus:ring-0',
+          size === 'lg' && 'sm:text-lg sm:min-h-12',
+        ]}
+      />
+    </div>
+    <button
+      type="submit"
+      class:list={['btn btn-primary shrink-0', size === 'lg' && 'btn-lg']}
+    >
+      {buttonLabel}
+    </button>
+  </div>
+
+  <!-- Empty until the script fills it, so screen readers announce it as an
+       alert at the moment it becomes relevant rather than on page load. -->
+  <p
+    id={errorId}
+    class="analyzer-error"
+    data-analyzer-error
+    data-align={align}
+    role="alert"
+  >
+    <Icon name="alert" size={16} class="mt-0.5 shrink-0" />
+    <span data-analyzer-error-text></span>
+  </p>
+
+  <p
+    id={hintId}
+    class:list={[
+      'mt-3 text-sm',
+      tone === 'onDark' ? 'text-brand-100' : 'text-ink-500',
+      align === 'center' && 'text-center',
+    ]}
+  >
+    Free, no signup. Get a detailed report on your website’s performance.
+  </p>
+</form>
+
+<style>
+  /* Toggled by a data attribute rather than a utility class so the visible
+     state is `flex`, not whatever `[hidden]` and `.flex` resolve to between
+     them. */
+  .analyzer-error {
+    display: none;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-top: 0.625rem;
+    font-size: var(--text-sm);
+    color: var(--color-bad);
+  }
+  .analyzer-error[data-visible] {
+    display: flex;
+  }
+  .analyzer-error[data-align='center'] {
+    justify-content: center;
+  }
+</style>
+
+<script>
+  import { EMPTY_MESSAGE, INVALID_MESSAGE, normalizeUrl } from '../lib/url';
+
+  /**
+   * Every analyzer form on the page — the homepage carries two (hero and
+   * closing CTA), and this module is bundled once for all of them.
+   */
+  const forms = document.querySelectorAll<HTMLFormElement>('form[data-analyzer]');
+
+  for (const form of forms) {
+    const input = form.querySelector<HTMLInputElement>('input[name="url"]');
+    const error = form.querySelector<HTMLElement>('[data-analyzer-error]');
+    const errorText = form.querySelector<HTMLElement>('[data-analyzer-error-text]');
+    if (!input || !error || !errorText) continue;
+
+    /* `required` stays in the markup as the no-JS guard. Now that we can
+       validate ourselves, suppress the browser's own bubble so the visitor
+       gets our wording instead of "Please fill out this field". */
+    form.setAttribute('novalidate', '');
+
+    const clear = () => {
+      if (!error.hasAttribute('data-visible')) return;
+      error.removeAttribute('data-visible');
+      errorText.textContent = '';
+      input.removeAttribute('aria-invalid');
+    };
+
+    const reject = (message: string) => {
+      errorText.textContent = message;
+      error.setAttribute('data-visible', '');
+      input.setAttribute('aria-invalid', 'true');
+      input.focus();
+    };
+
+    // Clear as soon as they start fixing it — a message that outlives the
+    // problem it describes reads as a broken form.
+    input.addEventListener('input', clear);
+
+    form.addEventListener('submit', (event) => {
+      const url = normalizeUrl(input.value);
+
+      if (!url) {
+        event.preventDefault();
+        reject(input.value.trim() ? INVALID_MESSAGE : EMPTY_MESSAGE);
+        return;
+      }
+
+      clear();
+      // Submit the normalised address, so /analyze receives a complete URL
+      // whether the visitor typed one or not.
+      input.value = url;
+    });
+  }
+</script>

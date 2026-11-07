@@ -1,0 +1,245 @@
+---
+/**
+ * Hero growth chart.
+ *
+ * One idea, stated once: a performance score climbing. Everything that is not
+ * that idea has been removed, because the hero's job is the headline and the
+ * form and this only has to support them.
+ *
+ * The curve is generated from the data below rather than hand-authored, so
+ * the caption and the shape of the line can never drift apart.
+ *
+ * Constraints it is built to:
+ *  - Zero JavaScript and zero network requests. It is inline SVG and CSS, so
+ *    it cannot delay the hero or the LCP element (the <h1>).
+ *  - Fixed aspect via the viewBox, so nothing reflows as it animates.
+ */
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+
+/** Performance score at each check over a 90-day engagement. */
+const SCORES = [41, 44, 58, 63, 79, 84, 92, 96];
+
+const START = SCORES[0];
+const END = SCORES[SCORES.length - 1];
+
+/* --- chart geometry ------------------------------------------------------ */
+const W = 320;
+const H = 132;
+const INSET = 6;
+/** Score 0 sits at BASE, score 100 at TOP. */
+const TOP = 16;
+const BASE = 116;
+
+const px = (i: number) => INSET + (i * (W - INSET * 2)) / (SCORES.length - 1);
+const py = (score: number) => BASE - (score / 100) * (BASE - TOP);
+const r = (n: number) => Math.round(n * 100) / 100;
+
+const points = SCORES.map((score, i) => ({ x: px(i), y: py(score) }));
+
+/**
+ * Cubic segments with horizontal control handles at each midpoint. This is the
+ * smoothing that cannot overshoot vertically past its neighbours: the line
+ * reads as a trend, and never implies a score the data does not contain.
+ */
+const line = points
+  .map((p, i) => {
+    if (i === 0) return `M${r(p.x)} ${r(p.y)}`;
+    const prev = points[i - 1];
+    const mid = r((prev.x + p.x) / 2);
+    return `C${mid} ${r(prev.y)} ${mid} ${r(p.y)} ${r(p.x)} ${r(p.y)}`;
+  })
+  .join('');
+
+const area = `${line}L${r(points[points.length - 1].x)} ${H}L${r(points[0].x)} ${H}Z`;
+
+const last = points[points.length - 1];
+
+/** Faint horizontal rules at 25 / 50 / 75, for scale without an axis. */
+const gridlines = [25, 50, 75].map((score) => r(py(score)));
+---
+
+<div
+  class:list={['hv', className]}
+  role="img"
+  aria-label={`Chart showing a website performance score rising from ${START} to ${END} out of 100 over 90 days.`}
+>
+  <div class="card bg-white shadow-lg">
+    <!-- Header -->
+    <p class="text-sm font-medium text-ink-700">Performance score</p>
+
+    <!-- Headline number -->
+    <div class="mt-3 flex items-baseline gap-3">
+      <span class="hv-rise text-4xl font-semibold text-ink-900 tabular-nums">
+        {END}
+      </span>
+      <span class="pill pill-brand">
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M16 7h6v6"></path>
+          <path d="m22 7-8.5 8.5-5-5L2 17"></path>
+        </svg>
+        +{END - START} in 90 days
+      </span>
+    </div>
+
+    <!-- Trend -->
+    <svg
+      class="mt-5 w-full"
+      viewBox={`0 0 ${W} ${H}`}
+      width={W}
+      height={H}
+      fill="none"
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="hv-fill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="var(--color-brand-500)" stop-opacity="0.22"
+          ></stop>
+          <stop offset="100%" stop-color="var(--color-brand-500)" stop-opacity="0"
+          ></stop>
+        </linearGradient>
+      </defs>
+
+      {
+        gridlines.map((y) => (
+          <line
+            x1="0"
+            y1={y}
+            x2={W}
+            y2={y}
+            stroke="var(--color-ink-100)"
+            stroke-width="1"
+          />
+        ))
+      }
+
+      <path class="hv-area" d={area} fill="url(#hv-fill)"></path>
+
+      <path
+        class="hv-line"
+        d={line}
+        pathLength="1"
+        stroke="var(--color-brand-600)"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></path>
+
+      <g class="hv-head">
+        <circle class="hv-ping" cx={r(last.x)} cy={r(last.y)} r="5" fill="var(--color-brand-500)"
+        ></circle>
+        <circle
+          cx={r(last.x)}
+          cy={r(last.y)}
+          r="4.5"
+          fill="#fff"
+          stroke="var(--color-brand-600)"
+          stroke-width="2.5"></circle>
+      </g>
+    </svg>
+
+    <div class="mt-2 flex justify-between text-xs text-ink-400">
+      <span>90 days ago</span>
+      <span>Today</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* One draw, then it rests. The only thing that keeps moving is a slow pulse
+     on the head of the line, which reads as "still measuring" rather than as
+     an animation demanding attention. */
+  .hv-line {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: hv-draw 1.5s var(--ease-out-soft) 0.2s forwards;
+  }
+
+  .hv-area,
+  .hv-head {
+    opacity: 0;
+    animation: hv-fade 0.7s ease-out 1s forwards;
+  }
+
+  .hv-head {
+    animation-delay: 1.35s;
+    animation-duration: 0.4s;
+  }
+
+  .hv-ping {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: hv-ping 3s var(--ease-out-soft) 2s infinite;
+  }
+
+  .hv-rise {
+    opacity: 0;
+    animation: hv-rise 0.6s var(--ease-out-soft) 0.1s forwards;
+  }
+
+  @keyframes hv-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes hv-fade {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes hv-rise {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes hv-ping {
+    0% {
+      opacity: 0.45;
+      transform: scale(1);
+    }
+    70%,
+    100% {
+      opacity: 0;
+      transform: scale(2.6);
+    }
+  }
+
+  /* The global reduced-motion rule collapses durations but not delays, which
+     would leave this blank for two seconds. Land it on the finished state
+     instead. */
+  @media (prefers-reduced-motion: reduce) {
+    .hv-line,
+    .hv-area,
+    .hv-head,
+    .hv-rise {
+      animation: none;
+      opacity: 1;
+      stroke-dashoffset: 0;
+      transform: none;
+    }
+    .hv-ping {
+      display: none;
+    }
+  }
+</style>
