@@ -1,12 +1,8 @@
 ---
-/**
- * Closing call to action. Used at the foot of the service pages and other
- * pages that import it.
- */
 interface Props {
   title?: string;
   description?: string;
-  /** Kept so existing pages that pass these props do not break. */
+  /** Kept so pages that still pass these props do not break. */
   variant?: 'form' | 'buttons';
   source?: string;
 }
@@ -19,9 +15,9 @@ const {
 
 <section class="section">
   <div class="container-page">
-    <div class="rounded-2xl bg-brand-900 px-6 py-14 text-center sm:px-12">
-      <h2 class="text-3xl text-white">{title}</h2>
-      <p class="mx-auto mt-4 max-w-xl text-lg text-brand-100">{description}</p>
+    <div class="rounded-2xl bg-brand-900 px-6 py-12 sm:px-12 sm:py-14">
+      <h2 class="max-w-2xl text-3xl text-white">{title}</h2>
+      <p class="mt-4 max-w-xl text-lg text-brand-100">{description}</p>
       <div class="mt-8">
         <a href="/contact" class="btn btn-secondary btn-lg">Contact Us</a>
       </div>

@@ -1,8 +1,7 @@
 ---
-import { Image } from 'astro:assets';
 import PageLayout from '../layouts/PageLayout.astro';
 import Section from '../components/Section.astro';
-import founder from '../assets/site/founder.jpg';
+import CTASection from '../components/CTASection.astro';
 
 const title = 'About Websetly';
 const description =
@@ -64,17 +63,5 @@ const description =
   </Section>
 
   <!-- ============================================ 3. CTA -->
-  <section class="section">
-    <div class="container-page">
-      <div class="rounded-2xl bg-brand-900 px-6 py-14 text-center sm:px-12">
-        <h2 class="text-3xl text-white">Ready to build or improve your website?</h2>
-        <p class="mx-auto mt-4 max-w-xl text-lg text-brand-100">
-          Tell us what you need. Let’s talk about how we can help.
-        </p>
-        <div class="mt-8">
-          <a href="/contact" class="btn btn-secondary btn-lg">Contact Us</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <CTASection />
 </PageLayout>

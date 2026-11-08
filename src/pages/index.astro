@@ -5,6 +5,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
 import PostCard from '../components/PostCard.astro';
 import HeroVisual from '../components/HeroVisual.astro';
+import CTASection from '../components/CTASection.astro';
 import { SITE } from '../consts';
 import { PROCESS } from '../data/homepage';
 import { getPublishedPosts } from '../lib/blog';
@@ -42,19 +43,19 @@ const projectInfo: Record<string, { description: string; url: string }> = {
 const services = [
   {
     title: 'Website Design & Development',
-    body: 'We design and build websites that look good and work well on all devices.',
+    body: 'We design and build websites for businesses that want to establish an online presence. Every website is made to look good and work well on phones, tablets and computers.',
   },
   {
     title: 'Website Redesign',
-    body: 'Give your existing website a fresh look and make it easier for people to use.',
+    body: 'An old website can look outdated and be hard to use. Visitors may leave before they contact you. We give your site a fresh look and a cleaner layout, and we keep what already works.',
   },
   {
     title: 'Website Optimization',
-    body: 'We improve your website’s speed, performance and overall experience.',
+    body: 'A slow website makes visitors leave. We find what is slowing yours down and fix it. Pages open faster, and the site feels smoother on phones and computers.',
   },
   {
     title: 'SEO',
-    body: 'Help more people find your website through Google search.',
+    body: 'If people cannot find your website on Google, they cannot become customers. We make changes that help Google understand your site, so it can show up when people search for what you offer.',
   },
 ];
 
@@ -84,7 +85,7 @@ const description =
             <span class="block text-brand-700">We optimize.</span>
           </h1>
           <p class="mt-6 max-w-2xl text-xl leading-relaxed text-ink-600">
-           We create websites for businesses and help improve existing ones.
+            We create websites for businesses and help improve existing ones.
           </p>
 
           <div class="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -194,17 +195,5 @@ const description =
   }
 
   <!-- ====================================================== 6. CTA -->
-  <section class="section">
-    <div class="container-page">
-      <div class="rounded-2xl bg-brand-900 px-6 py-14 text-center sm:px-12">
-        <h2 class="text-3xl text-white">Ready to build or improve your website?</h2>
-        <p class="mx-auto mt-4 max-w-xl text-lg text-brand-100">
-          Tell us what you need. Let’s talk about how we can help.
-        </p>
-        <div class="mt-8">
-          <a href="/contact" class="btn btn-secondary btn-lg">Contact Us</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <CTASection />
 </BaseLayout>
