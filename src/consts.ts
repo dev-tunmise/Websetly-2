@@ -200,6 +200,57 @@ export const SERVICES: Service[] = [
     primary: true,
   },
   {
+    slug: 'online-stores',
+    title: 'Online Stores',
+    seoTitle: 'Online Store Development',
+    metaDescription:
+      'We build online stores where customers can browse your products, order easily and pay online. Simple to use for your customers and for you.',
+    summary:
+      'An online store where customers can browse your products and place orders easily.',
+    intro:
+      'Selling online should be simple for you and for your customers. We build an online store that shows your products clearly, makes ordering easy and works well on phones, which is where most people shop.',
+    deliverables: [
+      'A store design that matches your brand',
+      'Product pages with clear photos, prices and descriptions',
+      'A simple cart and checkout',
+      'Online payment setup',
+      'A store that works well on phones, tablets and computers',
+      'A short walkthrough so you can add and edit products yourself',
+    ],
+    outcomes: [
+      'Customers can find and order your products without help',
+      'You can manage your own products and prices',
+      'A store that is ready to grow as you add more products',
+    ],
+    icon: 'trending-up',
+    primary: true,
+  },
+  {
+    slug: 'wordpress-websites',
+    title: 'WordPress Websites',
+    seoTitle: 'WordPress Website Development',
+    metaDescription:
+      'We build WordPress websites that you can update yourself. Change text, add pages and post news without needing a developer every time.',
+    summary: 'A WordPress website that you can update and manage yourself.',
+    intro:
+      'WordPress is a good choice if you want to manage your own website. We build it to match your brand and set it up so you can change text, add pages and post news on your own, without calling a developer every time.',
+    deliverables: [
+      'A WordPress website designed for your business',
+      'Pages for your services, about and contact details',
+      'A simple setup that is easy to update',
+      'A site that works well on phones, tablets and computers',
+      'Basic security and backup setup',
+      'A short walkthrough so you know how to manage your site',
+    ],
+    outcomes: [
+      'You can update your website without a developer',
+      'A website that looks the same and works well on every device',
+      'A site you can add to as your business grows',
+    ],
+    icon: 'code',
+    primary: true,
+  },
+  {
     slug: 'website-redesign',
     title: 'Website Redesign',
     seoTitle: 'Website Redesign Services',

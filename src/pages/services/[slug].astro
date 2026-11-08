@@ -59,13 +59,6 @@ const related = SERVICES.filter(
   ]}
   schemaEntities={[schema]}
 >
-  <Fragment slot="hero-extra">
-    <div class="mt-8 flex flex-wrap gap-3">
-      <a href="/analyze" class="btn btn-primary">Analyze your site free</a>
-      <a href="/contact" class="btn btn-secondary">Talk to us about this</a>
-    </div>
-  </Fragment>
-
   <Section title="What you get" as="h2">
     <div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
       <ul class="space-y-4">
@@ -115,8 +108,5 @@ const related = SERVICES.filter(
     )
   }
 
-  <CTASection
-    title={`Find out if you need ${service.title.toLowerCase()}`}
-    source={`service-${service.slug}`}
-  />
+  <CTASection />
 </PageLayout>

@@ -6,6 +6,7 @@ import Section from '../components/Section.astro';
 import PostCard from '../components/PostCard.astro';
 import HeroVisual from '../components/HeroVisual.astro';
 import CTASection from '../components/CTASection.astro';
+import Icon from '../components/Icon.astro';
 import { SITE } from '../consts';
 import { PROCESS } from '../data/homepage';
 import { getPublishedPosts } from '../lib/blog';
@@ -43,18 +44,22 @@ const projectInfo: Record<string, { description: string; url: string }> = {
 const services = [
   {
     title: 'Website Design & Development',
-    body: 'We design and build websites for businesses that want to establish an online presence. Every website is made to look good and work well on phones, tablets and computers.',
+    href: '/services/website-development',
+    body: 'Many businesses have no website, or one that is hard to use on a phone. We design and build a clear website for you. It works well on phones, tablets and computers, so customers can find you and get in touch.',
   },
   {
     title: 'Website Redesign',
+    href: '/services/website-redesign',
     body: 'An old website can look outdated and be hard to use. Visitors may leave before they contact you. We give your site a fresh look and a cleaner layout, and we keep what already works.',
   },
   {
     title: 'Website Optimization',
+    href: '/services/website-performance-optimization',
     body: 'A slow website makes visitors leave. We find what is slowing yours down and fix it. Pages open faster, and the site feels smoother on phones and computers.',
   },
   {
     title: 'SEO',
+    href: '/services/technical-seo',
     body: 'If people cannot find your website on Google, they cannot become customers. We make changes that help Google understand your site, so it can show up when people search for what you offer.',
   },
 ];
@@ -105,13 +110,18 @@ const description =
       {
         services.map((s) => (
           <a
-            href="/services"
-            class="card card-interactive reveal flex flex-col"
+            href={s.href}
+            class="card card-interactive reveal group relative flex flex-col pb-14"
           >
             <h3 class="text-lg">{s.title}</h3>
             <p class="mt-2.5 text-[0.9375rem] leading-relaxed text-ink-600">
               {s.body}
             </p>
+            <Icon
+              name="arrow-right"
+              size={18}
+              class="absolute right-5 bottom-5 text-ink-400 transition-transform group-hover:translate-x-0.5 group-hover:text-brand-700"
+            />
           </a>
         ))
       }

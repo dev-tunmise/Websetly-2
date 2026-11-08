@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import Section from '../components/Section.astro';
+import Icon from '../components/Icon.astro';
 import { SERVICES, SITE } from '../consts';
 
 const title = 'Website Design, Development & Optimization Services';
@@ -11,43 +12,45 @@ const description =
 const buildServices = [
   {
     title: 'Business Websites',
-    body: 'A clear, professional website for your business, built to work on phones, tablets and computers.',
+    body: 'A clear, professional website for your business. It shows what you do, builds trust and makes it easy for customers to contact you. It works well on phones, tablets and computers.',
     href: '/services/website-development',
   },
   {
     title: 'Online Stores',
-    body: 'An online store where customers can browse your products and place orders easily.',
+    body: 'An online store where customers can browse your products and place orders easily. We set it up so buying is simple and your products are easy to find.',
+    href: '/services/online-stores',
   },
   {
     title: 'Shopify Stores',
-    body: 'A Shopify store set up and designed to match your brand.',
+    body: 'A Shopify store set up and designed to match your brand. We arrange your products, pages and layout so customers can shop with ease.',
     href: '/services/shopify-store-design',
   },
   {
     title: 'WordPress Websites',
-    body: 'A WordPress website you can update and manage yourself.',
-  },
+    body: 'A WordPress website that you can update and manage yourself. You can change text, add pages and post news without needing a developer every time.',
+    href: '/services/wordpress-websites',
+    },
 ];
 
 const improveServices = [
   {
     title: 'Website Redesign',
-    body: 'A fresh look for your current website, with a layout that is easier to use.',
+    body: 'Is your website old or hard to use? We give it a fresh look and a cleaner layout. We keep what already works and improve what does not, so visitors find things faster.',
     href: '/services/website-redesign',
   },
   {
     title: 'Speed & Performance',
-    body: 'We find what makes your website slow and fix it, so pages open faster.',
+    body: 'A slow website makes visitors leave. We find what slows your pages down and fix it, so your site opens faster and feels smoother on phones and computers.',
     href: '/services/website-performance-optimization',
   },
   {
     title: 'SEO',
-    body: 'Changes that help more people find your website on Google.',
+    body: 'If people cannot find your site on Google, they cannot become customers. We make changes that help Google understand your pages, so your site can show up when people search for what you offer.',
     href: '/services/technical-seo',
   },
   {
     title: 'Website Maintenance',
-    body: 'Regular updates, backups and checks to keep your website safe and working.',
+    body: 'Websites need regular care. We keep yours updated, backed up and checked, so it stays safe and keeps working without you having to worry about it.',
     href: '/services/website-maintenance',
   },
 ];
@@ -86,12 +89,22 @@ const serviceSchema = SERVICES.map((s) => ({
           return (
             <Tag
               href={s.href}
-              class:list={['card reveal flex flex-col', s.href && 'card-interactive']}
+              class:list={[
+                'card reveal group relative flex flex-col',
+                s.href && 'card-interactive',
+              ]}
             >
               <h3 class="text-lg">{s.title}</h3>
               <p class="mt-2.5 text-[0.9375rem] leading-relaxed text-ink-600">
                 {s.body}
               </p>
+              {s.href && (
+                <Icon
+                  name="arrow-right"
+                  size={16}
+                  class="absolute right-4 bottom-3 text-ink-400 transition-transform group-hover:translate-x-0.5 group-hover:text-brand-700"
+                />
+              )}
             </Tag>
           );
         })
@@ -111,11 +124,19 @@ const serviceSchema = SERVICES.map((s) => ({
     <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {
         improveServices.map((s) => (
-          <a href={s.href} class="card card-interactive reveal flex flex-col">
+          <a
+            href={s.href}
+            class="card card-interactive reveal group relative flex flex-col"
+          >
             <h3 class="text-lg">{s.title}</h3>
             <p class="mt-2.5 text-[0.9375rem] leading-relaxed text-ink-600">
               {s.body}
             </p>
+            <Icon
+              name="arrow-right"
+              size={16}
+              class="absolute right-4 bottom-3 text-ink-400 transition-transform group-hover:translate-x-0.5 group-hover:text-brand-700"
+            />
           </a>
         ))
       }

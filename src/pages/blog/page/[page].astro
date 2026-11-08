@@ -39,15 +39,15 @@ interface Props {
 
 const { posts, allPosts, page, totalPages } = Astro.props as Props;
 
-const title = `Website Performance & SEO Blog — Page ${page}`;
-const description = `Page ${page} of practical guides on website performance, Core Web Vitals, technical SEO, accessibility and conversion.`;
+const title = `Websetly Blog | Website Tips and Guides — Page ${page}`;
+const description = `Page ${page} of simple guides on building, redesigning and improving websites, plus tips on domains, SEO and getting more from your online presence.`;
 ---
 
 <PageLayout
   title={title}
   description={description}
-  heading="Latest articles"
-  lede="Guides on website performance, SEO, accessibility, and growth."
+  heading="Blog"
+  lede="Simple guides on building and improving your website."
   breadcrumbs={[
     { name: 'Blog', href: '/blog' },
     { name: `Page ${page}`, href: `/blog/page/${page}` },
@@ -60,5 +60,5 @@ const description = `Page ${page} of practical guides on website performance, Co
     totalPages={totalPages}
   />
 
-  <CTASection source="blog-closing" />
+  <CTASection />
 </PageLayout>

@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import BlogList from '../components/BlogList.astro';
+import CTASection from '../components/CTASection.astro';
 import { getPublishedPosts, postUrl, POSTS_PER_PAGE } from '../lib/blog';
 import { SITE } from '../consts';
 
@@ -41,17 +42,5 @@ const blogSchema = {
 >
   <BlogList posts={posts} allPosts={allPosts} page={1} totalPages={totalPages} />
 
-  <section class="section">
-    <div class="container-page">
-      <div class="rounded-2xl bg-brand-900 px-6 py-14 text-center sm:px-12">
-        <h2 class="text-3xl text-white">Ready to build or improve your website?</h2>
-        <p class="mx-auto mt-4 max-w-xl text-lg text-brand-100">
-          Tell us what you need. Let’s talk about how we can help.
-        </p>
-        <div class="mt-8">
-          <a href="/contact" class="btn btn-secondary btn-lg">Contact Us</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <CTASection />
 </PageLayout>
