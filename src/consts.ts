@@ -46,12 +46,8 @@ export type NavItem = {
 };
 
 /**
- * Primary navigation. Kept short — the repositioning fails if the menu reads
- * like a generic agency. "Analyze" is the product, not a page, so it stays a
+ * Primary navigation. "Analyze" is the product, not a page, so it stays a
  * button rather than a link here.
- *
- * "Home" is explicit rather than relying on the logo. The logo works, but only
- * for visitors who already know that convention.
  */
 export const NAV: NavItem[] = [
   { label: 'Home', href: '/' },
@@ -61,11 +57,8 @@ export const NAV: NavItem[] = [
 ];
 
 /**
- * Canonical path for the work/case-studies hub. Imported, never hard-coded.
- *
- * ⚠️ The hub is currently OFFLINE — see src/pages/_portfolio.astro. This
- * constant is kept so restoring it is a rename plus a nav entry, but nothing
- * should link to it while the underscore prefix is in place.
+ * Canonical path for the work/case-studies hub. The hub is currently offline,
+ * so nothing should link to it.
  */
 export const WORK_PATH = '/portfolio';
 
@@ -76,13 +69,13 @@ export type Service = {
   /** <h1> and <title> use this — longer, keyword-bearing. */
   seoTitle: string;
   metaDescription: string;
-  /** One line under the card title. No jargon, states the outcome. */
+  /** Text shown on the service card. */
   summary: string;
   /** Longer positioning paragraph for the service page hero. */
   intro: string;
   /** What the client actually receives. */
   deliverables: string[];
-  /** Problems this service resolves — feeds the FAQ/problem schema. */
+  /** What changes for the client. */
   outcomes: string[];
   /** Lucide-style icon key resolved by the Icon component. */
   icon: string;
@@ -94,110 +87,31 @@ export type Service = {
 
 export const SERVICES: Service[] = [
   {
-    slug: 'website-performance-optimization',
-    title: 'Website Performance Optimization',
-    seoTitle: 'Website Performance Optimization',
-    metaDescription:
-      'We diagnose and fix what makes your site slow — render-blocking assets, oversized images, bloated JavaScript and slow server response. Measured before and after.',
-    summary: 'Make your website faster, smoother and more reliable for your visitors.',
-    intro:
-      'Most performance work stops at a Lighthouse screenshot. We start from your real users: the devices they actually hold, the networks they are actually on, and the field data Google actually ranks you against. Then we fix the specific things costing you seconds.',
-    deliverables: [
-      'Full performance audit across mobile and desktop',
-      'Render-blocking CSS and JavaScript eliminated',
-      'Image pipeline rebuilt — modern formats, correct sizing, lazy loading',
-      'Third-party script audit with a measured cost per tag',
-      'Caching and compression strategy implemented',
-      'Core Web Vitals moved into the green and verified in Search Console',
-    ],
-    outcomes: [
-      'Pages that load in under two seconds on mid-range mobile',
-      'Lower bounce rates on paid traffic landing pages',
-      'Headroom to add marketing tags without regressing',
-    ],
-    icon: 'gauge',
-    primary: true,
-  },
-  {
-    /* Slug keeps the "technical-seo" keyword even though the card now reads
-       simply "SEO". The URL is the more valuable of the two, and the legacy
-       #seo-setup anchor already points here. */
-    slug: 'technical-seo',
-    title: 'SEO',
-    seoTitle: 'SEO & Technical SEO Services',
-    metaDescription:
-      'Crawlability, indexation, structured data, canonicals and site architecture — the technical foundation your content needs in order to rank on Google.',
-    summary:
-      'Improve your website’s visibility and rank higher on Google search results.',
-    intro:
-      'Good content on a broken technical foundation does not rank. We audit how search engines actually crawl, render and index your site, then fix what is blocking you — and we do it without breaking the URLs you already rank for.',
-    deliverables: [
-      'Full crawl and log-based indexation analysis',
-      'Canonical, redirect and duplicate-content resolution',
-      'Structured data implementation and validation',
-      'Internal linking and site architecture plan',
-      'XML sitemap and robots.txt correction',
-      'Migration-safe redirect mapping when URLs must change',
-    ],
-    outcomes: [
-      'More of your pages indexed and eligible to rank',
-      'Rich results where your content qualifies for them',
-      'No traffic lost to preventable technical mistakes',
-    ],
-    icon: 'search',
-    primary: true,
-    legacyAnchors: ['seo-setup'],
-  },
-  {
     slug: 'website-development',
-    title: 'Website Development',
-    seoTitle: 'Website Design & Development',
+    title: 'Business Websites',
+    seoTitle: 'Business Website Design & Development',
     metaDescription:
-      'We build websites engineered for Core Web Vitals, accessibility and search from the first commit — not optimised after the fact.',
-    summary: 'Build fast, modern websites designed for performance, SEO and growth.',
+      'We design and build clear, professional websites for businesses. Easy to use on phones, tablets and computers, so customers can find you and get in touch.',
+    summary:
+      'A clear, professional website for your business. It shows what you do, builds trust and makes it easy for customers to contact you. It works well on phones, tablets and computers.',
     intro:
-      'We build websites the way a performance team would: fast, accessible and search-ready from the first commit rather than optimised afterwards. Targets are agreed in writing before development starts, so speed is a requirement rather than a hope.',
+      'Your website is often the first thing a customer sees. We build a clear, good-looking website that explains what your business does and makes it easy for people to contact you. It works well on phones, tablets and computers.',
     deliverables: [
-      'Design and build on a performance-first stack',
-      'Core Web Vitals targets agreed before development starts',
-      'WCAG 2.2 AA built in, not retrofitted',
-      'Structured data and technical SEO from launch',
-      'Full URL and redirect mapping if replacing an existing site',
+      'A website designed to match your business and brand',
+      'Pages for your services, about and contact details',
+      'A contact form so customers can reach you',
+      'A site that works well on phones, tablets and computers',
+      'Basic setup so people can find you on Google',
+      'A short walkthrough of how your website works',
     ],
     outcomes: [
-      'A site that does not need optimising in twelve months',
-      'No traffic lost in the migration',
-      'A measurable performance baseline from day one',
+      'Customers can see what you do and how to reach you',
+      'A website that looks professional on any device',
+      'A solid base you can add to as your business grows',
     ],
     icon: 'code',
     primary: true,
     legacyAnchors: ['development'],
-  },
-  {
-    slug: 'shopify-store-design',
-    title: 'Shopify Store Design',
-    seoTitle: 'Shopify Store Design & Development',
-    metaDescription:
-      'Fast, professional Shopify storefronts built for Core Web Vitals and conversion — custom themes, app audits and speed work on stores you already run.',
-    summary:
-      'Create fast, professional Shopify stores built to turn visitors into customers.',
-    intro:
-      'Shopify handles the checkout. Everything in front of it is yours to get wrong — and most stores lose money to a heavy theme, a stack of apps nobody has audited, and images shipped at twice the size they render at. We build storefronts that are fast on a mid-range phone, because that is where the sale is won or lost.',
-    deliverables: [
-      'Custom theme build, or performance work on the theme you already run',
-      'App audit with the measured load cost of each one',
-      'Product and collection pages tuned for Core Web Vitals',
-      'Image, font and script delivery rebuilt',
-      'Checkout and product page friction review',
-      'Handover documentation for your team',
-    ],
-    outcomes: [
-      'Product pages that load before a shopper gives up',
-      'Fewer abandoned carts on mobile',
-      'A store you can add apps to without undoing the work',
-    ],
-    icon: 'trending-up',
-    primary: true,
   },
   {
     slug: 'online-stores',
@@ -206,7 +120,7 @@ export const SERVICES: Service[] = [
     metaDescription:
       'We build online stores where customers can browse your products, order easily and pay online. Simple to use for your customers and for you.',
     summary:
-      'An online store where customers can browse your products and place orders easily.',
+      'An online store where customers can browse your products and place orders easily. We set it up so buying is simple and your products are easy to find.',
     intro:
       'Selling online should be simple for you and for your customers. We build an online store that shows your products clearly, makes ordering easy and works well on phones, which is where most people shop.',
     deliverables: [
@@ -226,12 +140,39 @@ export const SERVICES: Service[] = [
     primary: true,
   },
   {
+    slug: 'shopify-store-design',
+    title: 'Shopify Stores',
+    seoTitle: 'Shopify Store Design',
+    metaDescription:
+      'We set up and design Shopify stores that match your brand, so customers can browse your products and order with ease.',
+    summary:
+      'A Shopify store set up and designed to match your brand. We arrange your products, pages and layout so customers can shop with ease.',
+    intro:
+      'Shopify is a popular way to sell online. We set up your store, design it to match your brand and organise your products so customers can find what they want and order easily. If you already have a Shopify store, we can improve how it looks and how fast it loads.',
+    deliverables: [
+      'A Shopify store set up for your business',
+      'A design that matches your brand',
+      'Product and collection pages with clear photos and descriptions',
+      'A store that works well on phones',
+      'Payment and delivery options set up',
+      'A short walkthrough so you can manage your store',
+    ],
+    outcomes: [
+      'Customers can browse and buy without confusion',
+      'A store that looks professional and matches your brand',
+      'You can add and edit products yourself',
+    ],
+    icon: 'trending-up',
+    primary: true,
+  },
+  {
     slug: 'wordpress-websites',
     title: 'WordPress Websites',
     seoTitle: 'WordPress Website Development',
     metaDescription:
       'We build WordPress websites that you can update yourself. Change text, add pages and post news without needing a developer every time.',
-    summary: 'A WordPress website that you can update and manage yourself.',
+    summary:
+      'A WordPress website that you can update and manage yourself. You can change text, add pages and post news without needing a developer every time.',
     intro:
       'WordPress is a good choice if you want to manage your own website. We build it to match your brand and set it up so you can change text, add pages and post news on your own, without calling a developer every time.',
     deliverables: [
@@ -255,102 +196,157 @@ export const SERVICES: Service[] = [
     title: 'Website Redesign',
     seoTitle: 'Website Redesign Services',
     metaDescription:
-      'Modernise the site you have without losing what it already earns — new design, rebuilt performance, and a full redirect map so your rankings survive the move.',
+      'We give your existing website a fresh look and a cleaner layout, so it is easier to use. We keep what works and improve what does not.',
     summary:
-      'Modernize your existing website with better design, performance and usability.',
+      'Is your website old or hard to use? We give it a fresh look and a cleaner layout. We keep what already works and improve what does not, so visitors find things faster.',
     intro:
-      'A redesign is the easiest way to lose traffic you spent years earning. We rebuild the design and the performance together, map every existing URL before anything moves, and measure the new site against the old one rather than against a mood board.',
+      'An old website can make a business look outdated, and pages that are hard to use make visitors leave. We look at what your site does well, then give it a fresh design and a cleaner layout. We also take care to keep your existing pages working, so you do not lose the visitors you already have.',
     deliverables: [
-      'Audit of what the current site already does well',
-      'New design built on performance-first foundations',
-      'Core Web Vitals targets agreed before the build starts',
-      'WCAG 2.2 AA accessibility built in from the start',
-      'Complete URL and redirect map before launch',
-      'Before/after measurement once the new site is live',
+      'A review of your current website: what works and what does not',
+      'A new design that looks modern and matches your brand',
+      'A cleaner layout that is easier to use',
+      'A site that works well on phones, tablets and computers',
+      'Your existing pages and links carried over so visitors can still find them',
+      'A check after launch to make sure everything works',
     ],
     outcomes: [
-      'A site that looks current and loads faster than the one it replaced',
-      'No search rankings lost in the move',
-      'A measured baseline you can hold future changes against',
+      'A website that looks current and professional',
+      'Visitors find what they need more easily',
+      'You keep the visitors you already get',
     ],
     icon: 'zap',
     primary: true,
-    /* Both legacy design anchors land here. #web-design and #ui-ux-design were
-       the old site's design services, and a redesign is their closest successor
-       now that those two pages are gone. */
+    /* Both legacy design anchors land here. */
     legacyAnchors: ['web-design', 'ui-ux-design'],
   },
   {
-    slug: 'website-monitoring',
-    title: 'Website Monitoring',
-    seoTitle: 'Website & Uptime Monitoring',
+    slug: 'website-performance-optimization',
+    title: 'Speed & Performance',
+    seoTitle: 'Website Speed & Performance Optimization',
     metaDescription:
-      'Continuous monitoring of uptime, Core Web Vitals and performance budgets, with alerts before your customers are the ones telling you.',
+      'We find what is making your website slow and fix it, so your pages open faster and feel smoother on phones and computers.',
     summary:
-      'Know when your website slows down, breaks or starts losing performance.',
+      'A slow website makes visitors leave. We find what slows your pages down and fix it, so your site opens faster and feels smoother on phones and computers.',
     intro:
-      'Performance is not a project you finish. A plugin update, a new marketing tag or a redesigned template can undo months of work overnight. We watch continuously and alert you when it happens.',
+      'A slow website makes visitors leave before they see anything. We test your site, find what is slowing it down and fix it. Pages open faster and feel smoother, especially on phones.',
     deliverables: [
-      'Uptime and availability monitoring with alerting',
-      'Real user Core Web Vitals tracking',
-      'Performance budgets enforced against every deploy',
-      'Broken link and error monitoring',
-      'Monthly health report with trend lines',
+      'A speed test of your website on phone and computer',
+      'A clear list of what is making it slow',
+      'Images made smaller so pages load faster',
+      'Extra code and scripts you do not need removed or reduced',
+      'Settings changed so repeat visits load quicker',
+      'A second test after the fixes to show the difference',
     ],
     outcomes: [
-      'Regressions caught in hours instead of quarters',
-      'Evidence of what changed and when',
-      'Performance that holds its value over time',
+      'Pages that open faster',
+      'Fewer visitors leaving because the site is slow',
+      'A smoother experience on phones',
     ],
-    icon: 'radar',
+    icon: 'gauge',
     primary: true,
+  },
+  {
+    /* Slug keeps the "technical-seo" keyword even though the card reads
+       simply "SEO". The URL is the more valuable of the two, and the legacy
+       #seo-setup anchor already points here. */
+    slug: 'technical-seo',
+    title: 'SEO',
+    seoTitle: 'SEO Services',
+    metaDescription:
+      'We make changes that help Google find and understand your website, so it can show up when people search for what you offer.',
+    summary:
+      'If people cannot find your site on Google, they cannot become customers. We make changes that help Google understand your pages, so your site can show up when people search for what you offer.',
+    intro:
+      'SEO means helping Google find your website and understand what it is about. We check your site for problems that stop it showing up in search, and we fix them, so the right people can find you.',
+    deliverables: [
+      'A check of your website for search problems',
+      'Page titles and descriptions written clearly',
+      'A sitemap so Google can find all your pages',
+      'Broken links and duplicate pages fixed',
+      'Your site set up in Google Search Console',
+      'Simple advice on what to do next',
+    ],
+    outcomes: [
+      'Google can find and understand your pages',
+      'Your site can appear when people search for what you offer',
+      'Fewer technical mistakes holding your site back',
+    ],
+    icon: 'search',
+    primary: true,
+    legacyAnchors: ['seo-setup'],
   },
   {
     slug: 'website-maintenance',
     title: 'Website Maintenance',
-    seoTitle: 'Website Maintenance & Support Plans',
+    seoTitle: 'Website Maintenance & Support',
     metaDescription:
-      'Ongoing updates, backups, security patching and performance care — so your site stays fast, secure and current without you managing it.',
-    summary: 'Keep your website secure, updated, fast and running smoothly.',
+      'We keep your website updated, backed up and checked, so it stays safe and keeps working without you having to worry about it.',
+    summary:
+      'Websites need regular care. We keep yours updated, backed up and checked, so it stays safe and keeps working without you having to worry about it.',
     intro:
-      'The work does not end at launch. Plugins age, dependencies pick up vulnerabilities, and content grows heavier. We handle the upkeep so your site does not quietly degrade.',
+      'A website needs regular care, just like anything else you own. We keep yours updated, backed up and checked, so it stays safe and keeps working while you focus on your business.',
     deliverables: [
-      'Platform, plugin and dependency updates',
-      'Security patching and vulnerability monitoring',
-      'Automated backups with tested restores',
-      'Content and small change requests',
-      'Quarterly performance review',
+      'Regular updates to your website software',
+      'Security checks',
+      'Regular backups',
+      'Small changes to your text and images when you need them',
+      'Help when something stops working',
     ],
     outcomes: [
-      'No surprise breakages or security incidents',
-      'A site that stays current without your attention',
-      'One accountable team when something goes wrong',
+      'Fewer surprise problems',
+      'A website that stays up to date',
+      'One person to contact when something goes wrong',
     ],
     icon: 'shield',
     primary: true,
     legacyAnchors: ['branding'],
   },
   {
-    slug: 'accessibility-audits',
-    title: 'Accessibility Audits',
-    seoTitle: 'WCAG Accessibility Audits',
+    slug: 'website-monitoring',
+    title: 'Website Monitoring',
+    seoTitle: 'Website Monitoring',
     metaDescription:
-      'WCAG 2.2 AA audits combining automated testing with manual keyboard and screen reader review, plus a prioritised remediation plan.',
+      'We watch your website and tell you when it goes down or slows down, so problems get fixed before customers notice.',
     summary:
-      'Find accessibility issues and make your website easier for everyone to use.',
+      'Know when your website goes down or slows down. We keep an eye on it and tell you when something is wrong, so problems get fixed quickly.',
     intro:
-      'Automated tools catch roughly a third of accessibility issues. The rest need a person with a keyboard and a screen reader. We do both, and give you a remediation plan ordered by user impact and legal exposure.',
+      'A website can stop working without you noticing. We watch yours and let you know when it goes down or becomes slow, so the problem can be fixed before it costs you customers.',
     deliverables: [
-      'Automated scan across all page templates',
-      'Manual keyboard-only and screen reader testing',
-      'Colour contrast and target size review',
-      'WCAG 2.2 AA conformance report with severity ratings',
-      'Prioritised remediation plan, and the fixes if you want us to ship them',
+      'Checks that your website is online',
+      'An alert when your website goes down',
+      'Regular speed checks',
+      'Checks for broken links and errors',
+      'A short monthly report',
     ],
     outcomes: [
-      'A site usable by customers you are currently turning away',
-      'Reduced legal and procurement risk',
-      'Accessibility improvements that also help SEO',
+      'You hear about problems from us, not from your customers',
+      'Problems get fixed sooner',
+      'A clear record of how your website is doing',
+    ],
+    icon: 'radar',
+    primary: true,
+  },
+  {
+    slug: 'accessibility-audits',
+    title: 'Accessibility Audits',
+    seoTitle: 'Website Accessibility Audit',
+    metaDescription:
+      'We check your website for things that make it hard for some people to use, and give you a clear list of what to fix.',
+    summary:
+      'Find what makes your website hard for some people to use. We check your site and give you a clear list of what to fix, so it works for everyone.',
+    intro:
+      'Some people use a keyboard instead of a mouse, or a screen reader because they cannot see the screen well. If your website is not built for them, you can lose those visitors. We check your site and give you a clear list of what to fix.',
+    deliverables: [
+      'A check of your pages using testing tools',
+      'Testing with a keyboard and a screen reader',
+      'A check of text colours and button sizes',
+      'A report that lists each problem and how serious it is',
+      'A list of fixes in order of importance, and the fixes themselves if you want us to make them',
+    ],
+    outcomes: [
+      'More people can use your website',
+      'You know exactly what to fix',
+      'A better experience for all visitors',
     ],
     icon: 'accessibility',
     primary: true,
@@ -367,6 +363,6 @@ export function getService(slug: string): Service | undefined {
 /**
  * Legacy blog posts published as flat root URLs (`/blog-seo-basics-designers`).
  * These are indexed and carry link equity, so the slug is preserved verbatim
- * rather than moved under /blog/. See docs/REDESIGN-PLAN.md for the rationale.
+ * rather than moved under /blog/.
  */
 export const LEGACY_BLOG_PREFIX = 'blog-';

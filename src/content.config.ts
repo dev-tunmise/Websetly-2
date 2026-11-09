@@ -52,33 +52,5 @@ const blog = defineCollection({
     }),
 });
 
-const caseStudies = defineCollection({
-  loader: glob({ base: './src/content/case-studies', pattern: '**/*.{md,mdx}' }),
-  schema: ({ image }) =>
-    z.object({
-      title: z.string(),
-      description: z.string().min(70).max(165),
-      client: z.string(),
-      industry: z.string(),
-      pubDate: z.coerce.date(),
-      /** Headline outcomes rendered as the metric row. Keep to three. */
-      metrics: z
-        .array(
-          z.object({
-            label: z.string(),
-            before: z.string(),
-            after: z.string(),
-            /** Which direction is good — drives the colour of the delta. */
-            improvement: z.enum(['up', 'down']),
-          }),
-        )
-        .max(3),
-      services: z.array(z.string()),
-      heroImage: image().optional(),
-      heroImageAlt: z.string().optional(),
-      featured: z.boolean().default(false),
-      draft: z.boolean().default(false),
-    }),
-});
 
-export const collections = { blog, caseStudies };
+export const collections = { blog };

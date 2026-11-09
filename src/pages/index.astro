@@ -1,5 +1,4 @@
 ---
-import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
@@ -10,36 +9,38 @@ import Icon from '../components/Icon.astro';
 import { SITE } from '../consts';
 import { PROCESS } from '../data/homepage';
 import { getPublishedPosts } from '../lib/blog';
+import portfolioImg from '../assets/projects/portfolio-personal.png';
+import storeImg from '../assets/projects/store-motionboys.png';
+import churchImg from '../assets/projects/church-beloved.png';
 
 const posts = (await getPublishedPosts()).slice(0, 3);
 
-const projects = (await getCollection('caseStudies', ({ data }) => !data.draft))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 4);
-
-/* Description and live site address for each project, keyed by case study file name.
-   Add each real web address between the quotes after url.
-   Leave url empty ('') and that card will not show a button. */
-const projectInfo: Record<string, { description: string; url: string }> = {
-  'excellence-academy': {
+const projects = [
+  {
+    name: 'Personal Portfolio',
     description:
-      'A school website that makes it easier for parents to learn about the school and its admissions process.',
-    url: '',
+      'A personal portfolio website that shows a person’s work and makes it easy to get in touch.',
+    url: 'https://dev-tunmise.vercel.app/',
+    image: portfolioImg,
+    alt: 'Screenshot of a personal portfolio website',
   },
-  'mashinc-realty': {
+  {
+    name: 'Online Store',
     description:
-      'A real estate website that helps people explore available properties.',
-    url: '',
+      'An online store where customers can browse products and place orders.',
+    url: 'https://motionboys.vercel.app/',
+    image: storeImg,
+    alt: 'Screenshot of an online store website',
   },
-  'techflow-saas': {
-    description: 'A website for a B2B software platform.',
-    url: '',
+  {
+    name: 'Church Website',
+    description:
+      'A website for a church that shares who they are and how to join them.',
+    url: 'https://beloved-church.vercel.app/',
+    image: churchImg,
+    alt: 'Screenshot of a church website',
   },
-  'lumiere-restaurant': {
-    description: 'A website for a restaurant.',
-    url: '',
-  },
-};
+];
 
 const services = [
   {
@@ -111,7 +112,7 @@ const description =
         services.map((s) => (
           <a
             href={s.href}
-            class="card card-interactive reveal group relative flex flex-col pb-14"
+            class="card card-interactive reveal group relative flex flex-col"
           >
             <h3 class="text-lg">{s.title}</h3>
             <p class="mt-2.5 text-[0.9375rem] leading-relaxed text-ink-600">
@@ -119,8 +120,8 @@ const description =
             </p>
             <Icon
               name="arrow-right"
-              size={18}
-              class="absolute right-5 bottom-5 text-ink-400 transition-transform group-hover:translate-x-0.5 group-hover:text-brand-700"
+              size={16}
+              class="absolute right-4 bottom-3 text-ink-400 transition-transform group-hover:translate-x-0.5 group-hover:text-brand-700"
             />
           </a>
         ))
@@ -151,42 +152,36 @@ const description =
   </Section>
 
   <!-- ================================================ 4. PORTFOLIO -->
-  {
-    projects.length > 0 && (
-      <Section eyebrow="Portfolio" title="Selected projects">
-        <div class="grid gap-5 sm:grid-cols-2">
-          {projects.map((p) => (
-            <article class="card reveal flex flex-col">
-              {p.data.heroImage && (
-                <Image
-                  src={p.data.heroImage}
-                  alt={p.data.heroImageAlt ?? p.data.client}
-                  width={800}
-                  height={533}
-                  class="mb-5 aspect-[3/2] w-full rounded-lg object-cover"
-                />
-              )}
-              <h3 class="text-lg">{p.data.client}</h3>
-              <p class="mt-2.5 flex-1 text-[0.9375rem] leading-relaxed text-ink-600">
-                {projectInfo[p.id]?.description}
-              </p>
-              {projectInfo[p.id]?.url && (
-                <a
-                  href={projectInfo[p.id].url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Visit ${p.data.client} website (opens in a new tab)`}
-                  class="btn btn-secondary mt-5 self-start"
-                >
-                  Visit Site
-                </a>
-              )}
-            </article>
-          ))}
-        </div>
-      </Section>
-    )
-  }
+  <Section eyebrow="Portfolio" title="Selected projects">
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        projects.map((p) => (
+          <article class="card reveal flex flex-col">
+            <Image
+              src={p.image}
+              alt={p.alt}
+              width={800}
+              height={533}
+              class="mb-5 aspect-[3/2] w-full rounded-lg border border-ink-200 object-cover object-top"
+            />
+            <h3 class="text-lg">{p.name}</h3>
+            <p class="mt-2.5 flex-1 text-[0.9375rem] leading-relaxed text-ink-600">
+              {p.description}
+            </p>
+            <a
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Visit ${p.name} (opens in a new tab)`}
+              class="btn btn-secondary mt-5 self-start"
+            >
+              Visit Site
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </Section>
 
   <!-- ===================================================== 5. BLOG -->
   {

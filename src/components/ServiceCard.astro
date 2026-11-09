@@ -4,26 +4,17 @@ import type { Service } from '../consts';
 
 interface Props {
   service: Service;
-  /** Compact variant for the homepage grid; full variant for /services. */
-  variant?: 'compact' | 'full';
-  /* Cards under a section heading are h3. On the services hub the cards are the
-     page's top-level content, so they must be h2 or the outline jumps a level. */
+  /* Cards under a section heading are h3. Use h2 only if the cards are the
+     page's top-level content. */
   as?: 'h2' | 'h3';
 }
 
-const { service, variant = 'compact', as: Heading = 'h3' }: Props = Astro.props;
+const { service, as: Heading = 'h3' }: Props = Astro.props;
 const href = `/services/${service.slug}`;
 ---
 
-<article class="card card-interactive group relative flex flex-col">
-  <span
-    class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-50 text-brand-700"
-    aria-hidden="true"
-  >
-    <Icon name={service.icon as any} size={20} />
-  </span>
-
-  <Heading class="mt-5 text-lg">
+<article class="card card-interactive reveal group relative flex flex-col">
+  <Heading class="text-lg">
     <a
       href={href}
       class="text-ink-900 no-underline transition-colors group-hover:text-brand-700 after:absolute after:inset-0 after:content-['']"
@@ -36,16 +27,9 @@ const href = `/services/${service.slug}`;
     {service.summary}
   </p>
 
-  {
-    variant === 'full' && (
-      <ul class="mt-5 space-y-2">
-        {service.deliverables.slice(0, 3).map((d) => (
-          <li class="flex gap-2.5 text-sm text-ink-600">
-            <Icon name="check" size={16} class="mt-0.5 shrink-0 text-brand-600" />
-            <span>{d}</span>
-          </li>
-        ))}
-      </ul>
-    )
-  }
+  <Icon
+    name="arrow-right"
+    size={16}
+    class="pointer-events-none absolute right-4 bottom-3 text-ink-400 transition-transform group-hover:translate-x-0.5 group-hover:text-brand-700"
+  />
 </article>

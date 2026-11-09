@@ -1,7 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 import PageLayout from '../layouts/PageLayout.astro';
 import Section from '../components/Section.astro';
 import CTASection from '../components/CTASection.astro';
+import ourStory from '../assets/site/our-story.jpg';
 
 const title = 'About Websetly';
 const description =
@@ -17,21 +19,32 @@ const description =
 >
   <!-- ============================================ 1. ABOUT WEBSETLY -->
   <Section>
-    <div class="max-w-3xl space-y-5 text-lg leading-relaxed text-ink-600">
-      <p>
-        Websetly is a web development and website optimization company. We
-        build new websites, redesign existing ones and improve websites that
-        are slow or hard to use.
-      </p>
-      <p>
-        We work with businesses, startups, professionals, individuals and
-        online stores.
-      </p>
-      <p>
-        Whether you need a website from scratch or want to improve the one you
-        already have, we keep things simple. We listen to what you need,
-        explain things in plain words and build a website that works for you.
-      </p>
+    <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+      <div class="space-y-5 text-lg leading-relaxed text-ink-600">
+        <p>
+          Websetly is a web development and website optimization company. We
+          build new websites, redesign existing ones and improve websites that
+          are slow or hard to use.
+        </p>
+        <p>
+          We work with businesses, startups, professionals, individuals and
+          online stores.
+        </p>
+        <p>
+          Whether you need a website from scratch or want to improve the one you
+          already have, we keep things simple. We listen to what you need,
+          explain things in plain words and build a website that works for you.
+        </p>
+      </div>
+
+      <Image
+        src={ourStory}
+        alt=""
+        widths={[520, 900]}
+        sizes="(min-width: 1024px) 520px, 100vw"
+        loading="lazy"
+        class="w-full rounded-xl border border-ink-200"
+      />
     </div>
   </Section>
 

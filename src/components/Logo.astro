@@ -1,36 +1,31 @@
 ---
-/**
- * Wordmark. The name is unchanged — this repositioning keeps all existing brand
- * equity. The only new element is the speed mark, which reads as a rising
- * signal and ties the name to the performance positioning.
- */
 interface Props {
   class?: string;
-  /** Renders white for use on dark surfaces. */
-  inverted?: boolean;
 }
-const { class: className = '', inverted = false } = Astro.props;
+
+const { class: className = '' } = Astro.props;
 ---
 
 <span
-  class={`inline-flex items-baseline gap-2 font-semibold tracking-tight ${className}`}
+  class:list={[
+    'inline-flex items-center gap-2 font-semibold tracking-tight text-ink-900',
+    className,
+  ]}
 >
   <svg
-    width="20"
-    height="20"
-    viewBox="0 0 20 20"
+    width="1.5em"
+    height="1.5em"
+    viewBox="0 0 32 32"
     fill="none"
     aria-hidden="true"
-    class="translate-y-[2px] shrink-0"
   >
+    <rect width="32" height="32" rx="8" fill="#2e7d59"></rect>
     <path
-      d="M2 14.5 6.5 9l3.5 3.5L18 4"
-      stroke={inverted ? '#93cfae' : 'var(--color-brand-600)'}
-      stroke-width="2.25"
+      d="M7.5 11 12.5 21.5 16 14.5 19.5 21.5 24.5 11"
+      stroke="#ffffff"
+      stroke-width="2.8"
       stroke-linecap="round"
       stroke-linejoin="round"></path>
-    <circle cx="18" cy="4" r="2" fill={inverted ? '#93cfae' : 'var(--color-brand-600)'}
-    ></circle>
   </svg>
-  <span class={inverted ? 'text-white' : 'text-ink-900'}>Websetly</span>
+  <span>Websetly</span>
 </span>

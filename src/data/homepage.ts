@@ -6,7 +6,7 @@
 export const PROCESS = [
   {
     step: '01',
-    title: 'Let’s Talk',
+    title: 'We Talk',
     body: 'Tell us about your business, your website and what you need. We’ll discuss your ideas and how we can help.',
   },
   {
@@ -16,7 +16,7 @@ export const PROCESS = [
   },
   {
     step: '03',
-    title: 'Launch & Support',
+    title: 'We Launch',
     body: 'We’ll launch your website and provide support based on the agreed project requirements.',
   },
 ] as const;
