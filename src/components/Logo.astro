@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import logoMark from '../assets/site/logo.png';
+
 interface Props {
   class?: string;
 }
@@ -12,20 +15,12 @@ const { class: className = '' } = Astro.props;
     className,
   ]}
 >
-  <svg
-    width="1.5em"
-    height="1.5em"
-    viewBox="0 0 32 32"
-    fill="none"
-    aria-hidden="true"
-  >
-    <rect width="32" height="32" rx="8" fill="#2e7d59"></rect>
-    <path
-      d="M7.5 11 12.5 21.5 16 14.5 19.5 21.5 24.5 11"
-      stroke="#ffffff"
-      stroke-width="2.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"></path>
-  </svg>
+  <Image
+    src={logoMark}
+    alt=""
+    width={96}
+    loading="eager"
+    class="h-[1.6em] w-auto"
+  />
   <span>Websetly</span>
 </span>

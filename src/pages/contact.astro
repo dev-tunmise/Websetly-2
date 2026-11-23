@@ -185,15 +185,17 @@ const serviceOptions = [
               </div>
             </li>
             <li class="flex gap-3">
-              <Icon name="arrow-up-right" size={18} class="mt-1 shrink-0 text-brand-600" />
+              <Icon name="message-circle" size={18} class="mt-1 shrink-0 text-brand-600" />
               <div>
                 <span class="block text-sm text-ink-500">WhatsApp</span>
                 <a
                   href={`https://wa.me/${SITE.whatsapp}`}
-                  rel="noopener"
-                  class="text-ink-800 no-underline hover:text-brand-700 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1 text-ink-800 no-underline hover:text-brand-700 hover:underline"
                 >
                   {SITE.phone}
+                  <Icon name="arrow-up-right" size={14} class="text-ink-400" />
                 </a>
               </div>
             </li>

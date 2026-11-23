@@ -4,6 +4,8 @@ import PageLayout from '../layouts/PageLayout.astro';
 import Section from '../components/Section.astro';
 import CTASection from '../components/CTASection.astro';
 import ourStory from '../assets/site/our-story.jpg';
+import founder from '../assets/site/founder.png';
+
 
 const title = 'About Websetly';
 const description =
@@ -51,13 +53,14 @@ const description =
   <!-- ============================================ 2. MEET THE FOUNDER -->
   <Section eyebrow="Founder" title="Meet the Founder" tone="muted">
     <div class="grid items-center gap-10 lg:grid-cols-[20rem_minmax(0,1fr)] lg:gap-16">
-      <div
-        class="flex aspect-[4/5] w-full max-w-xs items-center justify-center rounded-xl border border-ink-200 bg-brand-50"
-        role="img"
-        aria-label="Photo of Tunmise, founder of Websetly (coming soon)"
-      >
-        <span class="text-6xl font-semibold text-brand-700">T</span>
-      </div>
+            <Image
+        src={founder}
+        alt="Tunmise, founder of Websetly"
+        widths={[320, 640]}
+        sizes="(min-width: 1024px) 320px, 100vw"
+        loading="lazy"
+        class="aspect-[4/5] w-full max-w-xs rounded-xl border border-ink-200 object-cover object-top"
+      />
       <div class="max-w-2xl space-y-5 text-lg leading-relaxed text-ink-600">
         <p>
           Hi, I’m Tunmise, the founder of Websetly and a Software Engineering
