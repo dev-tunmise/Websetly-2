@@ -10,7 +10,6 @@ import { SITE } from '../consts';
 import { PROCESS } from '../data/homepage';
 import { getPublishedPosts } from '../lib/blog';
 import portfolioImg from '../assets/projects/portfolio-personal.png';
-import storeImg from '../assets/projects/store-motionboys.png';
 import churchImg from '../assets/projects/church-beloved.png';
 
 const posts = (await getPublishedPosts()).slice(0, 3);
@@ -23,14 +22,6 @@ const projects = [
     url: 'https://dev-tunmise.vercel.app/',
     image: portfolioImg,
     alt: 'Screenshot of a personal portfolio website',
-  },
-  {
-    name: 'Online Store',
-    description:
-      'An online store where customers can browse products and place orders.',
-    url: 'https://motionboys.vercel.app/',
-    image: storeImg,
-    alt: 'Screenshot of an online store website',
   },
   {
     name: 'Church Website',
