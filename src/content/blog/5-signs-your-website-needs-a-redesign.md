@@ -1,6 +1,8 @@
 ---
 title: "5 Signs Your Website Needs a Redesign"
 description: "An old or poorly designed website can turn people away. Here are five signs that your website may need a redesign."
+heroImage: "../../assets/blog/website-redesign.png"
+heroImageAlt: "website redign"
 pubDate: 2026-11-23
 category: 'Guides'
 tags: ['website redesign', 'web design', 'user experience']

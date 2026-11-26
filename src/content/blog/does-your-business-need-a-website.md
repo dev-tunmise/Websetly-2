@@ -1,6 +1,8 @@
 ---
 title: "Does Your Business Need a Website?"
 description: "A website helps people find your business, learn what you offer and contact you. Here is why it matters."
+heroImage: "../../assets/blog/need-new-website.png"
+heroImageAlt: "new business website"
 pubDate: 2026-11-23
 category: 'Guides'
 tags: ['business website', 'web design']

@@ -1,6 +1,8 @@
 ---
 title: "How to Tell If Your Website Is Too Slow"
 description: "A slow website makes people leave. Here is a simple way to check your speed, what slows a site down, and what you can do about it."
+heroImage: "../../assets/blog/slow-website-signs.png"
+heroImageAlt: "slow website"
 pubDate: 2026-11-12
 category: 'Performance'
 tags: ['website speed', 'performance']
